@@ -100,8 +100,8 @@ var initialize = function(location){
 
 
 var makeInfoWindowEvent = function(map, infowindow, marker) {
-  google.maps.event.addListener(marker, 'click', function() {
-  	if(currentWindow === null){
+  google.maps.event.addListener(marker, 'mouseover', function() {
+  	/*if(currentWindow === null){
   		infowindow.open(map, marker);
   		currentWindow = infowindow;
   	}
@@ -109,8 +109,14 @@ var makeInfoWindowEvent = function(map, infowindow, marker) {
   		currentWindow.close();
   		infowindow.open(map, marker);
   		currentWindow = infowindow;
-  	}
+  	}*/
+  	infowindow.open(map, marker);
   });
+
+  google.maps.event.addListener(marker, 'mouseout', function() {
+  	infowindow.close();
+  });
+
 }
 
 $(document).ready(function(){
@@ -118,6 +124,10 @@ $(document).ready(function(){
 	navigator.geolocation.getCurrentPosition(initialize);
 	}
 );
+
+var addAddressesToMenu = function(list){
+	console.log(list);
+}
 
 var getAddresses = function(){
 
@@ -130,6 +140,7 @@ var getAddresses = function(){
 	    	addresses = request.responseText;
 	    	addresses = JSON.parse(addresses);
 	    	codeAddress(addresses);
+	    	addAddressesToMenu(addresses);
 	    }
 	}
 	request.open('GET', url, true);
