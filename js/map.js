@@ -48,9 +48,9 @@ var addMarkers = function(){
 
 	for(var i = 0; i < geoAddresses.length; i++){
 
-		content = "<div><h3>" + addresses[i].name + "</h3><h4>" + addresses[i].address + "<br>" + 
+		content = "<div><h3>" + addresses[i].name + "</h3><span>" + addresses[i].address + "<br>" + 
 		addresses[i].state + ", " + addresses[i].city + " " + addresses[i].zipcode + 
-		"</h4></div>";
+		"</span></div>";
 
 		marker = new google.maps.Marker({
 			position: geoAddresses[i],
@@ -127,6 +127,18 @@ $(document).ready(function(){
 
 var addAddressesToMenu = function(list){
 	console.log(list);
+	var add = "<ul>";
+
+
+	for( var i = 0; i < list.length; i++){
+		add += "<li><h3>" + list[i].name + "</h3><span>"+ addresses[i].address + "<br>" + 
+		addresses[i].state + ", " + addresses[i].city + " " + addresses[i].zipcode + 
+		"</span></li>";
+	}
+
+	add += "</ul";
+
+	$("#mapMenu").append(add);
 }
 
 var getAddresses = function(){
