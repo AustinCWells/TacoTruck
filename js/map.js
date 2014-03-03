@@ -50,7 +50,7 @@ var addMarkers = function(){
 
 		content = "<div><h3>" + addresses[i].name + "</h3><h4>" + addresses[i].address + "<br>" + 
 		addresses[i].state + ", " + addresses[i].city + " " + addresses[i].zipcode + 
-		"</h4><form action = \"order.html\" method = \"get\"><input type = \"submit\" name = \"0\" value = \"Use This Location\"></form></div>";
+		"</h4></div>";
 
 		marker = new google.maps.Marker({
 			position: geoAddresses[i],
