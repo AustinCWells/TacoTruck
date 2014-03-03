@@ -15,11 +15,10 @@
 </div>
 	<div class="modal"  id="loginModal">
 		<form>
-		  <input class="formElement" type="text" name="username" placeholder="username">
-		  <input class="formElement" type="password" name="password" placeHolder="password">
+		  <input class="formElement" type="text" name="username" placeholder="email" required pattern="\w+@\w+.\w+" title="not a valid email address">
+		  <input class="formElement" type="password" name="password" placeHolder="password" required>
 		  <input type="submit" value="submit">
-		  <input type="button" value="create account"> 
-		  <input type="button" id="hide" value="hide"> 
+		  <input type="button" value="create account" class="createAccount">  
 		 </form>
 	</div>
 
@@ -29,19 +28,17 @@
 
 	<div class="modal" id="accountModal">
 		<form>
-		  	<input class="formElement" type="text" name="fname" placeholder="FIRST NAME"> 
-		  	<input class="formElement" type="text" name="lname" placeholder="LAST NAME">
-		  	<input class="formElement" type="email" name="lname" placeholder="EMAIL">
-		  	<input class="formElement" type="password" name="password" placeholder="PASSWORD">
-		  	<input class="formElement" type="password" name="password2" placeholder="RE-ENTER PASSWORD">  
+		  	<input class="formElement" type="text" name="fname" placeholder="FIRST NAME" required> 
+		  	<input class="formElement" type="text" name="lname" placeholder="LAST NAME" required>
+		  	<input class="formElement" type="email" name="lname" placeholder="EMAIL" required pattern="\w+@\w+.\w+" title="not a valid email address">
+		  	<input class="formElement" type="password" name="password" placeholder="PASSWORD" required pattern=".{8,}" title="password must be greater than or equal to 8 characters">
 		 	<select class="formElement">
 		  		<option value="mastercard">MasterCard</option>
 		  		<option value="Visa">Visa</option>
 		  		<option value="AmericanExpress">American Express</option>
-		  		<option value="Discover">Discover</option>
 			</select>
-			<input class="formElement" type="text" name="creditNumber" placeholder="CREDIT CARD NUMBER" > 
-		  	<input type="button" value="create account"> 
+			<input class="formElement" type="text" name="creditNumber" placeholder="CREDIT CARD NUMBER" required pattern="^4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13}" title="not a valid credit card number"> 
+		  	<input type="submit" value="create account"> 
 		 </form>
 	</div>
 
@@ -51,17 +48,16 @@
 
 	<div class="modal" id="paymentModal">
 		<form>
-		  	Credit Card Number: <input type="text" name="fname">   
-		 	<select>
+		  	<input class="formElement" type="text" name="creditNumber" placeholder="CREDIT CARD NUMBER" required pattern="^4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13}">   
+		 	<select class="formElement">
 		  		<option value="mastercard">MasterCard</option>
 		  		<option value="Visa">Visa</option>
 		  		<option value="AmericanExpress">American Express</option>
-		  		<option value="Discover">Discover</option>
 			</select>
-			First Name: <input type="text" name="fname"> 
-		  	Last Name: <input type="text" name="lname">
+			<input class="formElement" type="text"  name="fname" placeholder="FIRST NAME" required> 
+		  	<input  class="formElement" type="text" name="lname" placeholder="LAST NAME" required>
 			
-		  	<input type="button" value="create account"> 
+		  	<input type="submit" value="pay"> 
 		 </form>
 	</div>
 
@@ -85,13 +81,14 @@
 		<p>
 		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias vero asperiores corporis natus. Libero, non vitae possimus quo animi vel minima officiis! Et praesentium sit voluptates unde? Accusantium, molestias, nobis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, est tempore quo veritatis rerum officia obcaecati! Corporis, facere, sunt, harum, temporibus optio minima quam dignissimos voluptates debitis magnam perspiciatis aliquid?
 		</p>	
+		<input type="button" class="pay" value="showPayment"> 
+		<input type="button" class="createAccount" value="showAccount"> 
+		<input type="button" class="login" value="showLogin"> 
+
 	
 	</div>
 
 
-	<input type="button" id="pay" value="showPayment"> 
-	<input type="button" id="createAccount" value="showAccount"> 
-	<input type="button" id="login" value="showLogin"> 
 
 </body>
 </html>

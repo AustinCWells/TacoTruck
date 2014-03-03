@@ -1,13 +1,22 @@
 window.onload=function(){
-var loginButton = document.getElementById('login');
-var paymentButton = document.getElementById('pay'); 
-var accountButton = document.getElementById('createAccount');  
+var loginButton = document.getElementsByClassName('login');
+var paymentButton = document.getElementsByClassName('pay'); 
+var accountButton = document.getElementsByClassName('createAccount');  
 var overlay = document.getElementById('overlay'); 
 
 overlay.addEventListener('click',hideModal); 
-loginButton.addEventListener('click',displayLoginModal);
-paymentButton.addEventListener('click',displayPayModal);
-accountButton.addEventListener('click',displayAccountModal);
+for(var i = 0; i < loginButton.length; i++)
+{
+	loginButton[i].addEventListener('click',displayLoginModal);
+}
+for(var i = 0; i < paymentButton.length; i++)
+{
+paymentButton[i].addEventListener('click',displayPayModal);
+}
+for(var i = 0; i < accountButton.length; i++)
+{
+accountButton[i].addEventListener('click',displayAccountModal);
+}
 
 
 
