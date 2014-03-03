@@ -3,6 +3,10 @@
   margin: 0;
 }
 
+#mapMenu {
+	float: left;
+}
+
 .displayModal{
 	background-color:white;
 	position:fixed;
