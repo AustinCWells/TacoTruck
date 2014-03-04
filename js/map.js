@@ -48,7 +48,7 @@ var addMarkers = function(){
 
 	for(var i = 0; i < geoAddresses.length; i++){
 
-		content = "<div><h3>" + addresses[i].name + "</h3><span>" + addresses[i].address + "<br>" + 
+		content = "<div id = \"loc" + i.toString()+ "\"><h3>" + addresses[i].name + "</h3><span>" + addresses[i].address + "<br>" + 
 		addresses[i].state + ", " + addresses[i].city + " " + addresses[i].zipcode + 
 		"</span></div>";
 
@@ -101,20 +101,30 @@ var initialize = function(location){
 
 var makeInfoWindowEvent = function(map, infowindow, marker) {
 
-	var name = infowindow.content.substring(9);
-	name = name.substring(0, name.indexOf("<"));
-	var index = findIndex(name) + 1;
-
+	var name = infowindow.content.substring(11);
+	name = name.substring(0, 4);
+	var loc = document.getElementsByClassName(name);
 
 	google.maps.event.addListener(marker, 'mouseover', function() {
   		infowindow.open(map, marker);
-  		menuDisplay(index, true);
+  		$(loc[0]).children(":nth-child(2)").removeClass("hidden");
 	});
 
 	google.maps.event.addListener(marker, 'mouseout', function() {
   		infowindow.close();
-  		menuDisplay(index, false);
+  		$(loc[0]).children(":nth-child(2)").addClass("hidden");
  	});
+
+ 	google.maps.event.addDomListener(loc[0], 'mouseover', function(){
+ 		infowindow.open(map, marker);
+  		$(loc[0]).children(":nth-child(2)").removeClass("hidden");
+ 	});
+
+	google.maps.event.addDomListener(loc[0], 'mouseout', function(){
+ 		infowindow.close();
+  		$(loc[0]).children(":nth-child(2)").addClass("hidden");
+ 	});
+
 
 }
 
@@ -130,7 +140,7 @@ var addAddressesToMenu = function(list){
 
 
 	for( var i = 0; i < list.length; i++){
-		add += "<li><h4>" + list[i].name + "</h4><div class = \"hidden\"><span>"+ addresses[i].address + "<br>" + 
+		add += "<li class = \"loc" + i.toString() + "\"><h4>" + list[i].name + "</h4><div class = \"hidden\"><span>"+ addresses[i].address + "<br>" + 
 		addresses[i].state + ", " + addresses[i].city + " " + addresses[i].zipcode + 
 		"</span><form action = \"#\"><input type = \"submit\" value = \"Select This Location\"></div></li>";
 	}
@@ -138,31 +148,6 @@ var addAddressesToMenu = function(list){
 	add += "</ul";
 
 	$("#mapMenu").append(add);
-
-	$("li").hover(
-	        function() {
-	        	
-	          $(this).children(":nth-child(2)").removeClass('hidden');   
-	        }, function() {
-	          $(this).children(":nth-child(2)").addClass('hidden');  
-	        }
-	        
-	    );
-}
-
-var findIndex = function(name){
-	for(var i = 0; i < addresses.length; i++){
-		if(addresses[i].name === name)
-			return i;
-	}
-}
-
-
-var menuDisplay = function(num, on){
-	if(on)
-		$("ul").children(":nth-child("+ num.toString() + ")").children(":nth-child(2)").removeClass('hidden');
-	else
-		$("ul").children(":nth-child("+ num.toString() + ")").children(":nth-child(2)").addClass('hidden');
 
 }
 
