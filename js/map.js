@@ -136,13 +136,13 @@ $(document).ready(function(){
 
 var addAddressesToMenu = function(list){
 
-	var add = "<ul>Locations";
+	var add = "<ul><h3>Taco Trucks Near You</h3>";
 
 
 	for( var i = 0; i < list.length; i++){
 		add += "<li class = \"loc" + i.toString() + "\"><h4>" + list[i].name + "</h4><div class = \"hidden\"><span>"+ addresses[i].address + "<br>" + 
 		addresses[i].state + ", " + addresses[i].city + " " + addresses[i].zipcode + 
-		"</span><form action = \"#\"><input type = \"submit\" value = \"Select This Location\"></div></li>";
+		"</span><form action = \"order.html\"method = \"get\"><input type = \"hidden\" name = \"index\" value = \""+ i.toString() + "\"><input type = \"submit\" value = \"Select This Location\"></form></div></li>";
 	}
 
 	add += "</ul";
