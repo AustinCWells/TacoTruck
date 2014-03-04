@@ -131,7 +131,7 @@ var addAddressesToMenu = function(list){
 
 
 	for( var i = 0; i < list.length; i++){
-		add += "<li><h3>" + list[i].name + "</h3><span>"+ addresses[i].address + "<br>" + 
+		add += "<li><h4>" + list[i].name + "</h4><span>"+ addresses[i].address + "<br>" + 
 		addresses[i].state + ", " + addresses[i].city + " " + addresses[i].zipcode + 
 		"</span></li>";
 	}
