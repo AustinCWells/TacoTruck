@@ -143,7 +143,7 @@ var addAddressesToMenu = function(list){
 	for( var i = 0; i < list.length; i++){
 		add += "<li class = \"loc" + i.toString() + "\"><h4>" + list[i].name + "</h4><div class = \"hidden\"><span>"+ addresses[i].address + "<br>" + 
 		addresses[i].state + ", " + addresses[i].city + " " + addresses[i].zipcode + 
-		"</span><form action = \"order.html\"method = \"get\"><input type = \"hidden\" name = \"index\" value = \""+ i.toString() + "\"><input type = \"submit\" value = \"Select This Location\"></form></div></li>";
+		"</span><form action = \"order.html\"><input type = \"submit\" value = \"Select This Location\"></form></div></li>";
 	}
 
 	add += "</ul";
@@ -152,9 +152,10 @@ var addAddressesToMenu = function(list){
 
 		$.cookie.json = true;
 
-	$('input[type="submit"').click(function(){
-		alert("here");
-		$.cookie("location", addresses);
+	$('input[type="submit"').click(function(event){
+		var index = $(this).parent().parent().parent().attr('class')[3];
+		index = parseInt(index);
+		$.cookie("location", addresses[index]);
 	});
 }
 
