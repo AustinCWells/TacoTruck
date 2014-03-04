@@ -48,7 +48,7 @@ $.getJSON("json/taco_truck_menu.json", function(data) {
     for(var i=0;i<sauces.length;i++) {
     	//console.log(sauces[i]);
 		var html = 
-		'<input id="' + sauces[i].name + '" type="radio" name="sauces" value="' + sauces[i].name +
+		'<input id="' + sauces[i].name + '" type="checkbox" name="sauces" value="' + sauces[i].name +
 		'"><label for="' + sauces[i].name + '">' + ' ' + sauces[i].name + '</label><br>';
 		$("#saucesList").append(html);
 	}	
@@ -57,7 +57,7 @@ $.getJSON("json/taco_truck_menu.json", function(data) {
     for(var i=0;i<vegetables.length;i++) {
     	//console.log(vegetables[i]);
 		var html = 
-		'<input id="' + vegetables[i].name + '" type="radio" name="vegetables" value="' + vegetables[i].name +
+		'<input id="' + vegetables[i].name + '" type="checkbox" name="vegetables" value="' + vegetables[i].name +
 		'"><label for="' + vegetables[i].name + '">' + ' ' + vegetables[i].name + '</label><br>';
 		$("#vegetablesList").append(html);
 	}
@@ -65,7 +65,7 @@ $.getJSON("json/taco_truck_menu.json", function(data) {
     for(var i=0;i<extras.length;i++) {
     	//console.log(extras[i]);
 		var html = 
-		'<input id="' + extras[i].name + '" type="radio" name="extras" value="' + extras[i].name +
+		'<input id="' + extras[i].name + '" type="checkbox" name="extras" value="' + extras[i].name +
 		'"><label for="' + extras[i].name + '">' + ' ' + extras[i].name + ' $' + extras[i].price.toFixed(2) + '</label><br>';
 		$("#extrasList").append(html);
 	}
