@@ -150,8 +150,11 @@ var addAddressesToMenu = function(list){
 
 	$("#mapMenu").append(add);
 
+		$.cookie.json = true;
+
 	$('input[type="submit"').click(function(){
-		$.cookie("order", JSON.stringify(addresses));
+		alert("here");
+		$.cookie("location", addresses);
 	});
 }
 
