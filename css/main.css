@@ -25,7 +25,9 @@
 	padding: 0;
 }
 
-#mapMenu h4{
+.hidden{
+
+	display: none;
 
 }
 

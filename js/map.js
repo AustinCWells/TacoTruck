@@ -127,11 +127,11 @@ $(document).ready(function(){
 
 var addAddressesToMenu = function(list){
 	console.log(list);
-	var add = "<ul>";
+	var add = "<ul>Locations";
 
 
 	for( var i = 0; i < list.length; i++){
-		add += "<li><h4>" + list[i].name + "</h4><span>"+ addresses[i].address + "<br>" + 
+		add += "<li><h4>" + list[i].name + "</h4><span class = \"hidden\">"+ addresses[i].address + "<br>" + 
 		addresses[i].state + ", " + addresses[i].city + " " + addresses[i].zipcode + 
 		"</span></li>";
 	}
@@ -139,6 +139,16 @@ var addAddressesToMenu = function(list){
 	add += "</ul";
 
 	$("#mapMenu").append(add);
+
+	$("li").hover(
+	        function() {
+	        	
+	          $(this).children(":nth-child(2)").removeClass('hidden');   
+	        }, function() {
+	          $(this).children(":nth-child(2)").addClass('hidden');  
+	        }
+	        
+	    );
 }
 
 var getAddresses = function(){
@@ -158,3 +168,4 @@ var getAddresses = function(){
 	request.open('GET', url, true);
 	request.send();
 }
+
