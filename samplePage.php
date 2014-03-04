@@ -11,7 +11,7 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
 </script>
   <script language="javascript"  type="text/javascript" src="js/modal.js"> </script> 
-  <script language="javascript" type="text/javascript" src="js/accountSubmit.js"> </script> 
+  <script language="javascript" type="text/javascript" src="js/formSubmit.js"> </script> 
 
 
 </head>
