@@ -132,6 +132,7 @@ $(document).ready(function(){
 
 	navigator.geolocation.getCurrentPosition(initialize);
 	}
+
 );
 
 var addAddressesToMenu = function(list){
@@ -149,6 +150,9 @@ var addAddressesToMenu = function(list){
 
 	$("#mapMenu").append(add);
 
+	$('input[type="submit"').click(function(){
+		$.cookie("order", JSON.stringify(addresses));
+	});
 }
 
 var getAddresses = function(){
@@ -156,7 +160,7 @@ var getAddresses = function(){
 	var url = "json/taco_truck_locations.json";
 	var request = new XMLHttpRequest();
 
-	request.onreadystatechange = function() {
+	request.onreadystatechange = function(){
 
 	    if (request.readyState === 4) {
 	    	addresses = request.responseText;
