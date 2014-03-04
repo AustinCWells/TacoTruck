@@ -1,5 +1,10 @@
 window.addEventListener('load', function(event) {
 
+$.cookie.json = true;
+
+var list = $.cookie("location");
+console.log(list);
+
 $.getJSON("json/taco_truck_menu.json", function(data) {
     console.log(data);
     var filling = data.menu.type;
