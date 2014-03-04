@@ -1,4 +1,16 @@
+#tacoCreate {
+	position:relative;
+	float:left;
+	width:55%;
+	margin-left:20px;
+}
 
+#orderView {
+	position:relative;
+	float:right;
+	width:35%;
+	margin-right:20px;
+}
 
 
 .collumn {
