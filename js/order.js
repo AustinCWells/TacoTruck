@@ -14,7 +14,7 @@ $.getJSON("json/taco_truck_menu.json", function(data) {
     var sauces = data.menu.sauces;
     var vegetables = data.menu.vegetables;
     var extras = data.menu.extras;
-        var cheese = data.menu.cheese;
+    var cheese = data.menu.cheese;
 
     for(var i=0;i<filling.length;i++) {
     	//console.log(filling[i]);
@@ -117,10 +117,13 @@ $("#taco").append($('<br>'));
 $("#taco").append($('input[name="extras"]:checked').val());
 $("#taco").append($('<br>'));
 $("#taco").append($('input[name="cheese"]:checked').val());
+
+var tacoPrice = $('input[name="filling"]:checked').attr('price');
+var pricehtml = '<span>' + tacoPrice + '</span';
+
+alert(tacoPrice);
+$("#taco").append($(pricehtml));
 $("#taco").append($('<p>'));
-
-
-
 document.getElementById("tacoForm").reset();
 });
 

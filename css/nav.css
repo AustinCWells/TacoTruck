@@ -1,3 +1,8 @@
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+}
+
 .navBar {
 float:left;
 }
@@ -34,12 +39,6 @@ float:left;
 	display:block;
 	position:fixed;
 	width:100%;
-}
-
-
-#whiteSpace {
-	height:10000px;
-	width:2px;
 }
 
 #headerRight {
