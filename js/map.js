@@ -48,9 +48,9 @@ var addMarkers = function(){
 
 	for(var i = 0; i < geoAddresses.length; i++){
 
-		content = "<div><h3>" + addresses[i].name + "</h3><h4>" + addresses[i].address + "<br>" + 
+		content = "<div id = \"loc" + i.toString()+ "\"><h3>" + addresses[i].name + "</h3><span>" + addresses[i].address + "<br>" + 
 		addresses[i].state + ", " + addresses[i].city + " " + addresses[i].zipcode + 
-		"</h4></div>";
+		"</span></div>";
 
 		marker = new google.maps.Marker({
 			position: geoAddresses[i],
@@ -100,17 +100,32 @@ var initialize = function(location){
 
 
 var makeInfoWindowEvent = function(map, infowindow, marker) {
-  google.maps.event.addListener(marker, 'click', function() {
-  	if(currentWindow === null){
+
+	var name = infowindow.content.substring(11);
+	name = name.substring(0, 4);
+	var loc = document.getElementsByClassName(name);
+
+	google.maps.event.addListener(marker, 'mouseover', function() {
   		infowindow.open(map, marker);
-  		currentWindow = infowindow;
-  	}
-  	else{
-  		currentWindow.close();
-  		infowindow.open(map, marker);
-  		currentWindow = infowindow;
-  	}
-  });
+  		$(loc[0]).children(":nth-child(2)").removeClass("hidden");
+	});
+
+	google.maps.event.addListener(marker, 'mouseout', function() {
+  		infowindow.close();
+  		$(loc[0]).children(":nth-child(2)").addClass("hidden");
+ 	});
+
+ 	google.maps.event.addDomListener(loc[0], 'mouseover', function(){
+ 		infowindow.open(map, marker);
+  		$(loc[0]).children(":nth-child(2)").removeClass("hidden");
+ 	});
+
+	google.maps.event.addDomListener(loc[0], 'mouseout', function(){
+ 		infowindow.close();
+  		$(loc[0]).children(":nth-child(2)").addClass("hidden");
+ 	});
+
+
 }
 
 $(document).ready(function(){
@@ -118,6 +133,23 @@ $(document).ready(function(){
 	navigator.geolocation.getCurrentPosition(initialize);
 	}
 );
+
+var addAddressesToMenu = function(list){
+
+	var add = "<ul><h3>Taco Trucks Near You</h3>";
+
+
+	for( var i = 0; i < list.length; i++){
+		add += "<li class = \"loc" + i.toString() + "\"><h4>" + list[i].name + "</h4><div class = \"hidden\"><span>"+ addresses[i].address + "<br>" + 
+		addresses[i].state + ", " + addresses[i].city + " " + addresses[i].zipcode + 
+		"</span><form action = \"order.html\"method = \"get\"><input type = \"hidden\" name = \"index\" value = \""+ i.toString() + "\"><input type = \"submit\" value = \"Select This Location\"></form></div></li>";
+	}
+
+	add += "</ul";
+
+	$("#mapMenu").append(add);
+
+}
 
 var getAddresses = function(){
 
@@ -130,8 +162,10 @@ var getAddresses = function(){
 	    	addresses = request.responseText;
 	    	addresses = JSON.parse(addresses);
 	    	codeAddress(addresses);
+	    	addAddressesToMenu(addresses);
 	    }
 	}
 	request.open('GET', url, true);
 	request.send();
 }
+

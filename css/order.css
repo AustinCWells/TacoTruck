@@ -1,31 +1,12 @@
 
 
-article {
-	padding-top:15px;
-	padding-left:10px;
-	padding-right:10px;
-	padding-bottom:15px;
-	position:relative;
-	margin-left: 25px;
-	float:left;
-	border : solid black 2px;
-}
 
-#tacoCreate {
-	width:55%;
-}
-
-#orderView {
-	width:35%;
-	margin-right: 25px;
-}
-
-section {
+.collumn {
 	position:relative;
 	float:left;
 	width:22%;
 }
-
+/*
 .navBar {
 float:left;
 }
@@ -88,8 +69,4 @@ body {
 	background-color : #FFFFFF;
 	border: solid black 2px;
 }
-/*
-input[type="radio"] {
-	display:inline-block;
-    width:19px;
-    height:19px;
+*/
