@@ -1,0 +1,54 @@
+.navBar {
+float:left;
+}
+
+#headerImage {
+	width:12%;
+	position:relative;
+	float:left;
+	margin-top:20px;
+	margin-left : 20px;
+	margin-right: 20px;
+	transform:rotate(-8deg);
+	-webkit-transform:rotate(-8deg);
+}
+
+#smoke {
+	position:absolute;
+	width:5%;
+	z-index: 1;
+	margin-top:40px;
+	margin-left: 10px;
+
+}
+
+#navDiv {
+	margin-top: 0px;
+	margin-left: 0px;
+	width: 100%;
+	height: 100px;
+}
+
+#headerHolder {
+	background-color : #FFB83D;
+	display:block;
+	position:fixed;
+	width:100%;
+}
+
+
+#whiteSpace {
+	height:10000px;
+	width:2px;
+}
+
+#headerRight {
+	float:right;
+	right:0px;
+	margin-top: 20px;
+	margin-right: 50px;
+	width:20%;
+	height:55%;
+	background-color : #FFFFFF;
+	border: solid black 2px;
+}
