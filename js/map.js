@@ -100,22 +100,21 @@ var initialize = function(location){
 
 
 var makeInfoWindowEvent = function(map, infowindow, marker) {
-  google.maps.event.addListener(marker, 'mouseover', function() {
-  	/*if(currentWindow === null){
-  		infowindow.open(map, marker);
-  		currentWindow = infowindow;
-  	}
-  	else{
-  		currentWindow.close();
-  		infowindow.open(map, marker);
-  		currentWindow = infowindow;
-  	}*/
-  	infowindow.open(map, marker);
-  });
 
-  google.maps.event.addListener(marker, 'mouseout', function() {
-  	infowindow.close();
-  });
+	var name = infowindow.content.substring(9);
+	name = name.substring(0, name.indexOf("<"));
+	var index = findIndex(name) + 1;
+
+
+	google.maps.event.addListener(marker, 'mouseover', function() {
+  		infowindow.open(map, marker);
+  		menuDisplay(index, true);
+	});
+
+	google.maps.event.addListener(marker, 'mouseout', function() {
+  		infowindow.close();
+  		menuDisplay(index, false);
+ 	});
 
 }
 
@@ -126,14 +125,14 @@ $(document).ready(function(){
 );
 
 var addAddressesToMenu = function(list){
-	console.log(list);
+
 	var add = "<ul>Locations";
 
 
 	for( var i = 0; i < list.length; i++){
-		add += "<li><h4>" + list[i].name + "</h4><span class = \"hidden\">"+ addresses[i].address + "<br>" + 
+		add += "<li><h4>" + list[i].name + "</h4><div class = \"hidden\"><span>"+ addresses[i].address + "<br>" + 
 		addresses[i].state + ", " + addresses[i].city + " " + addresses[i].zipcode + 
-		"</span></li>";
+		"</span><form action = \"#\"><input type = \"submit\" value = \"Select This Location\"></div></li>";
 	}
 
 	add += "</ul";
@@ -149,6 +148,22 @@ var addAddressesToMenu = function(list){
 	        }
 	        
 	    );
+}
+
+var findIndex = function(name){
+	for(var i = 0; i < addresses.length; i++){
+		if(addresses[i].name === name)
+			return i;
+	}
+}
+
+
+var menuDisplay = function(num, on){
+	if(on)
+		$("ul").children(":nth-child("+ num.toString() + ")").children(":nth-child(2)").removeClass('hidden');
+	else
+		$("ul").children(":nth-child("+ num.toString() + ")").children(":nth-child(2)").addClass('hidden');
+
 }
 
 var getAddresses = function(){

@@ -18,6 +18,10 @@
 	border-color: rgba(255, 255, 255, .8);
 }
 
+#mapMenu span {
+	padding-bottom: 1em;
+}
+
 #mapMenu ul {
 	list-style: none;
 	list-style-image: none; 
