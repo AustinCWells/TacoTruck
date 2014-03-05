@@ -13,7 +13,6 @@ for(var i= 0; i < closeX.length; i++)
 overlay.addEventListener('click',hideModal); 
 for(var i = 0; i < loginButton.length; i++)
 {
-	loginButton[i].addEventListener('click',loadPaymentInfo);
 	loginButton[i].addEventListener('click',displayLoginModal);
 }
 for(var i = 0; i < paymentButton.length; i++)

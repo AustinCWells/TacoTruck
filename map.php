@@ -3,9 +3,7 @@
 <head>
 	<title>Taco Truck | Maps</title>
 	
-	<script>
-		$.cookie('myCookie','isYummy!'); 
-	</script>
+
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places" type = "text/javascript"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="js/jquery.cookie.js"></script>  
