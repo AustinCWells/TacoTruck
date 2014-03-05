@@ -143,6 +143,7 @@ input[type=submit]{
     border: none;
     border-bottom: 1px solid black;
 }
+
 .close{
 	cursor:pointer;
 	position:absolute;
@@ -150,5 +151,4 @@ input[type=submit]{
 
 .close:hover{
   border-bottom: 1px solid black;
-
-  }
+}
