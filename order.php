@@ -13,8 +13,8 @@
 </head>
 
 <body>
-<? include "components/nav.html" ?>
-<? include "components/modals.html" ?> 
+<?php include "components/nav.html"; ?>
+<?php include "components/modals.html"; ?> 
 
 <div id="tacoCreate" class="section"><form id="tacoForm"><section class="collumn">
 	Quantity:<select name="Quantity">
