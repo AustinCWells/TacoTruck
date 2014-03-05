@@ -4,11 +4,13 @@ $(document).ready(function(){
 		event.preventDefault(); 
 
 		$.ajax({
-			type: 'POST',
-			url: 'http://localhost/tacotruck/php/accountLogin.php',
-			data: $(this).serialize(),
-			success: function(){
+			type: 'GET',
+			url: 'http://localhost/tacotruck/api/locations',
+			dataType: "json",
+			 
+			success: function( output ){
 				alert("you totally got it!");
+				console.log(output); 
 			},
 			error: function( ){
 				alert("OH NO! Something went wrong. :(")
@@ -20,6 +22,7 @@ $(document).ready(function(){
 	});
 
 	$(document).on("submit", "form.accountForm", function(){
+		console.log($(this).serialize());
 		$.ajax({
 			type: 'POST',
 			url: 'http://localhost/tacotruck/php/accountCreation.php',
@@ -33,7 +36,7 @@ $(document).ready(function(){
 		});
 
 		event.preventDefault(); 
-		document.getElementById('accountModal').class = "modal"; 
+		document.getElementById('accountModal').className = "modal"; 
 		document.getElementById('overlay').className = ""; 
 
 	});

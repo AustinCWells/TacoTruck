@@ -13,21 +13,49 @@ for(var i= 0; i < closeX.length; i++)
 overlay.addEventListener('click',hideModal); 
 for(var i = 0; i < loginButton.length; i++)
 {
+	loginButton[i].addEventListener('click',loadPaymentInfo);
 	loginButton[i].addEventListener('click',displayLoginModal);
 }
 for(var i = 0; i < paymentButton.length; i++)
 {
-paymentButton[i].addEventListener('click',displayPayModal);
+	paymentButton[i].addEventListener('click',loadPaymentInfo);
+	paymentButton[i].addEventListener('click',displayPayModal);
 }
 for(var i = 0; i < accountButton.length; i++)
 {
-accountButton[i].addEventListener('click',displayAccountModal);
+	accountButton[i].addEventListener('click',displayAccountModal);
+}
+
+function loadPaymentInfo(){
+	console.log("fetching payment info"); 
+	var user_id = $.cookie('myCookie'); 
+
+	
+	if(!user_id){
+		console.log("user_id not defined.");
+	} else {
+		console.log("user id defined, getting login info");
+
+		$.ajax({
+			type: 'POST',
+			url: 'http://localhost/tacotruck/php/accountCreation.php',
+			data: $(this).serialize(),
+			success: function(){
+				alert("you totally got it!");
+			},
+			error: function(){
+				alert("OH NO! someone has gone and screwed up."); 
+			}
+		});
+
+	}
 }
 
 
 
 function displayLoginModal()
 {
+	$.cookie('myCookie','isYummy!'); 
 	displayModal('loginModal');
 }
 function displayPayModal()

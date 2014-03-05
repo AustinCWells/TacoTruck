@@ -13,7 +13,7 @@
 </script>
   <script language="javascript"  type="text/javascript" src="js/modal.js"> </script> 
   <script language="javascript" type="text/javascript" src="js/formSubmit.js"> </script> 
-
+  <script language="javascript" type="text/javascript" src="js/jquery.cookie.js"></script>
 
 </head>
 <body>
