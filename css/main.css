@@ -151,10 +151,4 @@ input[type=submit]{
 
 .close:hover{
   border-bottom: 1px solid black;
-
-  }
-
-  article#tacoMenu {
-	border-width: 30px;
-	-webkit-border-image:url(../img/menu_border.png);
 }
