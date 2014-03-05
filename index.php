@@ -24,14 +24,15 @@
 
 			<section id = "createAnAccount">
 				<h2>Create An Account</h2>
+				<p></p>
 			</section>
 
 			<section id = "sackInfo">
-				<div>
 					<h2>Taco Sack</h2>
-					<img src="img/taco_sack.png" style = "width = 5%">
-					<p>Your Taco Sack is in essance your cart.  As you add tacos to your order they will appear in your sack.</p>
-				</div>
+					<div>
+						<img src="img/taco_sack.png" style = "width = 5%">
+						<p>Your Taco Sack is in essance your cart.  As you add tacos to your order they will appear in your sack.</p>
+					</div>
 			</section>
 
 		</article>
