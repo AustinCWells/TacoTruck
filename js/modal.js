@@ -3,7 +3,13 @@ var loginButton = document.getElementsByClassName('login');
 var paymentButton = document.getElementsByClassName('pay'); 
 var accountButton = document.getElementsByClassName('createAccount');  
 var overlay = document.getElementById('overlay'); 
+var closeX = document.getElementsByClassName('close'); 
 
+for(var i= 0; i < closeX.length; i++)
+{
+	console.log(closeX[i]);
+	closeX[i].addEventListener('click',hideModal); 
+}
 overlay.addEventListener('click',hideModal); 
 for(var i = 0; i < loginButton.length; i++)
 {

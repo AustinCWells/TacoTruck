@@ -143,3 +143,12 @@ input[type=submit]{
     border: none;
     border-bottom: 1px solid black;
 }
+.close{
+	cursor:pointer;
+	position:absolute;
+}
+
+.close:hover{
+  border-bottom: 1px solid black;
+
+  }
