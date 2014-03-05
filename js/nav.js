@@ -7,7 +7,7 @@ if(page === "index") {
 if(page === "order") {
 	document.getElementById("orderHeader").style.borderBottom="solid 3px #E83535";
 }
-if(page == "map") {
+if(page == "mapPage") {
 	document.getElementById("mapHeader").style.borderBottom="solid 3px #E83535";
 }
 
