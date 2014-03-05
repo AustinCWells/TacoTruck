@@ -1,6 +1,7 @@
 article#tacoMenu {
-	border-width: 15px;
-	-webkit-border-image:url(../img/menu_border.png) repeat;
+	/*border-width: 15px;
+	-webkit-border-image:url(../img/menu_border.png) repeat;*/
+	border: 2px solid black;
 }
 
 article {
@@ -27,3 +28,18 @@ article {
 .end {
 	clear: both;
 }
+
+/*.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}*/
+
+#tacoMenu ul {
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+}
+
