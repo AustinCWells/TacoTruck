@@ -8,6 +8,7 @@
   <meta name="keywords" content="key, words">
   <link rel="stylesheet" href="css/main.css" type="text/css">
   <link href='http://fonts.googleapis.com/css?family=Raleway:400,800' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/nav.css" type="text/css"> 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
 </script>
   <script language="javascript"  type="text/javascript" src="js/modal.js"> </script> 
@@ -16,7 +17,9 @@
 
 </head>
 <body>
+	<? include "nav.html" ?> 
 	<? include "modals.html" ?> 
+
 	<div class="section">
 		<h1 class="pay">  THIS IS A TEST BLOCK </h1>
 		<p>
