@@ -42,7 +42,10 @@
 		</article>
 
 		<article id = "tacoMenu">
+			<h2>Customizes Options</h2>
 		</article>
+
+		<div class = "end"></div>
 
 	</div>
 
