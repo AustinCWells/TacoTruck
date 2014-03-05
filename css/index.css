@@ -4,6 +4,11 @@ article#tacoMenu {
 }
 
 article {
-	position: relative;
+	display: block;
+	float: left;
+}
+
+#tacoSack {
+	width: 5%;
 	float: left;
 }
