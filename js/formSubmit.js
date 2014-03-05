@@ -30,7 +30,7 @@ $(document).ready(function(){
 			error: function(){
 				alert("OH NO! someone has gone and screwed up."); 
 			}
-		})
+		});
 
 		event.preventDefault(); 
 		document.getElementById('accountModal').class = "modal"; 
@@ -39,6 +39,7 @@ $(document).ready(function(){
 	});
 
 	$(document).on("submit","form.paymentForm", function(){
+		console.log($(this).serialize());
 		$.ajax({
 			type: 'POST',
 			url: 'http://localhost/tacotruck/php/submitPayment.php',
@@ -51,10 +52,10 @@ $(document).ready(function(){
 			{
 				alert("OH NO! someone has gone and screwed up."); 
 			}
-		})
+		});
 
 		event.preventDefault(); 
-		document.getElementById('paymentModal').class = "modal"; 
+		document.getElementById('paymentModal').className = "modal"; 
 		document.getElementById('overlay').className = ""; 
 
 
