@@ -19,6 +19,7 @@
 <body>
 	<?php include "components/nav.html"; ?>
 	<?php include "components/modals.html"; ?> 
+	<span class="currentPage" id="map"></span>
 <div class="section">
 	<div id = "mapMenu">
 
