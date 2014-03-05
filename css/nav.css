@@ -67,6 +67,7 @@ float:left;
 	display:block;
 	position:fixed;
 	width:100%;
+	z-index: 5;
 }
 
 #headerRight {
