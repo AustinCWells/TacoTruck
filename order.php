@@ -16,7 +16,7 @@
 <?php include "components/nav.html"; ?>
 <?php include "components/modals.html"; ?> 
 
-<span class="currentPage" id="order"></span>
+<span class="currentPage" id="orderPage"></span>
 
 <div id="tacoCreate" class="section"><form id="tacoForm"><section class="collumn">
 	Quantity:<select name="Quantity">

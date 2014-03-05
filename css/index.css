@@ -1,9 +1,29 @@
 article#tacoMenu {
-	border-width: 30px;
-	-webkit-border-image:url(../img/menu_border.png);
+	border-width: 15px;
+	-webkit-border-image:url(../img/menu_border.png) repeat;
 }
 
 article {
-	position: relative;
+	width: 45%;
+	padding: 1em;
+}
+
+#sackInfo img {
+	width: 7%;
 	float: left;
+	padding: 1em;
+
+}
+
+#info {
+	float: left;
+	margin-right: 10px;
+}
+
+#tacoMenu {
+	float: right;
+}
+
+.end {
+	clear: both;
 }

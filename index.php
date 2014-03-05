@@ -12,7 +12,7 @@
 <body>
 	<?php include "components/nav.html"; ?>
 	<?php include "components/modals.html"; ?> 
-	<span class="currentPage" id="index"></span>
+	<span class="currentPage" id="indexPage"></span>
 
 	<div class="section">
 
@@ -20,26 +20,32 @@
 
 			<section id = "aboutUs">
 				<h2>About Us</h2>
-				<p></p>
+				<p>We're being Taco Food Trucks into the new age of online ordering.  Where you can custem order your taco from the convenance of the web.  Just pick out a taco truck near you.  Click order and customize as many tacos you want and then all to your taco sack. And just hit checkout and pay. Easy as 1, 2, 3 and you will have your tacos waiting for you at the truck you selected. </p>
 			</section>
 
 			<section id = "createAnAccount">
 				<h2>Create An Account</h2>
-				<p></p>
+				<ul>Benifits
+					<li>We save you last order for ease of repurchasing</li>
+					<li>No need to re-enter credit card info each</li>
+				</ul>
 			</section>
 
 			<section id = "sackInfo">
 					<h2>Taco Sack</h2>
 					<div>
-						<img src="img/taco_sack.png" style = "width = 5%">
-						<p>Your Taco Sack is in essance your cart.  As you add tacos to your order they will appear in your sack.</p>
+						<img src="img/taco_sack.png" id = "tacoSack">
+						<p>Your cart or as we call it you Taco Sack.  As you add tacos to your order they will appear in your sack.  Ready for you to checkout when you are ready.</p>
 					</div>
 			</section>
 
 		</article>
 
 		<article id = "tacoMenu">
+			<h2>Customizes Options</h2>
 		</article>
+
+		<div class = "end"></div>
 
 	</div>
 
