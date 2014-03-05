@@ -29,11 +29,17 @@ article {
 	clear: both;
 }
 
-.left {
+/*.left {
 	float: left;
 }
 
 .right {
 	float: right;
+}*/
+
+#tacoMenu ul {
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
 }
 

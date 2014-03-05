@@ -13,26 +13,26 @@ $(document).ready(function(){
 
 			if(key === "sauces"){
 
-				$("#tacoMenu").append("<section id = \"" + key +"\"><ul class = \"left\"></ul><ul class = \"right end\"><h4>Heat Rating</h4></ul></section>");
+				$("#tacoMenu").append("<section id = \"" + key +"\"><table><tr><th>Heat Rating</th></tr></table></section>");
 
 			}
 
 			else if(key === "vegetables"){
 
-				$("#tacoMenu").append("<section id = \"" + key +"\"><ul class = \"left\"></ul></section>");
+				$("#tacoMenu").append("<section id = \"" + key +"\"><table></table></section>");
 
 			}
 
 			else{
 
-				$("#tacoMenu").append("<section id = \"" + key +"\"><ul class = \"left\"></ul><ul class = \"right end\"><h4>Price</h4></ul></section>");
 
+				$("#tacoMenu").append("<section id = \"" + key +"\"><table><tr><th>Price</th></tr></table></section>");
 			}
 
 			if(key === "type")
-				$("#type ul.left").append("<h3>Fillings</h3>");
+				$("#type tbody:nth-child(1)").children().children().before("<th>Fillings</th>");
 			else
-				$("#" + key + " ul.left").append("<h3>" + key[0].toUpperCase() + key.substring(1) + "</h3>");
+				$("#" + key + " tbody:nth-child(1)").children().children().before("<th>" + key[0].toUpperCase() + key.substring(1) + "</th>");
 
 		};
 
@@ -43,12 +43,10 @@ $(document).ready(function(){
 			for(var j = 0; j < info.length; j++){
 				//console.log(info[i]);
 
-				$("#" + keys[i] + " ul.left").append("<li>"+ info[j].name + "</li>");
-
 				if(keys[i] === "sauces")
-					$("#" + keys[i] + " ul.right").append("<li>"+ info[j].heatRating + "</li>");
+					$("#" + keys[i] + " tbody").append("<tr><td>"+ info[j].name + "</td><td>"+ info[j].heatRating + "</td></tr>");
 				else
-					$("#" + keys[i] + " ul.right").append("<li>"+ info[j].price + "</li>");
+					$("#" + keys[i] + " tbody").append("<tr><td>"+ info[j].name + "</td><td>"+ info[j].price + "</td></tr>");
 
 			}
 
@@ -56,8 +54,10 @@ $(document).ready(function(){
 			
 
 
-		//$("#" + key + " ul.left").append("<li>"+ menu[key].name + "</li>");
-			//$("#" + key + " ul.right").append("<li>"+ menu[key].price + "</li>");
+		//$("#tacoMenu").children("section:nth-child(even)").addClass("left");
+		$("#tacoMenu").children("section:nth-child(odd)").after("<div class = 'end'></div>");
+		//$("#tacoMenu").children("section:nth-child(odd)").addClass("right");
+		//console
 
 
 
