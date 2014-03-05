@@ -2,3 +2,8 @@ article#tacoMenu {
 	border-width: 30px;
 	-webkit-border-image:url(../img/menu_border.png);
 }
+
+article {
+	position: relative;
+	float: left;
+}
