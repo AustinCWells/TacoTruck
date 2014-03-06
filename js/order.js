@@ -95,13 +95,17 @@ document.getElementById("tacoForm").reset();
 
 });
 
+var tacoNumber = 1;
+
 document.getElementById("tacoForm").onsubmit = (function formSubmit(e) {
 e.preventDefault();
 
 //var price = $('input[name="filling"]:checked').price();
 
-$("#tacoSack").append('<div id="taco">I am a taco!:<p></div>');
-//$("#taco").append(price);
+$("#tacoSack").append('<table class="taco" id="taco' + tacoNumber + '"><tr><td>Taco #' + tacoNumber + '</td><td>Quantity: ' + $('select[name="Quantity"]').val() + '</tr><tr><td>' + $('input[name="filling"]:checked').val() + '</td><td>' + $('input[name="filling"]:checked').data('price') + '</td></tr><tr><td>' + $('input[name="tortilla"]:checked').val() + '</td><td>' + $('input[name="tortilla"]:checked').data('price') + '</td></tr><tr><td>' + $('input[name="rice"]:checked').val() + '</td><td>' + $('input[name="rice"]:checked').data('price') + '</td></tr><tr><td>' + $('input[name="beans"]:checked').val() + '</td><td>' + $('input[name="beans"]:checked').data('price') + '</td></tr><tr><td>' + $('input[name="sauces"]:checked').val() + '</td></tr><tr><td>' + $('input[name="vegetables"]:checked').val() + '</td></tr><tr><td>' + $('input[name="cheese"]:checked').val() + '</td><td>' + $('input[name="cheese"]:checked').data('price') + '</td></tr><tr><td>' + $('input[name="extras"]:checked').val() + '</td><td>' + $('input[name="extras"]:checked').data('price') + '</td></tr></table>');
+
+
+/*
 $("#taco").append($('<br>'));
 $("#taco").append($('input[name="filling"]:checked').val());
 $("#taco").append($('<br>'));
@@ -119,7 +123,7 @@ $("#taco").append($('input[name="extras"]:checked').val());//needs to increment 
 $("#taco").append($('<br>'));
 $("#taco").append($('input[name="cheese"]:checked').val());
 $("#taco").append($('<br>'));
-
+*/
 var tacoTotal = parseFloat($('input[name="filling"]:checked').data('price'),10) +
 	parseFloat($('input[name="tortilla"]:checked').data('price'),10) +
 	parseFloat($('input[name="rice"]:checked').data('price'),10) +
@@ -127,9 +131,12 @@ var tacoTotal = parseFloat($('input[name="filling"]:checked').data('price'),10) 
 	parseFloat($('input[name="cheese"]:checked').data('price'),10) +
 	parseFloat($('input[name="extras"]:checked').data('price'),10);//needs to increment over all possible checked extras
 
-$("#taco").append(tacoTotal.toFixed(2));
+tacoTotal = tacoTotal * parseInt($('select[name="Quantity"]'));
+
+$('#taco' + tacoNumber).append(tacoTotal.toFixed(2));
 $("#taco").append($('<p>'));
 document.getElementById("tacoForm").reset();
+tacoNumber++;
 });
 
 

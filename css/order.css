@@ -5,6 +5,11 @@
 	margin-left:20px;
 }
 
+.taco {
+	border: solid 1px black;
+
+}
+
 #orderView {
 	position:relative;
 	float:right;
