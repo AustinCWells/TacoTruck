@@ -96,6 +96,8 @@ document.getElementById("tacoForm").reset();
 });
 
 var tacoNumber = 1;
+var orderTotal = 0;
+$("#totalSpan").text('' + orderTotal.toFixed(2));
 
 document.getElementById("tacoForm").onsubmit = (function formSubmit(e) {
 e.preventDefault();
@@ -131,7 +133,9 @@ var tacoTotal = parseFloat($('input[name="filling"]:checked').data('price'),10) 
 	parseFloat($('input[name="cheese"]:checked').data('price'),10) +
 	parseFloat($('input[name="extras"]:checked').data('price'),10);//needs to increment over all possible checked extras
 
-tacoTotal = tacoTotal * parseInt($('select[name="Quantity"]'));
+tacoTotal = tacoTotal * parseInt($('select[name="Quantity"]').val());
+orderTotal = orderTotal + tacoTotal;
+$("#totalSpan").text('' + orderTotal.toFixed(2));
 
 $('#taco' + tacoNumber).append(tacoTotal.toFixed(2));
 $("#taco").append($('<p>'));

@@ -107,7 +107,7 @@
 <div id="orderView" class="section"><h2>Taco Sack</h2>
 	<section id="tacoSack"></section>
 <form id="sackForm">
-	<div>Total: - -</div>
+	<div>Total: $<span id="totalSpan"></span></div>
 	<input type="button" id="sackSubmit" class="pay" value="Checkout">
 </form>
 </div>	
