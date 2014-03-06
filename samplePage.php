@@ -17,8 +17,8 @@
 
 </head>
 <body>
-	<? include "components/nav.html" ?> 
-	<? include "components/modals.html" ?> 
+	<?php include "components/nav.html" ?> 
+	<?php include "components/modals.html" ?> 
 
 	<div class="section">
 		<h1 class="pay">  THIS IS A TEST BLOCK </h1>
