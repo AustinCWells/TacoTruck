@@ -11,6 +11,7 @@
 
 	$app->run();
 
+	// WORKING
 	function login()
 	{
 		$app = \Slim\Slim::getInstance();
@@ -40,6 +41,7 @@
 		}
 	}
 
+	// WORKING
 	function createAccount()
 	{
 		$sql = "INSERT INTO Users (`given_name`, `surname`, `email`, `password`, `phone_no`, `credit_type`, `credit_no`)
@@ -62,8 +64,6 @@
 				$stmt->bindParam("creditcard", $newAccount->creditcard);
 				$stmt->execute();
 				$db = null;
-				// $response['info'] = $userinfo;
-				// echo json_encode($response);
 			}
 			else
 				echo '{"error":{"text": "Bad things happend! JSON was not valid" }}'; 		
@@ -94,18 +94,22 @@
 
 	}
 
-	function getPaymentInfo($id)
+	// NOT TESTED, BUT FUNCTIONAL
+	function getPaymentInfo()
 	{
-		$sql = "SELECT * FROM Users Where user_id = :id";
+		$request = \Slim\Slim::getInstance()->request();
+		$userID = json_decode($request->getBody());
+		$sql = "SELECT given_name, surname, email, phone_no, credit_type, credit_no FROM Users Where user_id = :id";
 		try
 		{
 			$db = getConnection();
 			$stmt = $db->prepare($sql);
-			$stmt->bindParam("id", $id);
+			$stmt->bindParam("id", $userID->id);
 			$stmt->execute();
-			$pay = $stmt->fetchObject();
+			$userInfo = $stmt->fetch(PDO::FETCH_OBJ);
 			$db = null;
-			echo json_encode($pay);
+			$response['info'] = $userInfo;
+			echo json_encode($response);
 		}
 		catch(PDOException $e) 
 		{
@@ -113,6 +117,7 @@
 		}
 	}
 
+	// NOT COMPLETED
 	function createOrder()
 	{
 		//change for Taco Orders
@@ -138,6 +143,7 @@
 		}
 	}
 
+	// WORKING
 	function findTrucks()
 	{
 		$sql = "SELECT location_name, address, city, state, zipcode FROM Locations ORDER BY location_name";
@@ -155,6 +161,7 @@
 		}
 	}
 
+	// WORKING
 	function getConnection() 
 	{
 		$dbhost="127.0.0.1";
