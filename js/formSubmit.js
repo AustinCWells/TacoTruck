@@ -24,8 +24,12 @@ $(document).ready(function(){
 					$(".errorMessage").text("Woah, something went wrong");
 				}
 				else {
+
 					document.getElementById('loginModal').className = "modal";
 					document.getElementById("overlay").className = ""; 
+					$(".login").hide(); 
+					$(".createAccount").hide();
+					$(".loginInformation").text("Logged In As: " + obj.info.email).css({"font-size":"24px"});
 					$("#loginModal").css({"border":"2px solid green"});
 					$(".errorMessage").text("You're logged in!").css({"color":"green"});
 				}
@@ -43,9 +47,9 @@ $(document).ready(function(){
 		var user = new Object();
 		user.fname = $("#accountFName").val();
 		user.lname= $("#accountLName").val();
-		user.email = $("accountEmail").val(); 
+		user.email = $("#accountEmail").val(); 
 		user.phonenumber = $("#accountPhoneNumber").val();
-		user.password = $("#accountEmail").val();
+		user.password = $("#accountPassword").val();
 		user.ccnumber = $("#accountCreditCardNumber").val(); 
 		user.creditcard = $("#accountCreditCard").val(); 
 		$.ajax({
