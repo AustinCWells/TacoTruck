@@ -14,23 +14,28 @@ $(document).ready(function(){
 				console.log(data);
 				var obj = JSON.parse(data);
 				if(obj.info == false) {
-					alert("You're email isn't registered with us! try 'Create Account'");
+					$("#loginModal").css({"border":"2px solid red"});
+					$(".errorMessage").text("silly, your login information is not correct");
 				}
 				else if(data.error != undefined) {
 					console.log(data.error);
 					alert("Errors occured during the request :(");
+					$("#loginModal").css({"border":"2px dashed red"});
+					$(".errorMessage").text("Woah, something went wrong");
 				}
 				else {
-					alert("you totally got it!");
+					document.getElementById('loginModal').className = "modal";
+					document.getElementById("overlay").className = ""; 
+					$("#loginModal").css({"border":"2px solid green"});
+					$(".errorMessage").text("You're logged in!").css({"color":"green"});
 				}
 			},
 			error: function( ){
-				alert("OH NO! Something went wrong. :(")
+				alert("WE'RE SORRY SOMETHING WENT WRONG")
 			}
 		});
 		
-		document.getElementById('loginModal').className = "modal";
-		document.getElementById("overlay").className = ""; 
+		
 	});
 
 	$(document).on("submit", "form.accountForm", function(){
