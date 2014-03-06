@@ -79,7 +79,7 @@ $(document).ready(function(){
 	});
 
 	$(document).on("submit","form.paymentForm", function(){
-		console.log($(this).serialize());
+		/*console.log($(this).serialize());
 		$.ajax({
 			type: 'POST',
 			url: 'http://localhost/tacotruck/php/submitPayment.php',
@@ -95,8 +95,9 @@ $(document).ready(function(){
 		});
 
 		event.preventDefault(); 
-		document.getElementById('paymentModal').className = "modal"; 
-		document.getElementById('overlay').className = ""; 
+		//document.getElementById('paymentModal').className = "modal"; 
+		//document.getElementById('overlay').className = ""; 
+		*/
 
 
 
