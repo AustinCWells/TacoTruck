@@ -39,19 +39,39 @@ $(document).ready(function(){
 	});
 
 	$(document).on("submit", "form.accountForm", function(){
+		event.preventDefault();
+		var user = new Object();
+		user.fname = $("#accountFName").val();
+		user.lname= $("#accountLName").val();
+		user.email = $("accountEmail").val(); 
+		user.phonenumber = $("#accountPhoneNumber").val();
+		user.password = $("#accountEmail").val();
+		user.ccnumber = $("#accountCreditCardNumber").val(); 
+		user.creditcard = $("#accountCreditCard").val(); 
 		$.ajax({
 			type: 'POST',
-			url: '/php/accountCreation.php',
-			data: $(this).serialize(),
-			success: function(){
-				alert("you totally got it!");
-			},
+			url: '/TacoTruck/api/login',
+			data: JSON.stringify(user),
+			success: function( data ){
+			console.log(data);
+				var obj = JSON.parse(data);
+				if(obj.info == false) {
+					alert("failed login"); 
+				}
+				else if(data.error != undefined) {
+					alert("didn't connect"); 
+				}
+				else {
+					document.getElementById('loginModal').className = "modal";
+					document.getElementById("overlay").className = ""; 
+					alert("success"); 
+				},
 			error: function(){
 				alert("OH NO! someone has gone and screwed up."); 
 			}
 		});
 
-		event.preventDefault(); 
+		 
 		document.getElementById('accountModal').class = "modal"; 
 		document.getElementById('overlay').className = ""; 
 
