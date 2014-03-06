@@ -25,12 +25,15 @@ $(document).ready(function(){
 
 			else{
 
-
 				$("#tacoMenu").append("<section id = \"" + key +"\"><table><tr><th>Price</th></tr></table></section>");
 			}
 
 			if(key === "type")
 				$("#type tbody:nth-child(1)").children().children().before("<th>Fillings</th>");
+
+			else if(key === "vegetables")
+				$("#vegetables table").append("<tr><th>Vegetables</th></tr>");
+
 			else
 				$("#" + key + " tbody:nth-child(1)").children().children().before("<th>" + key[0].toUpperCase() + key.substring(1) + "</th>");
 
@@ -45,16 +48,18 @@ $(document).ready(function(){
 
 				if(keys[i] === "sauces")
 					$("#" + keys[i] + " tbody").append("<tr><td>"+ info[j].name + "</td><td>"+ info[j].heatRating + "</td></tr>");
+				else if(keys[i] === "vegetables")
+					$("#" + keys[i] + " tbody").append("<tr><td>"+ info[j].name + "</td></tr>");
 				else
-					$("#" + keys[i] + " tbody").append("<tr><td>"+ info[j].name + "</td><td>"+ info[j].price + "</td></tr>");
+					$("#" + keys[i] + " tbody").append("<tr><td>"+ info[j].name + "</td><td>$"+ info[j].price.toFixed(2) + "</td></tr>");
 
 			}
 
 		}
 			
-
-
-		//$("#tacoMenu").children("section:nth-child(even)").addClass("left");
+		$("#extras").after($("#beans"));
+		console.log($("#tacoMenu section:nth-child(even)").addClass("left"));
+		$("#tacoMenu").children("section:nth-child(odd)").addClass("right");
 		$("#tacoMenu").children("section:nth-child(odd)").after("<div class = 'end'></div>");
 		//$("#tacoMenu").children("section:nth-child(odd)").addClass("right");
 		//console
