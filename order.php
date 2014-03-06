@@ -108,7 +108,7 @@
 	<section id="tacoSack"></section>
 <form id="sackForm">
 	<div>Total: - -</div>
-	<input type="submit" id="sackSubmit" class="pay" value="Checkout">
+	<input type="button" id="sackSubmit" class="pay" value="Checkout">
 </form>
 </div>	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

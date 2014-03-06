@@ -17,7 +17,6 @@ for(var i = 0; i < loginButton.length; i++)
 }
 for(var i = 0; i < paymentButton.length; i++)
 {
-	paymentButton[i].addEventListener('click',loadPaymentInfo);
 	paymentButton[i].addEventListener('click',displayPayModal);
 }
 for(var i = 0; i < accountButton.length; i++)
