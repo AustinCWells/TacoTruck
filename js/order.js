@@ -22,15 +22,16 @@ $.getJSON("json/taco_truck_menu.json", function(data) {
 
 		var html = 
 		'<input id="' + filling[i].name + '" type="radio" name="filling" value="' + filling[i].name +
-		'"><label for="' + filling[i].name + '">' + ' ' + filling[i].name + ' $' + filling[i].price.toFixed(2) + '</label><br>';
+		'" data-price="' + filling[i].price.toFixed(2) + '"><label for="' + filling[i].name + '">' + ' ' + filling[i].name + ' $' + filling[i].price.toFixed(2) + '</label><br>';
 		$("#fillingList").append(html);
-	}
 
+
+	}
     for(var i=0;i<tortilla.length;i++) {
     	//console.log(tortilla[i]);
 		var html = 
 		'<input id="' + tortilla[i].name + '" type="radio" name="tortilla" value="' + tortilla[i].name +
-		'"><label for="' + tortilla[i].name + '">' + ' ' + tortilla[i].name + ' $' + tortilla[i].price.toFixed(2) + '</label><br>';
+		'" data-price="' + tortilla[i].price.toFixed(2) + '"><label for="' + tortilla[i].name + '">' + ' ' + tortilla[i].name + ' $' + tortilla[i].price.toFixed(2) + '</label><br>';
 		$("#tortillaList").append(html);
 	}
 
@@ -38,7 +39,7 @@ $.getJSON("json/taco_truck_menu.json", function(data) {
     	//console.log(rice[i]);
 		var html = 
 		'<input id="' + rice[i].name + '" type="radio" name="rice" value="' + rice[i].name +
-		'"><label for="' + rice[i].name + '">' + ' ' + rice[i].name + ' $' + rice[i].price.toFixed(2) + '</label><br>';
+		'" data-price="' + rice[i].price.toFixed(2) + '"><label for="' + rice[i].name + '">' + ' ' + rice[i].name + ' $' + rice[i].price.toFixed(2) + '</label><br>';
 		$("#riceList").append(html);
 	}
 
@@ -46,7 +47,7 @@ $.getJSON("json/taco_truck_menu.json", function(data) {
     	//console.log(beans[i]);
 		var html = 
 		'<input id="' + beans[i].name + '" type="radio" name="beans" value="' + beans[i].name +
-		'"><label for="' + beans[i].name + '">' + ' ' + beans[i].name + ' $' + beans[i].price.toFixed(2) + '</label><br>';
+		'" data-price="' + beans[i].price.toFixed(2) + '"><label for="' + beans[i].name + '">' + ' ' + beans[i].name + ' $' + beans[i].price.toFixed(2) + '</label><br>';
 		$("#beansList").append(html);
 	}
 
@@ -71,7 +72,7 @@ $.getJSON("json/taco_truck_menu.json", function(data) {
     	//console.log(extras[i]);
 		var html = 
 		'<input id="' + extras[i].name + '" type="checkbox" name="extras" value="' + extras[i].name +
-		'"><label for="' + extras[i].name + '">' + ' ' + extras[i].name + ' $' + extras[i].price.toFixed(2) + '</label><br>';
+		'" data-price="' + extras[i].price.toFixed(2) + '"><label for="' + extras[i].name + '">' + ' ' + extras[i].name + ' $' + extras[i].price.toFixed(2) + '</label><br>';
 		$("#extrasList").append(html);
 	}
 
@@ -79,7 +80,7 @@ $.getJSON("json/taco_truck_menu.json", function(data) {
     	//console.log(cheese[i]);
 		var html = 
 		'<input id="' + cheese[i].name + '" type="radio" name="cheese" value="' + cheese[i].name +
-		'"><label for="' + cheese[i].name + '">' + ' ' + cheese[i].name + ' $' + cheese[i].price.toFixed(2) + '</label><br>';
+		'" data-price="' + cheese[i].price.toFixed(2) + '"><label for="' + cheese[i].name + '">' + ' ' + cheese[i].name + ' $' + cheese[i].price.toFixed(2) + '</label><br>';
 		$("#cheeseList").append(html);
 	}		
 });
@@ -112,17 +113,21 @@ $("#taco").append($('input[name="beans"]:checked').val());
 $("#taco").append($('<br>'));
 $("#taco").append($('input[name="sauces"]:checked').val());
 $("#taco").append($('<br>'));
-$("#taco").append($('input[name="vegetables"]:checked').val());
+$("#taco").append($('input[name="vegetables"]:checked').val());//needs to increment over all possible checked vegetables
 $("#taco").append($('<br>'));
-$("#taco").append($('input[name="extras"]:checked').val());
+$("#taco").append($('input[name="extras"]:checked').val());//needs to increment over all possible checked extras
 $("#taco").append($('<br>'));
 $("#taco").append($('input[name="cheese"]:checked').val());
+$("#taco").append($('<br>'));
 
-var tacoPrice = $('input[name="filling"]:checked').attr('price');
-var pricehtml = '<span>' + tacoPrice + '</span';
+var tacoTotal = parseFloat($('input[name="filling"]:checked').data('price'),10) +
+	parseFloat($('input[name="tortilla"]:checked').data('price'),10) +
+	parseFloat($('input[name="rice"]:checked').data('price'),10) +
+	parseFloat($('input[name="beans"]:checked').data('price'),10) +
+	parseFloat($('input[name="cheese"]:checked').data('price'),10) +
+	parseFloat($('input[name="extras"]:checked').data('price'),10);//needs to increment over all possible checked extras
 
-alert(tacoPrice);
-$("#taco").append($(pricehtml));
+$("#taco").append(tacoTotal.toFixed(2));
 $("#taco").append($('<p>'));
 document.getElementById("tacoForm").reset();
 });
