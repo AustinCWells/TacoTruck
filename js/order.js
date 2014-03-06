@@ -54,7 +54,7 @@ $.getJSON("json/taco_truck_menu.json", function(data) {
     for(var i=0;i<sauces.length;i++) {
     	//console.log(sauces[i]);
 		var html = 
-		'<input id="' + sauces[i].name + '" type="checkbox" name="sauces" value="' + sauces[i].name +
+		'<input id="' + sauces[i].name + '" type="radio" name="sauces" value="' + sauces[i].name +
 		'"><label for="' + sauces[i].name + '">' + ' ' + sauces[i].name + '</label><br>';
 		$("#saucesList").append(html);
 	}	

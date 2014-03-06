@@ -31,6 +31,25 @@ nav h3 a {
 	text-decoration: none;
 }
 
+#navTitle {
+
+}
+
+#imgDiv {
+position:absolute;
+height:100%;
+
+}
+
+#imgSpanner {
+	position:absolute; 
+	width:200px;
+	height:100%;
+	top:0;
+	left: 0;
+	z-index: 1;
+}
+
 .navSpanner {
 	position:absolute; 
 	width:100%;
