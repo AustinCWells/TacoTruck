@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$(document).on("submit","form.loginForm", function( event ){
-		
+	
 		event.preventDefault(); 
 		var user = new Object();
 		user.email = $("#loginName").val()
@@ -24,12 +24,19 @@ $(document).ready(function(){
 					$(".errorMessage").text("Woah, something went wrong");
 				}
 				else {
+					//store user information in cookie 
+					$.cookie.json = true;	
+					$.cookie("user_id", obj.info.user_id);
+					$.cookie("email", obj.info.email);
+					$.cookie("given_name", obj.info.given_name);
+					$.cookie("surname", obj.info.surname);
 
 					document.getElementById('loginModal').className = "modal";
 					document.getElementById("overlay").className = ""; 
+					//show login in navbar and show success on attempted login
 					$(".login").hide(); 
 					$(".createAccount").hide();
-					$(".loginInformation").text("Logged In As: " + obj.info.email).css({"font-size":"24px"});
+					$(".loginInformation").text("Logged In As: " + $.cookie("email")).css({"font-size":"24px"});
 					$("#loginModal").css({"border":"2px solid green"});
 					$(".errorMessage").text("You're logged in!").css({"color":"green"});
 				}
@@ -54,7 +61,7 @@ $(document).ready(function(){
 		user.creditcard = $("#accountCreditCard").val(); 
 		$.ajax({
 			type: 'POST',
-			url: '/TacoTruck/api/login',
+			url: '/TacoTruck/api/newaccount',
 			data: JSON.stringify(user),
 			success: function( data ){
 			console.log(data);
@@ -66,7 +73,7 @@ $(document).ready(function(){
 					alert("didn't connect"); 
 				}
 				else {
-					document.getElementById('loginModal').className = "modal";
+					document.getElementById('accountModal').className = "modal";
 					document.getElementById("overlay").className = ""; 
 					alert("success"); 
 				}
