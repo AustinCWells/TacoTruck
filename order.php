@@ -61,7 +61,7 @@
 	<div id="extrasList">
 	</div>
 	<input type="button" id="clearButton" value="Clear Order">
-	<input type="submit" id="tacoSubmit" value="Add Taco to Sack">
+	<input type="submit" id="tacoSubmit" value="Add to Sack">
 </section>
 </form>
 </div>
