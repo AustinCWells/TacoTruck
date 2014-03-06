@@ -14,7 +14,9 @@
 	position:relative;
 	float:right;
 	width:35%;
+	min-height:592px; 
 	margin-right:20px;
+	margin-bottom: 50px;
 }
 
 

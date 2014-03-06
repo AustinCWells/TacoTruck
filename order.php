@@ -40,14 +40,17 @@
 <section class="collumn">
 	<h2>Rice</h2>
 	<div id="riceList">
+		<input id="NoRice" type="radio" name="rice" value="No Rice" checked data-price="0.00"><label for="NoRice"> No Rice</label><br>
 	</div>
 	<h2>Beans</h2>
 	<div id="beansList">
+		<input id="NoBeans" type="radio" name="beans" value="No Beans" checked data-price="0.00"><label for="NoBeans"> No Beans</label><br>
 	</div>
 </section>
 <section class="collumn">
 	<h2>Sauces</h2>
 	<div id="saucesList">
+		<input id="NoSauce" type="radio" name="sauces" value="No Sauce" checked data-price="0.00"><label for="NoSauce"> No Sauce</label><br>
 	</div>
 	<h2>Vegetables</h2>
 	<div id="vegetablesList">
@@ -56,6 +59,7 @@
 <section class="collumn">
 	<h2>Cheese</h2>
 	<div id="cheeseList">
+		<input id="NoCheese" type="radio" name="cheese" value="No Cheese" checked data-price="0.00"><label for="NoCheese"> No Cheese</label><br>
 	</div>
 	<h2>Extras</h2>
 	<div id="extrasList">
