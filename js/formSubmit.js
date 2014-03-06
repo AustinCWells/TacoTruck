@@ -65,7 +65,8 @@ $(document).ready(function(){
 					document.getElementById('loginModal').className = "modal";
 					document.getElementById("overlay").className = ""; 
 					alert("success"); 
-				},
+				}
+			},
 			error: function(){
 				alert("OH NO! someone has gone and screwed up."); 
 			}
