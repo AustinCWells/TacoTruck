@@ -47,11 +47,11 @@ $(document).ready(function(){
 				//console.log(info[i]);
 
 				if(keys[i] === "sauces")
-					$("#" + keys[i] + " tbody").append("<tr><td>"+ info[j].name + "</td><td>"+ info[j].heatRating + "</td></tr>");
+					$("#" + keys[i] + " tbody").append("<tr><td class = 'name'>"+ info[j].name + "</td><td>"+ info[j].heatRating + "</td></tr>");
 				else if(keys[i] === "vegetables")
-					$("#" + keys[i] + " tbody").append("<tr><td>"+ info[j].name + "</td></tr>");
+					$("#" + keys[i] + " tbody").append("<tr><td class = 'name'>"+ info[j].name + "</td></tr>");
 				else
-					$("#" + keys[i] + " tbody").append("<tr><td>"+ info[j].name + "</td><td>$"+ info[j].price.toFixed(2) + "</td></tr>");
+					$("#" + keys[i] + " tbody").append("<tr><td class = 'name'>"+ info[j].name + "</td><td>$"+ info[j].price.toFixed(2) + "</td></tr>");
 
 			}
 

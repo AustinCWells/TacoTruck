@@ -23,7 +23,7 @@
 			<section id = "aboutUs">
 				<h2>About Us</h2>
 				<div class = "subContent">
-					<p>We're being Taco Food Trucks into the new age of online ordering.  Where you can custem order your taco from the convenance of the web.  Just pick out a taco truck near you.  Click order and customize as many tacos you want and then all to your taco sack. And just hit checkout and pay. Easy as 1, 2, 3 and you will have your tacos waiting for you at the truck you selected. </p>
+					<p>We are bringing Taco Food Trucks into the new age of online ordering.  Where you can custom your taco orders from the convenance of the web.  Just pick out a taco truck near you.  Click order and customize as many tacos you want and then all to your taco sack. And just hit checkout and pay. Easy as 1, 2, 3 and you will have your tacos waiting for you at the truck you selected. </p>
 				</div>
 			</section>
 
