@@ -31,14 +31,15 @@
 			<section id = "aboutUs">
 				<h2>About Us</h2>
 				<div class = "subContent">
-					<p>We are bringing tacos into the digital age with the introduction of online taco ordering. Custom order your favorite tacos from school, the office, or your favorite recliner with only a few clicks. Choose a tortilla and build your tacos with a wide variety of fillings, rice, beans, cheese, and more! Once you have added all your tacos to the Taco Sack, select one of our five truck locations and we'll have your sack ready for you. </p>
+					<p>We are bringing tacos into the digital age with the introduction of online taco ordering. Custom order your favorite tacos from school, the office, or your favorite recliner with only a few clicks.</p>
+					<p>Choose a tortilla and build your tacos with a wide variety of fillings, rice, beans, cheese, and more! Once you have added all your tacos to the Taco Sack, select one of our five truck locations and we'll have your sack ready for you. </p>
 				</div>
 			</section>
 
 			<section id = "createAnAccount">
 				<h2>Create An Account</h2>
 				<div class = "subContent">
-				<ul>Why use our site?
+				<ul><b>Why use our site?</b>
 					<li>Convenient, easy to use ordering</li>
 					<li>We'll remember your credit card info, so you can checkout with just one click</li>
 				</ul>
