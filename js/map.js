@@ -83,6 +83,16 @@ var addMarkers = function(){
 		}
 
 	});
+
+	$("li[class*=loc]").hover(
+		function(){
+			$(this).css("width: 125%");
+		},
+		function(){
+			$(this).css("width: 100%");
+		});
+
+
 }
 
 var initialize = function(location){
