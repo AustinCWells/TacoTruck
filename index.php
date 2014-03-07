@@ -62,11 +62,21 @@
 
 		
 			<div class="grid-full white">
+
 				<article id = "tacoMenu">
+
 					<div>
 						<h2>Taco Options</h2>
 					</div>
+
+					<div class = "left">
+					</div>
+
+					<div class = "right">
+					</div>
+
 				</article>
+
 			</div>
 
 		</div>
