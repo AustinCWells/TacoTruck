@@ -37,7 +37,7 @@ function loadPaymentInfo()
 
 		$.ajax({
 			type: 'POST',
-			url: '/TacoTruck/api/paymentinfo',
+			url: '/api/paymentinfo',
 			content: 'application/json',
 			data: JSON.stringify(user),
 			success: function(data){

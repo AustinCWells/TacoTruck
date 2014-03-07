@@ -7,6 +7,7 @@
 	$app->post('/newaccount', 'createAccount');
 	$app->post('/paymentinfo', 'getPaymentInfo');
 	$app->post('/orders', 'createOrder');
+	$app->get('/lastorder/:id', 'getLastOrder');
 	$app->get('/locations', 'findTrucks');
 	$app->get('/menu', 'getMenu');
 
@@ -144,6 +145,64 @@
 		}
 	}
 
+	function getLastOrder($id)
+	{
+		$sql = "SELECT user_id, order_id, MAX(date) AS latest, total FROM Orders WHERE user_id = :id";
+		$request = \Slim\Slim::getInstance()->request();
+		$info = json_decode($request->getBody());
+		try
+		{
+			$order;
+			$db = getConnection();
+			$stmt = $db->prepare($sql);
+			$stmt->bindParam("id", $id);
+			$stmt->execute();
+			$orderInfo = $stmt->fetch(PDO::FETCH_OBJ);
+			$db = null;
+
+			$order['user_id'] = (int)$id;
+			$order_id = (int)$orderInfo->order_id;
+			$order['order_id'] = $order_id;
+			$order_cost = (double)$orderInfo->total;
+			$order['total'] = $order_cost;
+
+			$sql2 = "SELECT order_item_id, quantity FROM OrderItem WHERE order_id = :order_id";
+
+			$db = getConnection();
+			$stmt2 = $db->prepare($sql2);
+			$stmt2->bindParam("order_id", $order_id);
+			$stmt2->execute();
+
+			$tacos;
+			while($row = $stmt2->fetch(PDO::FETCH_ASSOC))
+			{
+				$sql3 = "SELECT taco_fixin_id FROM OrderDetails WHERE order_item_id = :order_item_id";
+				$itemID = $row['order_item_id'];
+				$stmt3 = $db->prepare($sql3);
+				$stmt3->bindParam("order_item_id", $itemID);
+				$stmt3->execute();
+
+				$fixins = array();
+				while($row2 = $stmt3->fetch(PDO::FETCH_ASSOC))
+				{
+					$tacoFixinID = $row2['taco_fixin_id'];
+					$fixins[] = $tacoFixinID;
+				}
+				$tacos['quantity'] = $row['quantity'];
+				$tacos['fixins'] = $fixins;
+				$order['tacos'][] = $tacos;
+			}
+			$db = null;
+
+			echo '{"order": ' . json_encode($order) . '}';
+
+		}
+		catch(PDOException $e) 
+		{
+			echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+		}
+	}
+
 	// WORKING
 	function findTrucks()
 	{
@@ -188,7 +247,7 @@
 	{
 		$dbhost="127.0.0.1";
 		$dbuser="root";
-		$dbpass="root";
+		$dbpass="";
 		$dbname="TacoTruck";
 		$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
