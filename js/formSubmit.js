@@ -36,11 +36,18 @@ $(document).ready(function(){
 					document.getElementById("overlay").className = ""; 
 					//show login in navbar and show success on attempted login
 					$(".login").hide(); 
-					$(".createAccount").hide();
 					console.log($.cookie("email"));
 					$(".loginInformation").show();
 					$(".logout").show();
 					$(".logout").text("  Logout").css({"font-size":"20px"});
+					$(".logout").click(function(){
+						$.removeCookie('email');
+						$(".login").show();
+						$(".loginInformation").hide();
+						$(".logout").text(" ");
+						$("#loginModal").css({"border":"2px solid black"});
+						$(".errorMessage").text("Welcome Back!").css({"color":"black"});
+					});	
 					$(".loginInformation").text($.cookie("email")).css({"font-size":"17px"});
 					$("#loginModal").css({"border":"2px solid green"});
 					$(".errorMessage").text("You're logged in!").css({"color":"green"});

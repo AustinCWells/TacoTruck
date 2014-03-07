@@ -10,6 +10,8 @@ if($.cookie("email")) {
 		$(".login").show();
 		$(".loginInformation").hide();
 		$(".logout").text(" ");
+		$("#loginModal").css({"border":"2px solid black"});
+		$(".errorMessage").text("Welcome Back!").css({"color":"black"});
 
 	});			
 }
