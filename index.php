@@ -5,7 +5,8 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script language="javascript" type="text/javascript" src="js/index.js"> </script> 
-	<script src="js/jquery.cookie.js"></script> 
+	<script src="js/jquery.cookie.js"></script>
+	<script language="javascript"  type="text/javascript" src="js/modal.js"> </script>  
 	<link rel="stylesheet" href="css/main.css" type="text/css">
 	<link rel="stylesheet" href="css/index.css" type="text/css">
 	<link href="css/nav.css" rel="stylesheet">
