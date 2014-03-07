@@ -4,13 +4,12 @@ console.log("the email is" + $.cookie("email"));
 if($.cookie("email")) {
 	$(".login").hide(); 
 	$(".loginInformation").text($.cookie("email")).css({"font-size":"20px"});
-	$(".logout").show();
 	$(".logout").text("  Logout").css({"font-size":"20px"});
 	$(".logout").click(function(){
 		$.removeCookie('email');
 		$(".login").show();
 		$(".loginInformation").hide();
-		$(".logout").hide();
+		$(".logout").text(" ");
 
 	});			
 }

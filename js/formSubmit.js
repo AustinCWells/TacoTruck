@@ -24,6 +24,7 @@ $(document).ready(function(){
 					$(".errorMessage").text("Woah, something went wrong");
 				}
 				else {
+					console.log("loading cookie");
 					//store user information in cookie 
 					$.cookie.json = true;	
 					$.cookie("user_id", obj.info.user_id);
@@ -36,6 +37,10 @@ $(document).ready(function(){
 					//show login in navbar and show success on attempted login
 					$(".login").hide(); 
 					$(".createAccount").hide();
+					console.log($.cookie("email"));
+					$(".loginInformation").show();
+					$(".logout").show();
+					$(".logout").text("  Logout").css({"font-size":"20px"});
 					$(".loginInformation").text($.cookie("email")).css({"font-size":"17px"});
 					$("#loginModal").css({"border":"2px solid green"});
 					$(".errorMessage").text("You're logged in!").css({"color":"green"});
