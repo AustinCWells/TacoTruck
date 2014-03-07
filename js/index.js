@@ -3,8 +3,9 @@ $(document).ready(function(){
 	$.cookie.json = true;
 	
 
-	$.getJSON("/tacotruck/api/menu", function(menu) {
 
+	$.getJSON(/*"json/taco_truck_menu.json"*/"/tacotruck/api/menu", function(menu) {
+		console.log("he");
 		$.cookie("menu", menu);
 		var menu = menu.menu;
 		var keys = Object.keys(menu);
@@ -14,19 +15,19 @@ $(document).ready(function(){
 
 			if(key === "sauces"){
 
-				$("#tacoMenu").append("<section id = \"" + key +"\"><table><tr><th>Heat Rating</th></tr></table></section>");
+				$("#tacoMenu").children("div:nth-child(3)").append("<section id = \"" + key +"\"><table><tr><th>Heat Rating</th></tr></table></section>");
 
 			}
 
 			else if(key === "vegetables"){
 
-				$("#tacoMenu").append("<section id = \"" + key +"\"><table></table></section>");
+				$("#tacoMenu").children("div:nth-child(3)").append("<section id = \"" + key +"\"><table></table></section>");
 
 			}
 
 			else{
 
-				$("#tacoMenu").append("<section id = \"" + key +"\"><table><tr><th>Price</th></tr></table></section>");
+				$("#tacoMenu").children("div:nth-child(2)").append("<section id = \"" + key +"\"><table><tr><th>Price</th></tr></table></section>");
 			}
 
 			if(key === "type")
@@ -58,13 +59,7 @@ $(document).ready(function(){
 
 		}
 			
-		$("#beans").after($("#extras"));
-		//$(".right").after("<br>");
-		console.log($("#tacoMenu section").addClass("left"));
-		//$("#tacoMenu").children("section:nth-child(odd)").addClass("right");
-		$("#extras").after("<div class = 'end'></div>");
-		//$("#tacoMenu").children("section:nth-child(odd)").addClass("right");
-		//console
+		$("#tacoMenu section").addClass("left");
 		
     	
 	});
