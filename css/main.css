@@ -147,3 +147,7 @@ input[type=submit]{
 	left: 25%;
 }
 
+.logout, .loginInformation {
+	position:inline;
+
+}

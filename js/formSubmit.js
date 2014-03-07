@@ -36,7 +36,7 @@ $(document).ready(function(){
 					//show login in navbar and show success on attempted login
 					$(".login").hide(); 
 					$(".createAccount").hide();
-					$(".loginInformation").text("Logged In As: " + $.cookie("email")).css({"font-size":"24px"});
+					$(".loginInformation").text($.cookie("email")).css({"font-size":"17px"});
 					$("#loginModal").css({"border":"2px solid green"});
 					$(".errorMessage").text("You're logged in!").css({"color":"green"});
 				}

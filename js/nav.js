@@ -3,9 +3,16 @@ $.cookie.json = true;
 console.log("the email is" + $.cookie("email")); 
 if($.cookie("email")) {
 	$(".login").hide(); 
-	$(".createAccount").hide();
-	$(".loginInformation").text("Logged In As: " + $.cookie("email")).css({"font-size":"24px"});
-					
+	$(".loginInformation").text($.cookie("email")).css({"font-size":"20px"});
+	$(".logout").show();
+	$(".logout").text("  Logout").css({"font-size":"20px"});
+	$(".logout").click(function(){
+		$.removeCookie('email');
+		$(".login").show();
+		$(".loginInformation").hide();
+		$(".logout").hide();
+
+	});			
 }
 
 var page = document.getElementsByClassName("currentPage")[0].getAttribute("id");
@@ -18,6 +25,8 @@ if(page === "orderPage") {
 if(page == "mapPage") {
 	document.getElementById("mapHeader").style.borderBottom="solid 3px rgb(255, 235, 0)";
 }
+
+
 
 }, false);
 
