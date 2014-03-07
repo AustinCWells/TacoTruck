@@ -165,29 +165,23 @@ for(var i=0;i<extrasList.length;i++) {
 	$('#taco' + tacoNumber).append('<tr><td>' + $(extrasList[i]).val() + '</td><td class="right">$' +  $(extrasList[i]).data('price') + '</td></tr>');
 }
 //}
-$('#taco' + tacoNumber).append('<tr><td>Total:</td><td class="right">$' + parseFloat(tacoTotal).toFixed(2) + '</td></tr></table>');
+$('#taco' + tacoNumber).append('<tr><td>Total:</td><td id="tacoTotal' + tacoNumber + '" class="right">$' + parseFloat(tacoTotal).toFixed(2) + '</td></tr></table>');
 $("#tacoSack").append('<input type="button" class="removeButton" id="remove' + tacoNumber + '" value="Remove">');
 
 document.getElementsByClassName("removeButton")[tacoNumber-1].onclick = (function (e) {
 	var thisTaco = this.getAttribute("id");
 	var thisTacoNumber = thisTaco.substring(6,7);
+	var thisTacoPrice = $('tacoTotal' + thisTacoNumber);
+	console.log('tacoTotal' + thisTacoNumber);
+	console.log(thisTacoPrice);
 
 	var tacoIDToRemove = 'taco' + thisTacoNumber;
 	var tacoToRemove = document.getElementById(tacoIDToRemove);
 	tacoToRemove.parentNode.removeChild(tacoToRemove);
 
-	var updateIDToRemove = 'quantity' + thisTacoNumber;
-	var updateToRemove = document.getElementById(updateIDToRemove);
-	updateToRemove.parentNode.removeChild(updateToRemove);
 
 	this.parentNode.removeChild(this);
-	/*
-	var testCount = 0;
-	for(var i= thisTacoNumber;i<tacoNumber;i++) {
-		console.log(i+1);
-	}
-	//console.log("testCount=" + testCount + " thisTacoNumber=" + thisTacoNumber + " tacoNumber=" + tacoNumber);
-	*/
+
 });
 
 orderTotal = orderTotal + tacoTotal;
