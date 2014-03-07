@@ -57,15 +57,13 @@ $(document).ready(function(){
 
 		}
 			
-		$("#extras").after($("#beans"));
-		console.log($("#tacoMenu section:nth-child(even)").addClass("left"));
-		$("#tacoMenu").children("section:nth-child(odd)").addClass("right");
-		$("#tacoMenu").children("section:nth-child(odd)").after("<div class = 'end'></div>");
+		$("#beans").after($("#extras"));
+		//$(".right").after("<br>");
+		console.log($("#tacoMenu section").addClass("left"));
+		//$("#tacoMenu").children("section:nth-child(odd)").addClass("right");
+		$("#extras").after("<div class = 'end'></div>");
 		//$("#tacoMenu").children("section:nth-child(odd)").addClass("right");
 		//console
-
-
-
 		
     	
 	});

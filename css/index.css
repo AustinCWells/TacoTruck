@@ -46,17 +46,13 @@ article {
 }
 
 table, th, td {
-	/*border: 1px solid black;*/
 	text-align: left;
 }
 
-
-th, td {
-	padding: 2px;
-}
-
-table{
-	padding: 5px;
+section{
+	padding-left: 3.5%;
+	padding-right: 3.5%;
+	padding-bottom: 5px;
 }
 
 #sauces td:nth-child(2) {
