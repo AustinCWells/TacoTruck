@@ -17,6 +17,7 @@ for(var i = 0; i < loginButton.length; i++)
 }
 for(var i = 0; i < paymentButton.length; i++)
 {
+	paymentButton[i].addEventListener('click',loadPaymentInfo);
 	paymentButton[i].addEventListener('click',displayPayModal);
 }
 for(var i = 0; i < accountButton.length; i++)
@@ -24,11 +25,12 @@ for(var i = 0; i < accountButton.length; i++)
 	accountButton[i].addEventListener('click',displayAccountModal);
 }
 
-function loadPaymentInfo(){
+function loadPaymentInfo()
+{
 	console.log("fetching payment info"); 
-	var user_id = $.cookie('myCookie'); 
-
-	
+	var user_id =  1; //$.cookie(''); 
+	var user = new Object();
+	user.user_id = user_id; 
 	if(!user_id){
 		console.log("user_id not defined.");
 	} else {
@@ -36,9 +38,11 @@ function loadPaymentInfo(){
 
 		$.ajax({
 			type: 'POST',
-			url: 'http://localhost/tacotruck/php/accountCreation.php',
-			data: $(this).serialize(),
-			success: function(){
+			url: '/TacoTruck/api/paymentinfo',
+			content: 'application/json',
+			data: JSON.stringify(user),
+			success: function(data){
+				console.log(data)
 				alert("you totally got it!");
 			},
 			error: function(){

@@ -5,7 +5,7 @@
 
 	$app->post('/login', 'login');
 	$app->post('/newaccount', 'createAccount');
-	$app->get('/paymentinfo/:id', 'getPaymentInfo');
+	$app->post('/paymentinfo', 'getPaymentInfo');
 	$app->post('/orders', 'createOrder');
 	$app->get('/locations', 'findTrucks');
 
@@ -99,12 +99,12 @@
 	{
 		$request = \Slim\Slim::getInstance()->request();
 		$userID = json_decode($request->getBody());
-		$sql = "SELECT given_name, surname, email, phone_no, credit_type, credit_no FROM Users Where user_id = :id";
+		$sql = "SELECT given_name, surname, email, phone_no, credit_type, credit_no FROM Users WHERE user_id = :id";
 		try
 		{
 			$db = getConnection();
 			$stmt = $db->prepare($sql);
-			$stmt->bindParam("id", $userID->id);
+			$stmt->bindParam("id", $userID->user_id);
 			$stmt->execute();
 			$userInfo = $stmt->fetch(PDO::FETCH_OBJ);
 			$db = null;
@@ -166,7 +166,7 @@
 	{
 		$dbhost="127.0.0.1";
 		$dbuser="root";
-		$dbpass="";
+		$dbpass="root";
 		$dbname="TacoTruck";
 		$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
