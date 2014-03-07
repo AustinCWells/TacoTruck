@@ -203,8 +203,7 @@ var getAddresses = function(){
 	    	addresses = JSON.parse(addresses);
 	    	codeAddress(addresses);
 	    	addAddressesToMenu(addresses);
-	    	/* HIDING MAP FOR NOW ON MAP MENU PAGE
-	    	 WILL ADD TO MODAL PAGE */
+	    	
 	    	$("#mapMenu").hide();
 	    }
 	}
