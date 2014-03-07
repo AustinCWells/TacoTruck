@@ -5,9 +5,20 @@
 	margin-left:20px;
 }
 
-.taco {
-	border: solid 1px black;
+table {
+	border-collapse:collapse;
+	width:100%;
+}
 
+table tr td {
+	border: solid 1px black;
+	width:50%;
+
+
+}
+
+.right {
+	text-align: right;
 }
 
 #orderView {

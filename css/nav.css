@@ -21,7 +21,7 @@ nav h3 {
 	height:30px;
 	font-size: 12;
 	text-align: center;
-	border-bottom: solid 3px white;
+	border-bottom: solid 3px #D6D6D6;
 }
 
 nav h3:hover {
