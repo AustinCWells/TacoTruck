@@ -10,16 +10,21 @@
 #mapMenu li {
 	transition: all, .2s;
 	-webkit-transition: all, .2s; 
-	background-color: rgba(207,207,207, .3);
+	background-color:  #B0431C; /*rgba(207,207,207, .3)*/
 	margin-right: 1em;
 	border: solid 1px;
 	border-bottom-width: .1em;
 	margin-bottom: .2em;
 	border-color: rgba(255, 255, 255, .8);
+	border-radius: 10px;
 }
 
 #mapMenu span {
 	padding-bottom: 1em;
+}
+
+#mapMenu {
+	padding-right: 5px;
 }
 
 #mapMenu ul {
@@ -27,4 +32,8 @@
 	list-style-image: none; 
 	margin: 0;
 	padding: 0;
+}
+
+#mapMenu  h3 {
+	font-size: 2em;
 }
