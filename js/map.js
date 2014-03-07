@@ -3,6 +3,7 @@ var geoAddresses = [];
 var geocoder;
 var addresses;
 var currentWindow = null;
+var currentTab = null;
 
 
 var codeAddress = function(addresses){
@@ -66,7 +67,32 @@ var addMarkers = function(){
 
 		makeInfoWindowEvent(map, infoWindow, marker);
 
+
 	}
+	$("li[class*=loc]").click(function(){
+
+		if(currentTab === null){
+			$(this).children("div").removeClass("hidden");
+			currentTab = $(this);
+		}
+
+		else{
+			currentTab.children("div").addClass("hidden")
+			$(this).children("div").removeClass("hidden");
+			currentTab = $(this);
+		}
+
+	});
+
+	$("li[class*=loc]").hover(
+		function(){
+			$(this).addClass("hover");
+		},
+		function(){
+			$(this).removeClass("hover");
+		});
+
+
 }
 
 var initialize = function(location){
@@ -107,6 +133,7 @@ var makeInfoWindowEvent = function(map, infowindow, marker) {
 
 	google.maps.event.addListener(marker, 'mouseover', function() {
   		infowindow.open(map, marker);
+  		$("li[class*=loc]").children("div").addClass("hidden");
   		$(loc[0]).children(":nth-child(2)").removeClass("hidden");
 	});
 
@@ -117,13 +144,14 @@ var makeInfoWindowEvent = function(map, infowindow, marker) {
 
  	google.maps.event.addDomListener(loc[0], 'mouseover', function(){
  		infowindow.open(map, marker);
-  		$(loc[0]).children(":nth-child(2)").removeClass("hidden");
  	});
 
 	google.maps.event.addDomListener(loc[0], 'mouseout', function(){
  		infowindow.close();
-  		$(loc[0]).children(":nth-child(2)").addClass("hidden");
+  		
  	});
+
+
 
 
 }
@@ -177,3 +205,6 @@ var getAddresses = function(){
 	request.send();
 }
 
+ $(document).ready(function(){
+ 	console.log($("li[class*=loc]"));
+ });

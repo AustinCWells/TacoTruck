@@ -8,74 +8,57 @@
 	<script src="js/jquery.cookie.js"></script>
 	<script language="javascript"  type="text/javascript" src="js/modal.js"> </script>  
 	<script language="javascript"  type="text/javascript" src="js/nav.js"> </script> 
-	<link href="http://fonts.googleapis.com/css?family=Raleway:400,300,700" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">	<link rel="stylesheet" href="css/main.css" type="text/css">
+	<link rel="stylesheet" href="css/main.css" type="text/css">
 	<link rel="stylesheet" href="css/index.css" type="text/css">
 	<link href="css/nav.css" rel="stylesheet">
 
 </head>
 <body>
-	 <?php include "components/nav.html"; ?> 
+	<?php include "components/nav.html"; ?>
 	<?php include "components/modals.html"; ?> 
 	<span class="currentPage" id="indexPage"></span>
-	<img  id="headerImage" src="img/background.jpg">
-	<img id="tacoTruck" src="img/taco_truck_logo.png" alt="Taco Truck">
 
+	<div class="section">
 
-
-	
-
-		<div class="grid charcoal">
-
-			<div class="grid-full white">
-				<h1 class="spotlightText"> WE MAKE AWESOME TACOS </h1>
+		<article id = "tacoMenu">
+			<div>
+				<h2>Taco Options</h2>
 			</div>
+		</article>
 
+		<article id = "info">
 
-			<div id = "aboutUs" class="grid-third invert">
-				<img class="icon" src="img/us.png">
+			<section id = "aboutUs">
 				<h2>About Us</h2>
 				<div class = "subContent">
-					<p>We are bringing Taco Food Trucks into the new age of online ordering.  Where you can custom your taco orders from the convenance of the web.  Just pick out a taco truck near you.  Click order and customize as many tacos you want and then all to your taco sack. And just hit checkout and pay. Easy as 1, 2, 3 and you will have your tacos waiting for you at the truck you selected. </p>
+					<p>We are bringing tacos into the digital age with the introduction of online taco ordering. Custom order your favorite tacos from school, the office, or your favorite recliner with only a few clicks.</p>
+					<p>Choose a tortilla and build your tacos with a wide variety of fillings, rice, beans, cheese, and more! Once you have added all your tacos to the Taco Sack, select one of our five truck locations and we'll have your sack ready for you. </p>
 				</div>
-			</div>
+			</section>
 
-			<div id = "createAnAccount" class="grid-third invert">
-				<img class="icon" src="img/gear.png">
+			<section id = "createAnAccount">
 				<h2>Create An Account</h2>
 				<div class = "subContent">
-					<div> We save you last order for ease of repurchasing </div>
-					<div> No need to re-enter credit card info each</div>
+				<ul><b>Why use our site?</b>
+					<li>Convenient, easy to use ordering</li>
+					<li>We'll remember your credit card info, so you can checkout with just one click</li>
 				</ul>
-				</div>
-			</div>
+			</section>
 
-			<div id="sackInfo" class="grid-third invert">
-				<img class="icon"src="img/sack.png">
-				<h2>Taco Sack</h2>
-				<div class = "subContent">
-					<!-- <img src="img/taco_sack.png" id = "tacoSack"> -->
-					<p>Your cart or as we call it you Taco Sack.  As you add tacos to your order they will appear in your sack.  Ready for you to checkout when you are ready.</p>
-				</div>
-			</div>
-
-		
-			<div class="grid-full white">
-				<article id = "tacoMenu">
-					<div>
-						<h2>Taco Options</h2>
+			<section id = "sackInfo">
+					<h2>Taco Sack</h2>
+					<div class = "subContent">
+						<img src="img/taco_sack.png" id = "tacoSack">
+						<p>Your cart or as we call it you Taco Sack.  As you add tacos to your order they will appear in your sack.  Ready for you to checkout when you are ready.</p>
 					</div>
-				</article>
-			</div>
+			</section>
 
-		</div>
-
-
+		</article>
 
 
 		<div class = "end"></div>
 
-
+	</div>
 
 </body>
 </html>

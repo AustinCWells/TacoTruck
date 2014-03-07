@@ -8,6 +8,7 @@
 	$app->post('/paymentinfo', 'getPaymentInfo');
 	$app->post('/orders', 'createOrder');
 	$app->get('/locations', 'findTrucks');
+	$app->get('/menu', 'getMenu');
 
 	$app->run();
 
@@ -161,12 +162,33 @@
 		}
 	}
 
+	function getMenu()
+	{
+		$sql = "SELECT * FROM Menu";
+		try
+		{
+			$db = getConnection();
+			$stmt = $db->query($sql);
+			while($row = $stmt->fetch(PDO::FETCH_ASSOC))
+			{
+				$type = $row['itemType'];
+				$info = array('id' => $row['tacoFixinId'], 'name' => $row['name'], 'price' => (double)$row['price'], 'heatRating' => $row['heatRating']);
+				$menu[$type][] = $info;
+			}
+			echo '{"menu": ' . json_encode($menu) . '}';
+		}
+		catch(PDOException $e) 
+		{
+			echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+		}
+	}
+
 	// WORKING
 	function getConnection() 
 	{
 		$dbhost="127.0.0.1";
 		$dbuser="root";
-		$dbpass="root";
+		$dbpass="";
 		$dbname="TacoTruck";
 		$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

@@ -84,7 +84,6 @@ console.log(data);
 		'" data-price="' + cheese[i].price.toFixed(2) + '"><label for="' + cheese[i].name + '">' + ' ' + cheese[i].name + ' $' + cheese[i].price.toFixed(2) + '</label><br>';
 		$("#cheeseList").append(html);
 	}		
-});
 
 /*
 document.getElementById("tacoSubmit").onclick = (function (e) {
@@ -137,7 +136,23 @@ tacoTotal = tacoTotal * parseInt($('select[name="Quantity"]').val());
 //console.log($(extrasList[1]).data('price'));
 //console.log($(extrasList[1]).val());
 
-$("#tacoSack").append('<table class="taco" id="taco' + tacoNumber + '"><tr><td>Taco #' + tacoNumber + '</td><td class="right">Quantity: ' + $('select[name="Quantity"]').val() + '</tr><tr><td>' + $('input[name="filling"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="filling"]:checked').data('price') + '</td></tr><tr><td>' + $('input[name="tortilla"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="tortilla"]:checked').data('price') + '</td></tr><tr><td>' + $('input[name="rice"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="rice"]:checked').data('price') + '</td></tr><tr><td>' + $('input[name="beans"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="beans"]:checked').data('price') + '</td></tr><tr><td>' + $('input[name="sauces"]:checked').val() + '</td><td class="right">$0.00</td></tr></table>');
+$("#tacoSack").append('<table class="taco" id="taco' + tacoNumber + '"><tr><td>Taco #' + tacoNumber + '</td><td class="right">Quantity: <select onchange="quantityChange(this)" id="q' + tacoNumber +  '"name="quantity' + tacoNumber + '"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select>' + '</tr><tr><td>' + $('input[name="filling"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="filling"]:checked').data('price') + '</td></tr><tr><td>' + $('input[name="tortilla"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="tortilla"]:checked').data('price') + '</td></tr><tr><td>' + $('input[name="rice"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="rice"]:checked').data('price') + '</td></tr><tr><td>' + $('input[name="beans"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="beans"]:checked').data('price') + '</td></tr><tr><td>' + $('input[name="sauces"]:checked').val() + '</td><td class="right">$0.00</td></tr></table>');
+
+
+$('#q' + tacoNumber).val($('select[name="Quantity"]').val());
+
+/*
+var thisSelector = $('#q' + tacoNumber);
+var optionNumber = $('select[name="Quantity"]').val();
+thisSelector.options[thisSelector.options.SelectedIndex].selected = true;
+
+//$('#q' + tacoNumber + '.' + $('select[name="Quantity"]').append()
+/*
+var opt = $('option[val="' + select[name="Quantity"].val() + '"]'),
+    html = $('#q' + tacoNumber + '.' + $('select[name="Quantity"]').append(opt.clone()).html();
+html = html.replace(/\>/, ' selected="selected">');
+opt.replaceWith(html);
+*/
 //if(thereareVEGGIES) {
 for(var i=0;i<vegetablesList.length;i++) {
 	$('#taco' + tacoNumber).append('<tr><td>' + $(vegetablesList[i]).val() + '</td><td class="right">$0.00</td></tr>');
@@ -150,30 +165,23 @@ for(var i=0;i<extrasList.length;i++) {
 	$('#taco' + tacoNumber).append('<tr><td>' + $(extrasList[i]).val() + '</td><td class="right">$' +  $(extrasList[i]).data('price') + '</td></tr>');
 }
 //}
-$('#taco' + tacoNumber).append('<tr><td>Total:</td><td class="right">$' + parseFloat(tacoTotal).toFixed(2) + '</td></tr></table>');
-$("#tacoSack").append('<input type="button" class="updateButton" id="quantity' + tacoNumber + '" value="Edit Quantity"><input type="button" class="removeButton" id="remove' + tacoNumber + '" value="Remove">');
-
+$('#taco' + tacoNumber).append('<tr><td>Total:</td><td id="tacoTotal' + tacoNumber + '" class="right">$' + parseFloat(tacoTotal).toFixed(2) + '</td></tr></table>');
+$("#tacoSack").append('<input type="button" class="removeButton" id="remove' + tacoNumber + '" value="Remove">');
 
 document.getElementsByClassName("removeButton")[tacoNumber-1].onclick = (function (e) {
 	var thisTaco = this.getAttribute("id");
 	var thisTacoNumber = thisTaco.substring(6,7);
+	var thisTacoPrice = $('tacoTotal' + thisTacoNumber);
+	console.log('tacoTotal' + thisTacoNumber);
+	console.log(thisTacoPrice);
 
 	var tacoIDToRemove = 'taco' + thisTacoNumber;
 	var tacoToRemove = document.getElementById(tacoIDToRemove);
 	tacoToRemove.parentNode.removeChild(tacoToRemove);
 
-	var updateIDToRemove = 'quantity' + thisTacoNumber;
-	var updateToRemove = document.getElementById(updateIDToRemove);
-	updateToRemove.parentNode.removeChild(updateToRemove);
 
 	this.parentNode.removeChild(this);
-	/*
-	var testCount = 0;
-	for(var i= thisTacoNumber;i<tacoNumber;i++) {
-		console.log(i+1);
-	}
-	//console.log("testCount=" + testCount + " thisTacoNumber=" + thisTacoNumber + " tacoNumber=" + tacoNumber);
-	*/
+
 });
 
 orderTotal = orderTotal + tacoTotal;
@@ -183,6 +191,31 @@ $("#totalSpan").text('' + orderTotal.toFixed(2));
 document.getElementById("tacoForm").reset();
 tacoNumber++;
 });
+}, false);
+
+function quantityChange(e) {
+	var currentTacoID = "taco" + $(e).attr("id").substring(1,2);
+	var currentTaco = document.getElementById(currentTacoID);
+	var pricesToAdd = currentTaco.getElementsByClassName("right");
+	var priceTotal = 0;
+	for(var i=1;i<pricesToAdd.length-1;i++) {
+		var currentPrice = parseFloat(pricesToAdd[i].innerHTML.substring(1,5));
+		//console.log(currentPrice);
+		priceTotal = priceTotal + currentPrice;
+	}
+
+	var totalChanger = parseFloat($('#totalSpan').html()) - parseFloat(pricesToAdd[pricesToAdd.length-1].innerHTML.substring(1,5));
+
+	priceTotal = priceTotal * $('select[id="q' + $(e).attr("id").substring(1,2) + '"]').val();
+	$(pricesToAdd[pricesToAdd.length-1]).text("$" + priceTotal.toFixed(2));
+
+	totalChanger = totalChanger + priceTotal;
+
+	orderTotal = totalChanger;
+
+	$('#totalSpan').text('' + totalChanger.toFixed(2));
+};
+
 
 
 
