@@ -1,18 +1,18 @@
 article#tacoMenu {
-	/*border-width: 15px;
-	-webkit-border-image:url(../img/menu_border.png) repeat;*/
-	border: 3px solid rgba(255, 0, 0, .8);
 	border-radius: 3em;
+	background-color: #B0431C;
+	box-shadow: 3px 2px 17px #888;
 }
 
 article {
 	width: 45%;
 	padding: 1em;
-	background-color: beige;
+	margin-left: 1%;
+	margin-right: 1%;
 }
 
 #sackInfo img {
-	width: 7%;
+	width: 16%;
 	float: left;
 	padding: 1em;
 
@@ -52,9 +52,38 @@ table, th, td {
 section{
 	padding-left: 3.5%;
 	padding-right: 3.5%;
-	padding-bottom: 5px;
+	padding-bottom: 10px;
 }
 
 #sauces td:nth-child(2) {
 	text-align: center;
+}
+
+#info h2{
+	display: inline-block;
+	padding: 0em 1em;
+	margin: 0em;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+	font-size: 2em;
+	background-color: #FFB83D;
+}
+
+.subContent{
+	margin-bottom: 2em;
+    padding: 1em 1em;
+    box-shadow: 3px 2px 17px #888;
+    background-color: #B0431C;
+    border-bottom-left-radius: 20px;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px
+}
+
+#tacoMenu h2 {
+	font-size: 2em;
+	text-align: center;
+}
+
+.name{
+	padding-right: 25px;
 }
