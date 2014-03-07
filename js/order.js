@@ -25,6 +25,7 @@ console.log(data);
 		'<input id="' + filling[i].name + '" type="radio" name="filling" value="' + filling[i].name +
 		'" data-price="' + filling[i].price.toFixed(2) + '" data-id="' + filling[i].tacoFixinId  + '"><label for="' + filling[i].name + '">' + ' ' + filling[i].name + ' $' + filling[i].price.toFixed(2) + '</label><br>';
 		$("#fillingList").append(html);
+		if(i=0) { var firstFilling = filling[i].name;}
 
 
 	}
@@ -34,6 +35,7 @@ console.log(data);
 		'<input id="' + tortilla[i].name + '" type="radio" name="tortilla" value="' + tortilla[i].name +
 		'" data-price="' + tortilla[i].price.toFixed(2) + '" data-id="' + tortilla[i].tacoFixinId  + '"><label for="' + tortilla[i].name + '">' + ' ' + tortilla[i].name + ' $' + tortilla[i].price.toFixed(2) + '</label><br>';
 		$("#tortillaList").append(html);
+		if(i=0) {var firstTortilla = tortilla[i].name;}
 	}
 
     for(var i=0;i<rice.length;i++) {
@@ -98,6 +100,10 @@ while($('input[name="vegetables"]:clicked'))
 	$('input[name="vegetables"]:clicked')
 });
 */
+
+$('input[id="' + firstFilling + '"]').prop("checked",true);
+$('input[name="' + firstTortilla + '"]').prop("checked",true);
+
 document.getElementById("vegetableClear").onclick = (function (e) {
 	$('input[name="vegetables"]:checked').prop("checked", false);
 });
