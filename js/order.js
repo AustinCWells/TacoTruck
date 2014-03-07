@@ -5,16 +5,17 @@ $.cookie.json = true;
 var list = $.cookie("location");
 console.log(list);
 
-$.getJSON("json/taco_truck_menu.json", function(data) {
-    console.log(data);
-    var filling = data.menu.type;
-    var tortilla = data.menu.tortillas;
-    var rice = data.menu.rice;
-    var beans = data.menu.beans;
-    var sauces = data.menu.sauces;
-    var vegetables = data.menu.vegetables;
-    var extras = data.menu.extras;
-    var cheese = data.menu.cheese;
+var menu = $.cookie("menu");
+console.log(menu);
+
+var filling = menu.type;
+var tortilla = menu.tortillas;
+var rice = menu.rice;
+var beans = menu.beans;
+var sauces = menu.sauces;
+var vegetables = menu.vegetables;
+var extras = menu.extras;
+var cheese = menu.cheese;
 
     for(var i=0;i<filling.length;i++) {
     	//console.log(filling[i]);
