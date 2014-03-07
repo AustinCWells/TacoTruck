@@ -24,11 +24,11 @@
 	<?php include "components/nav.html"; ?>
 	<?php include "components/modals.html"; ?> 
 	<span class="currentPage" id="mapPage"></span>
-<div class="section">
+
 	<div id = "mapMenu">
 
 	</div>
 	<div id="map"></div>
-</div>
+
 </body>
 </html>

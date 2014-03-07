@@ -7,11 +7,11 @@
     <meta content="width=device-width, initial-scale=1" name="viewport">
 
     <title>Place Your Order</title>
-    <script language="javascript"  type="text/javascript" src="js/nav.js"> </script> 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script language="javascript"  type="text/javascript" src="js/nav.js"> </script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> 
 	<script src="js/jquery.cookie.js"></script> 
-    <script src="js/order.js"></script>
-    <script language="javascript"  type="text/javascript" src="js/modal.js"> </script> 
+    <script src="js/order.js"></script> 
+        <script language="javascript"  type="text/javascript" src="js/modal.js"> </script> 
   	<script language="javascript" type="text/javascript" src="js/formSubmit.js"> </script> 
     <link href="css/main.css" rel="stylesheet">
     <link href="css/order.css" rel="stylesheet">

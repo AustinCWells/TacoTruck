@@ -4,8 +4,7 @@ $(document).ready(function(){
 	
 
 
-	$.getJSON(/*"json/taco_truck_menu.json"*/"/tacotruck/api/menu", function(menu) {
-		console.log("he");
+	$.getJSON("json/taco_truck_menu.json"/*"/tacotruck/api/menu"*/, function(menu) {
 		$.cookie("menu", menu);
 		var menu = menu.menu;
 		var keys = Object.keys(menu);
