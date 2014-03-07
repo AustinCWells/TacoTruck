@@ -37,7 +37,7 @@
 				<img class="icon" src="img/us.png">
 				<h2>About Us</h2>
 				<div class = "subContent">
-					<p>We are bringing Taco Food Trucks into the new age of online ordering.  Where you can custom your taco orders from the convenance of the web.  Just pick out a taco truck near you.  Click order and customize as many tacos you want and then all to your taco sack. And just hit checkout and pay. Easy as 1, 2, 3 and you will have your tacos waiting for you at the truck you selected. </p>
+					<p>Welcome to the new age of taco food trucks! On this site, you can create custom taco orders from the convenience of your own computer.  Just pick out a taco truck near you, click order, and customize as many tacos you want. All these orders get added to your trusty taco sack so all you need to do is just hit checkout and pay. It's as simple as that! So go on and order, your tacos will be waiting for you. </p>
 				</div>
 			</div>
 
@@ -45,8 +45,8 @@
 				<img class="icon" src="img/gear.png">
 				<h2>Create An Account</h2>
 				<div class = "subContent">
-					<div> We save you last order for ease of repurchasing </div>
-					<div> No need to re-enter credit card info each</div>
+					<div> We save your last order for ease of repurchasing </div>
+					<div> No need to re-enter credit card info each time you order from us!</div>
 				</ul>
 				</div>
 			</div>
@@ -56,7 +56,7 @@
 				<h2>Taco Sack</h2>
 				<div class = "subContent">
 					<!-- <img src="img/taco_sack.png" id = "tacoSack"> -->
-					<p>Your cart or as we call it you Taco Sack.  As you add tacos to your order they will appear in your sack.  Ready for you to checkout when you are ready.</p>
+					<p>Your cart, or as we call it your Taco Sack, is your best friend!  As you add tacos to your order they will appear in your sack; ready for you to checkout when your ready to chow down on some of our quality tacos.</p>
 				</div>
 			</div>
 
