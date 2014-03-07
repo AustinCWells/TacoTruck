@@ -23,7 +23,7 @@ console.log(data);
 
 		var html = 
 		'<input id="' + filling[i].name + '" type="radio" name="filling" value="' + filling[i].name +
-		'" data-price="' + filling[i].price.toFixed(2) + '"><label for="' + filling[i].name + '">' + ' ' + filling[i].name + ' $' + filling[i].price.toFixed(2) + '</label><br>';
+		'" data-price="' + filling[i].price.toFixed(2) + '" data-id="' + filling[i].tacoFixinId  + '"><label for="' + filling[i].name + '">' + ' ' + filling[i].name + ' $' + filling[i].price.toFixed(2) + '</label><br>';
 		$("#fillingList").append(html);
 
 
@@ -32,7 +32,7 @@ console.log(data);
     	//console.log(tortilla[i]);
 		var html = 
 		'<input id="' + tortilla[i].name + '" type="radio" name="tortilla" value="' + tortilla[i].name +
-		'" data-price="' + tortilla[i].price.toFixed(2) + '"><label for="' + tortilla[i].name + '">' + ' ' + tortilla[i].name + ' $' + tortilla[i].price.toFixed(2) + '</label><br>';
+		'" data-price="' + tortilla[i].price.toFixed(2) + '" data-id="' + tortilla[i].tacoFixinId  + '"><label for="' + tortilla[i].name + '">' + ' ' + tortilla[i].name + ' $' + tortilla[i].price.toFixed(2) + '</label><br>';
 		$("#tortillaList").append(html);
 	}
 
@@ -40,7 +40,7 @@ console.log(data);
     	//console.log(rice[i]);
 		var html = 
 		'<input id="' + rice[i].name + '" type="radio" name="rice" value="' + rice[i].name +
-		'" data-price="' + rice[i].price.toFixed(2) + '"><label for="' + rice[i].name + '">' + ' ' + rice[i].name + ' $' + rice[i].price.toFixed(2) + '</label><br>';
+		'" data-price="' + rice[i].price.toFixed(2) + '" data-id="' + rice[i].tacoFixinId  + '"><label for="' + rice[i].name + '">' + ' ' + rice[i].name + ' $' + rice[i].price.toFixed(2) + '</label><br>';
 		$("#riceList").append(html);
 	}
 
@@ -48,14 +48,14 @@ console.log(data);
     	//console.log(beans[i]);
 		var html = 
 		'<input id="' + beans[i].name + '" type="radio" name="beans" value="' + beans[i].name +
-		'" data-price="' + beans[i].price.toFixed(2) + '"><label for="' + beans[i].name + '">' + ' ' + beans[i].name + ' $' + beans[i].price.toFixed(2) + '</label><br>';
+		'" data-price="' + beans[i].price.toFixed(2) + '" data-id="' + beans[i].tacoFixinId  + '"><label for="' + beans[i].name + '">' + ' ' + beans[i].name + ' $' + beans[i].price.toFixed(2) + '</label><br>';
 		$("#beansList").append(html);
 	}
 
     for(var i=0;i<sauces.length;i++) {
     	//console.log(sauces[i]);
 		var html = 
-		'<input id="' + sauces[i].name + '" type="radio" name="sauces" value="' + sauces[i].name +
+		'<input id="' + sauces[i].name + '" type="radio" name="sauces" value="' + sauces[i].name + '" data-id="' + sauces[i].tacoFixinId  +
 		'"><label for="' + sauces[i].name + '">' + ' ' + sauces[i].name + '</label><br>';
 		$("#saucesList").append(html);
 	}	
@@ -64,7 +64,7 @@ console.log(data);
     for(var i=0;i<vegetables.length;i++) {
     	//console.log(vegetables[i]);
 		var html = 
-		'<input id="' + vegetables[i].name + '" type="checkbox" name="vegetables" value="' + vegetables[i].name +
+		'<input id="' + vegetables[i].name + '" type="checkbox" name="vegetables" value="' + vegetables[i].name + '" data-id="' + vegetables[i].tacoFixinId  +
 		'"><label for="' + vegetables[i].name + '">' + ' ' + vegetables[i].name + '</label><br>';
 		$("#vegetablesList").append(html);
 	}
@@ -73,7 +73,7 @@ console.log(data);
     	//console.log(extras[i]);
 		var html = 
 		'<input id="' + extras[i].name + '" type="checkbox" name="extras" value="' + extras[i].name +
-		'" data-price="' + extras[i].price.toFixed(2) + '"><label for="' + extras[i].name + '">' + ' ' + extras[i].name + ' $' + extras[i].price.toFixed(2) + '</label><br>';
+		'" data-price="' + extras[i].price.toFixed(2) + '" data-id="' + extras[i].tacoFixinId  + '"><label for="' + extras[i].name + '">' + ' ' + extras[i].name + ' $' + extras[i].price.toFixed(2) + '</label><br>';
 		$("#extrasList").append(html);
 	}
 
@@ -81,7 +81,7 @@ console.log(data);
     	//console.log(cheese[i]);
 		var html = 
 		'<input id="' + cheese[i].name + '" type="radio" name="cheese" value="' + cheese[i].name +
-		'" data-price="' + cheese[i].price.toFixed(2) + '"><label for="' + cheese[i].name + '">' + ' ' + cheese[i].name + ' $' + cheese[i].price.toFixed(2) + '</label><br>';
+		'" data-price="' + cheese[i].price.toFixed(2) + '" data-id="' + cheese[i].tacoFixinId  + '"><label for="' + cheese[i].name + '">' + ' ' + cheese[i].name + ' $' + cheese[i].price.toFixed(2) + '</label><br>';
 		$("#cheeseList").append(html);
 	}		
 
