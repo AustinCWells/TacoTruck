@@ -10,6 +10,7 @@
 	<script type="text/javascript" src = "js/map.js"></script>
 	<script language="javascript"  type="text/javascript" src="js/modal.js"> </script> 
   	<script language="javascript" type="text/javascript" src="js/formSubmit.js"> </script> 
+  	<script language="javascript"  type="text/javascript" src="js/nav.js"> </script> 
 	<link rel="stylesheet" href="css/main.css" type="text/css">
 	<link rel="stylesheet" href="css/map.css" type="text/css">
 	<link href="css/nav.css" rel="stylesheet">
