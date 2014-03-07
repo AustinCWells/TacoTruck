@@ -143,7 +143,7 @@ var addAddressesToMenu = function(list){
 	for( var i = 0; i < list.length; i++){
 		add += "<li class = \"loc" + i.toString() + "\"><h4>" + list[i].name + "</h4><div class = \"hidden\"><span>"+ addresses[i].address + "<br>" + 
 		addresses[i].state + ", " + addresses[i].city + " " + addresses[i].zipcode + 
-		"</span><form action = \"order.html\"><input type = \"submit\" value = \"Select This Location\"></form></div></li>";
+		"</span><form action = \"order.php\"><input type = \"submit\" value = \"Select This Location\"></form></div></li>";
 	}
 
 	add += "</ul";
