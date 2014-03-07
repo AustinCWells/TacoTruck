@@ -85,6 +85,19 @@ console.log(data);
 		$("#cheeseList").append(html);
 	}		
 
+/*
+document.getElementById("tacoSubmit").onclick = (function (e) {
+	e.preventDefault();
+});
+*/
+
+/*
+document.getElementById("vegetableClear").onclick = (function (e) {
+var veggieList = document.getElementsBy
+while($('input[name="vegetables"]:clicked'))
+	$('input[name="vegetables"]:clicked')
+});
+*/
 document.getElementById("vegetableClear").onclick = (function (e) {
 	$('input[name="vegetables"]:checked').prop("checked", false);
 });
@@ -184,6 +197,7 @@ $("#totalSpan").text('' + orderTotal.toFixed(2));
 document.getElementById("tacoForm").reset();
 tacoNumber++;
 });
+}, false);
 
 function quantityChange(e) {
 	var currentTacoID = "taco" + $(e).attr("id").substring(1,2);
@@ -208,7 +222,7 @@ function quantityChange(e) {
 	$('#totalSpan').text('' + totalChanger.toFixed(2));
 };
 
-});
+
 
 
 
