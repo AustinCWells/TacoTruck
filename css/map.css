@@ -37,3 +37,8 @@
 #mapMenu  h3 {
 	font-size: 2em;
 }
+
+.hover {
+	background-color: blue !important;
+	box-shadow: 3px 2px 17px #888;
+}

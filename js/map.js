@@ -86,10 +86,10 @@ var addMarkers = function(){
 
 	$("li[class*=loc]").hover(
 		function(){
-			$(this).css("width: 125%");
+			$(this).addClass("hover");
 		},
 		function(){
-			$(this).css("width: 100%");
+			$(this).removeClass("hover");
 		});
 
 
