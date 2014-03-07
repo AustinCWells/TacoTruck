@@ -91,6 +91,18 @@ document.getElementById("tacoSubmit").onclick = (function (e) {
 	e.preventDefault();
 });
 */
+
+/*
+document.getElementById("vegetableClear").onclick = (function (e) {
+var veggieList = document.getElementsBy
+while($('input[name="vegetables"]:clicked'))
+	$('input[name="vegetables"]:clicked')
+});
+*/
+document.getElementById("vegetableClear").onclick = (function (e) {
+	$('input[name="vegetables"]:checked').prop("checked", false);
+});
+
 document.getElementById("clearButton").onclick = (function (e) {
 document.getElementById("tacoForm").reset();
 
@@ -103,28 +115,6 @@ $("#totalSpan").text('' + orderTotal.toFixed(2));
 document.getElementById("tacoForm").onsubmit = (function formSubmit(e) {
 e.preventDefault();
 
-//var price = $('input[name="filling"]:checked').price();
-
-
-/*
-$("#taco").append($('<br>'));
-$("#taco").append($('input[name="filling"]:checked').val());
-$("#taco").append($('<br>'));
-$("#taco").append($('input[name="tortilla"]:checked').val());
-$("#taco").append($('<br>'));
-$("#taco").append($('input[name="rice"]:checked').val());
-$("#taco").append($('<br>'));
-$("#taco").append($('input[name="beans"]:checked').val());
-$("#taco").append($('<br>'));
-$("#taco").append($('input[name="sauces"]:checked').val());
-$("#taco").append($('<br>'));
-$("#taco").append($('input[name="vegetables"]:checked').val());//needs to increment over all possible checked vegetables
-$("#taco").append($('<br>'));
-$("#taco").append($('input[name="extras"]:checked').val());//needs to increment over all possible checked extras
-$("#taco").append($('<br>'));
-$("#taco").append($('input[name="cheese"]:checked').val());
-$("#taco").append($('<br>'));
-*/
 var vegetablesList = $('input[name="vegetables"]:checked').map(function() {
     return this;
 }).get();
@@ -148,18 +138,43 @@ tacoTotal = tacoTotal * parseInt($('select[name="Quantity"]').val());
 //console.log($(extrasList[1]).val());
 
 $("#tacoSack").append('<table class="taco" id="taco' + tacoNumber + '"><tr><td>Taco #' + tacoNumber + '</td><td class="right">Quantity: ' + $('select[name="Quantity"]').val() + '</tr><tr><td>' + $('input[name="filling"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="filling"]:checked').data('price') + '</td></tr><tr><td>' + $('input[name="tortilla"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="tortilla"]:checked').data('price') + '</td></tr><tr><td>' + $('input[name="rice"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="rice"]:checked').data('price') + '</td></tr><tr><td>' + $('input[name="beans"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="beans"]:checked').data('price') + '</td></tr><tr><td>' + $('input[name="sauces"]:checked').val() + '</td><td class="right">$0.00</td></tr></table>');
-
+//if(thereareVEGGIES) {
 for(var i=0;i<vegetablesList.length;i++) {
 	$('#taco' + tacoNumber).append('<tr><td>' + $(vegetablesList[i]).val() + '</td><td class="right">$0.00</td></tr>');
 }
+//}
 $('#taco' + tacoNumber).append('<tr><td>' + $('input[name="vegetables"]:checked').val() + '</td><td class="right">$0.00</td></tr>');
 $('#taco' + tacoNumber).append('<tr><td>' + $('input[name="cheese"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="cheese"]:checked').data('price') + '</td></tr>');
+//if(thereareEXTRAS) {
 for(var i=0;i<extrasList.length;i++) {
 	$('#taco' + tacoNumber).append('<tr><td>' + $(extrasList[i]).val() + '</td><td class="right">$' +  $(extrasList[i]).data('price') + '</td></tr>');
 }
+//}
 $('#taco' + tacoNumber).append('<tr><td>Total:</td><td class="right">$' + parseFloat(tacoTotal).toFixed(2) + '</td></tr></table>');
 $("#tacoSack").append('<input type="button" class="updateButton" id="quantity' + tacoNumber + '" value="Edit Quantity"><input type="button" class="removeButton" id="remove' + tacoNumber + '" value="Remove">');
 
+
+document.getElementsByClassName("removeButton")[tacoNumber-1].onclick = (function (e) {
+	var thisTaco = this.getAttribute("id");
+	var thisTacoNumber = thisTaco.substring(6,7);
+
+	var tacoIDToRemove = 'taco' + thisTacoNumber;
+	var tacoToRemove = document.getElementById(tacoIDToRemove);
+	tacoToRemove.parentNode.removeChild(tacoToRemove);
+
+	var updateIDToRemove = 'quantity' + thisTacoNumber;
+	var updateToRemove = document.getElementById(updateIDToRemove);
+	updateToRemove.parentNode.removeChild(updateToRemove);
+
+	this.parentNode.removeChild(this);
+	/*
+	var testCount = 0;
+	for(var i= thisTacoNumber;i<tacoNumber;i++) {
+		console.log(i+1);
+	}
+	//console.log("testCount=" + testCount + " thisTacoNumber=" + thisTacoNumber + " tacoNumber=" + tacoNumber);
+	*/
+});
 
 orderTotal = orderTotal + tacoTotal;
 $("#totalSpan").text('' + orderTotal.toFixed(2));
@@ -168,3 +183,7 @@ $("#totalSpan").text('' + orderTotal.toFixed(2));
 document.getElementById("tacoForm").reset();
 tacoNumber++;
 });
+
+
+
+

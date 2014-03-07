@@ -54,7 +54,8 @@
 	</div>
 	<h2>Vegetables</h2>
 	<div id="vegetablesList">
-	</div>
+	</div><input type="button" id="vegetableClear" value="Clear Vegetables">
+
 </section>
 <section class="collumn">
 	<h2>Cheese</h2>
