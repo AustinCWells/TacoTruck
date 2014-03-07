@@ -5,11 +5,9 @@ $.cookie.json = true;
 var list = $.cookie("location");
 console.log(list);
 
-var menu = $.cookie("menu");
-console.log(menu);
+var data = $.cookie("menu");
+console.log(data);
 
-$.getJSON("json/taco_truck_menu.json", function(data) {
-    console.log(data);
     var filling = data.menu.type;
     var tortilla = data.menu.tortillas;
     var rice = data.menu.rice;
@@ -127,17 +125,40 @@ $("#taco").append($('<br>'));
 $("#taco").append($('input[name="cheese"]:checked').val());
 $("#taco").append($('<br>'));
 */
+var vegetablesList = $('input[name="vegetables"]:checked').map(function() {
+    return this;
+}).get();
+
+var extrasList = $('input[name="extras"]:checked').map(function() {
+    return this;
+}).get();
+
 var tacoTotal = parseFloat($('input[name="filling"]:checked').data('price'),10) +
 	parseFloat($('input[name="tortilla"]:checked').data('price'),10) +
 	parseFloat($('input[name="rice"]:checked').data('price'),10) +
 	parseFloat($('input[name="beans"]:checked').data('price'),10) +
-	parseFloat($('input[name="cheese"]:checked').data('price'),10) +
-	parseFloat($('input[name="extras"]:checked').data('price'),10);//needs to increment over all possible checked extras
+	parseFloat($('input[name="cheese"]:checked').data('price'),10);
+for(var i=0;i<extrasList.length;i++) {
+	tacoTotal = tacoTotal + parseFloat($(extrasList[i]).data('price'));
+}
 
 tacoTotal = tacoTotal * parseInt($('select[name="Quantity"]').val());
 
-$("#tacoSack").append('<table class="taco" id="taco' + tacoNumber + '"><tr><td>Taco #' + tacoNumber + '</td><td class="right">Quantity: ' + $('select[name="Quantity"]').val() + '</tr><tr><td>' + $('input[name="filling"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="filling"]:checked').data('price') + '</td></tr><tr><td>' + $('input[name="tortilla"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="tortilla"]:checked').data('price') + '</td></tr><tr><td>' + $('input[name="rice"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="rice"]:checked').data('price') + '</td></tr><tr><td>' + $('input[name="beans"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="beans"]:checked').data('price') + '</td></tr><tr><td>' + $('input[name="sauces"]:checked').val() + '</td><td class="right">$0.00</td></tr><tr><td>' + $('input[name="vegetables"]:checked').val() + '</td><td class="right">$0.00</td></tr><tr><td>' + $('input[name="cheese"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="cheese"]:checked').data('price') + '</td></tr><tr><td>' + $('input[name="extras"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="extras"]:checked').data('price') + '</td></tr><tr><td>Total:</td><td class="right">$' + parseFloat(tacoTotal).toFixed(2) + '</td></tr></table>');
-$("#tacoSack").append('<input type="button" class="editButton" id="edit' + tacoNumber + '" value="Edit"><input type="button" class="removeButton" id="remove' + tacoNumber + '" value="Remove">');
+//console.log($(extrasList[1]).data('price'));
+//console.log($(extrasList[1]).val());
+
+$("#tacoSack").append('<table class="taco" id="taco' + tacoNumber + '"><tr><td>Taco #' + tacoNumber + '</td><td class="right">Quantity: ' + $('select[name="Quantity"]').val() + '</tr><tr><td>' + $('input[name="filling"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="filling"]:checked').data('price') + '</td></tr><tr><td>' + $('input[name="tortilla"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="tortilla"]:checked').data('price') + '</td></tr><tr><td>' + $('input[name="rice"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="rice"]:checked').data('price') + '</td></tr><tr><td>' + $('input[name="beans"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="beans"]:checked').data('price') + '</td></tr><tr><td>' + $('input[name="sauces"]:checked').val() + '</td><td class="right">$0.00</td></tr></table>');
+
+for(var i=0;i<vegetablesList.length;i++) {
+	$('#taco' + tacoNumber).append('<tr><td>' + $(vegetablesList[i]).val() + '</td><td class="right">$0.00</td></tr>');
+}
+$('#taco' + tacoNumber).append('<tr><td>' + $('input[name="vegetables"]:checked').val() + '</td><td class="right">$0.00</td></tr>');
+$('#taco' + tacoNumber).append('<tr><td>' + $('input[name="cheese"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="cheese"]:checked').data('price') + '</td></tr>');
+for(var i=0;i<extrasList.length;i++) {
+	$('#taco' + tacoNumber).append('<tr><td>' + $(extrasList[i]).val() + '</td><td class="right">$' +  $(extrasList[i]).data('price') + '</td></tr>');
+}
+$('#taco' + tacoNumber).append('<tr><td>Total:</td><td class="right">$' + parseFloat(tacoTotal).toFixed(2) + '</td></tr></table>');
+$("#tacoSack").append('<input type="button" class="updateButton" id="quantity' + tacoNumber + '" value="Edit Quantity"><input type="button" class="removeButton" id="remove' + tacoNumber + '" value="Remove">');
 
 
 orderTotal = orderTotal + tacoTotal;
@@ -147,7 +168,3 @@ $("#totalSpan").text('' + orderTotal.toFixed(2));
 document.getElementById("tacoForm").reset();
 tacoNumber++;
 });
-
-
-}, false);
-
