@@ -28,7 +28,7 @@ for(var i = 0; i < accountButton.length; i++)
 function loadPaymentInfo()
 {
 	console.log("fetching payment info"); 
-	var user_id =  1; //$.cookie(''); 
+	var user_id =  $.cookie("user_id"); //$.cookie(''); 
 	var user = new Object();
 	user.user_id = user_id; 
 	if(!user_id){
@@ -42,8 +42,14 @@ function loadPaymentInfo()
 			content: 'application/json',
 			data: JSON.stringify(user),
 			success: function(data){
-				console.log(data)
-				alert("you totally got it!");
+				var obj = JSON.parse(data); 
+				console.log(obj);
+				$("input[name=creditNumber]").val(obj.info.credit_no);
+				$("input[name=fname]").val(obj.info.given_name);
+				$("input[name=lname]").val(obj.info.surname);
+				var selector = "select.formElement[name=card] option[value=" + obj.info.credit_type + "]";
+				console.log(selector);
+				$(selector).prop('selected', true);
 			},
 			error: function(){
 				alert("OH NO! someone has gone and screwed up."); 
