@@ -19,6 +19,12 @@
 
 	<div class="section">
 
+		<article id = "tacoMenu">
+			<div>
+				<h2>Taco Options</h2>
+			</div>
+		</article>
+
 		<article id = "info">
 
 			<section id = "aboutUs">
@@ -47,11 +53,6 @@
 
 		</article>
 
-		<article id = "tacoMenu">
-			<div>
-				<h2>Taco Options</h2>
-			</div>
-		</article>
 
 		<div class = "end"></div>
 

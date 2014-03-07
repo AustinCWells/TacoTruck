@@ -2,13 +2,15 @@ article#tacoMenu {
 	border-radius: 3em;
 	background-color: #B0431C;
 	box-shadow: 3px 2px 17px #888;
+	width: 45%;
 }
 
 article {
-	width: 45%;
+	width: 40%;
 	padding: 1em;
 	margin-left: 1%;
 	margin-right: 1%;
+	display: inline-block;
 }
 
 #sackInfo img {
@@ -18,13 +20,8 @@ article {
 
 }
 
-#info {
-	float: left;
-	margin-right: 10px;
-}
-
 #tacoMenu {
-	float: right;
+	float: left;
 }
 
 .end {
