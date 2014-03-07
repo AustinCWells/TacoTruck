@@ -7,7 +7,7 @@ $(document).ready(function(){
 		user.password = $("#loginPassword").val()
 		$.ajax({
 			type: 'POST',
-			url: '/TacoTruck/api/login',
+			url: '/api/login',
 			content: 'application/json',
 			data: JSON.stringify(user),
 			success: function(data){
@@ -61,7 +61,7 @@ $(document).ready(function(){
 		user.creditcard = $("#accountCreditCard").val(); 
 		$.ajax({
 			type: 'POST',
-			url: '/TacoTruck/api/newaccount',
+			url: '/api/newaccount',
 			data: JSON.stringify(user),
 			success: function( data ){
 			console.log(data);
