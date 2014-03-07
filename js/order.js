@@ -84,21 +84,7 @@ console.log(data);
 		'" data-price="' + cheese[i].price.toFixed(2) + '"><label for="' + cheese[i].name + '">' + ' ' + cheese[i].name + ' $' + cheese[i].price.toFixed(2) + '</label><br>';
 		$("#cheeseList").append(html);
 	}		
-});
 
-/*
-document.getElementById("tacoSubmit").onclick = (function (e) {
-	e.preventDefault();
-});
-*/
-
-/*
-document.getElementById("vegetableClear").onclick = (function (e) {
-var veggieList = document.getElementsBy
-while($('input[name="vegetables"]:clicked'))
-	$('input[name="vegetables"]:clicked')
-});
-*/
 document.getElementById("vegetableClear").onclick = (function (e) {
 	$('input[name="vegetables"]:checked').prop("checked", false);
 });
@@ -220,9 +206,9 @@ function quantityChange(e) {
 	orderTotal = totalChanger;
 
 	$('#totalSpan').text('' + totalChanger.toFixed(2));
-}
+};
 
-
+});
 
 
 
