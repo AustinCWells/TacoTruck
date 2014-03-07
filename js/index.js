@@ -4,7 +4,7 @@ $(document).ready(function(){
 	
 
 	$.getJSON("/tacotruck/api/menu", function(menu) {
-		console.log("he");
+
 		$.cookie("menu", menu);
 		var menu = menu.menu;
 		var keys = Object.keys(menu);

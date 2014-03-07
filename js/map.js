@@ -41,6 +41,7 @@ var storeGeoLocations = function(geoLocation){
 
 }
 
+
 var addMarkers = function(){
 
 	var marker;
@@ -94,6 +95,7 @@ var addMarkers = function(){
 
 
 }
+
 
 var initialize = function(location){
 
@@ -165,7 +167,7 @@ $(document).ready(function(){
 
 var addAddressesToMenu = function(list){
 
-	var add = "<ul><h3>Taco Trucks Near You</h3>";
+	var add = "<div class='boxOfPlaces'><ul><h3>Taco Trucks Near You</h3>";
 
 
 	for( var i = 0; i < list.length; i++){
@@ -174,10 +176,11 @@ var addAddressesToMenu = function(list){
 		"</span><form action = \"order.php\"><input type = \"submit\" value = \"Select This Location\"></form></div></li>";
 	}
 
-	add += "</ul";
+	add += "</ul></div>";
+	
 
 	$("#mapMenu").append(add);
-
+	
 		$.cookie.json = true;
 
 	$('input[type="submit"').click(function(event){
@@ -185,6 +188,7 @@ var addAddressesToMenu = function(list){
 		index = parseInt(index);
 		$.cookie("location", addresses[index]);
 	});
+
 }
 
 var getAddresses = function(){
@@ -199,6 +203,9 @@ var getAddresses = function(){
 	    	addresses = JSON.parse(addresses);
 	    	codeAddress(addresses);
 	    	addAddressesToMenu(addresses);
+	    	/* HIDING MAP FOR NOW ON MAP MENU PAGE
+	    	 WILL ADD TO MODAL PAGE */
+	    	$("#mapMenu").hide();
 	    }
 	}
 	request.open('GET', url, true);
