@@ -171,9 +171,9 @@ var addAddressesToMenu = function(list){
 
 
 	for( var i = 0; i < list.length; i++){
-		add += "<li class = \"loc" + i.toString() + "\"><h4>" + list[i].name + "</h4><div class = \"hidden\"><span>"+ addresses[i].address + "<br>" + 
+		add += "<li class = \"loc" + i.toString() + "\"><h4>" + list[i].name + "</h4><div class = \"hidden\"><div><span>"+ addresses[i].address + "<br>" + 
 		addresses[i].state + ", " + addresses[i].city + " " + addresses[i].zipcode + 
-		"</span><form action = \"order.php\"><input type = \"submit\" value = \"Select This Location\"></form></div></li>";
+		"</span></div><form action = \"order.php\"><input type = \"submit\" value = \"Select This Location\"></form></div></li>";
 	}
 
 	add += "</ul></div>";
@@ -203,7 +203,8 @@ var getAddresses = function(){
 	    	addresses = JSON.parse(addresses);
 	    	codeAddress(addresses);
 	    	addAddressesToMenu(addresses);
-	    	
+	    	/* HIDING MAP FOR NOW ON MAP MENU PAGE
+	    	 WILL ADD TO MODAL PAGE */
 	    	$("#mapMenu").hide();
 	    }
 	}
