@@ -21,6 +21,12 @@ html {font-family: 'Raleway', sans-serif; }
 h1 { font-family: 'Raleway', sans-serif; font-weight:800; }
 p  { font-family: 'Raleway', sans-serif;}
 
+html, body {
+ margin: 0px;
+ padding: 0px;
+ border: 0px;
+ }
+
 .modal {
 	display:none;
 }
@@ -126,3 +132,18 @@ input[type=submit]{
 	text-align:center;
 	color:red;
 }
+
+#headerImage{
+	width:100%;
+	height:400px;
+}
+
+#tacoTruck{
+	position:absolute;
+	transform:rotate(-8deg);
+	-webkit-transform:rotate(-8deg);
+	width:50%;
+	top: 80px;
+	left: 25%;
+}
+

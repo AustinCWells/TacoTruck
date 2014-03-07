@@ -1,3 +1,4 @@
+/* OLD ARTICLE STYLING
 article#tacoMenu {
 	border-radius: 3em;
 	background-color: #B0431C;
@@ -12,6 +13,7 @@ article {
 	margin-right: 1%;
 	display: inline-block;
 }
+
 
 #sackInfo img {
 	width: 16%;
@@ -83,4 +85,54 @@ section{
 
 .name{
 	padding-right: 25px;
+}
+*/
+
+.grid:after{
+	content: "";
+  	display: table;
+ 	clear: both;
+}
+
+[class*='grid-'] {
+	float:left;
+	
+}
+.grid-third{
+	width:33.33%;
+}
+
+.grid-full{
+	width:100%;
+}
+
+.row{
+	position:static;
+	width:100%;
+	border: 2px solid black;
+	color:black;
+}
+
+.spotlightText{
+	text-align: center;
+	padding:10px;
+	font-size: 50px;
+}
+
+.white{
+	background-color: white;
+}
+
+.charcoal{
+	background-color: rgb(34, 32, 32);
+}
+
+.invert{
+	color:white;
+	text-align: center;
+}
+
+.icon{
+	padding-top: 20px;
+	height:50px;
 }
