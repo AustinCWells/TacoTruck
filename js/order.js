@@ -1,4 +1,4 @@
-window.addEventListener('load', function(event) {
+$(document).ready(function(){
 
 $.cookie.json = true;
 
@@ -110,6 +110,8 @@ document.getElementById("vegetableClear").onclick = (function (e) {
 
 document.getElementById("clearButton").onclick = (function (e) {
 document.getElementById("tacoForm").reset();
+$('input[id="' + firstFilling + '"]').prop("checked",true);
+$('input[id="' + firstTortilla + '"]').prop("checked",true);
 
 });
 
@@ -193,11 +195,12 @@ document.getElementsByClassName("removeButton")[tacoNumber-1].onclick = (functio
 orderTotal = orderTotal + tacoTotal;
 $("#totalSpan").text('' + orderTotal.toFixed(2));
 
-
 document.getElementById("tacoForm").reset();
+$('input[id="' + firstFilling + '"]').prop("checked",true);
+$('input[id="' + firstTortilla + '"]').prop("checked",true);
 tacoNumber++;
 });
-}, false);
+});
 
 function quantityChange(e) {
 	var currentTacoID = "taco" + $(e).attr("id").substring(1,2);
