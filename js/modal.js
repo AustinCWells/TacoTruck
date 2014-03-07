@@ -2,8 +2,15 @@ window.onload=function(){
 var loginButton = document.getElementsByClassName('login');
 var paymentButton = document.getElementsByClassName('pay'); 
 var accountButton = document.getElementsByClassName('createAccount');  
+var locationButton = document.getElementsByClassName('locationSelect'); 
 var overlay = document.getElementById('overlay'); 
 var closeX = document.getElementsByClassName('close'); 
+
+
+for(var i =0; i < locationButton.length; i++)
+{
+	locationButton[i].addEventListener('click',displayMapModal); 
+}
 
 for(var i= 0; i < closeX.length; i++)
 {
@@ -56,11 +63,14 @@ function loadPaymentInfo()
 	}
 }
 
-
+function displayMapModal()
+{
+	
+	displayModal('mapModal'); 
+}
 
 function displayLoginModal()
 {
-	$.cookie('myCookie','isYummy!'); 
 	displayModal('loginModal');
 }
 function displayPayModal()
@@ -96,6 +106,7 @@ function hideModal()
 	document.getElementById('loginModal').className = "modal";
 	document.getElementById('paymentModal').className = "modal";
 	document.getElementById('accountModal').className = "modal";
+	document.getElementById('mapModal').className = "modal";
 	document.getElementById("overlay").className = "";  
 
 

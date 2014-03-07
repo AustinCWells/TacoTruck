@@ -205,7 +205,7 @@ var getAddresses = function(){
 	    	addAddressesToMenu(addresses);
 	    	/* HIDING MAP FOR NOW ON MAP MENU PAGE
 	    	 WILL ADD TO MODAL PAGE */
-	    	$("#mapMenu").hide();
+	    	
 	    }
 	}
 	request.open('GET', url, true);
