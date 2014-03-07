@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 	$.cookie.json = true;
 
-	$.getJSON("json/taco_truck_menu.json", function(menu) {
+	$.getJSON("/api/menu", function(menu) {
 
 		$.cookie("menu", menu);
 		var menu = menu.menu;

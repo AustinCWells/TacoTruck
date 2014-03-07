@@ -31,16 +31,17 @@
 			<section id = "aboutUs">
 				<h2>About Us</h2>
 				<div class = "subContent">
-					<p>We are bringing Taco Food Trucks into the new age of online ordering.  Where you can custom your taco orders from the convenance of the web.  Just pick out a taco truck near you.  Click order and customize as many tacos you want and then all to your taco sack. And just hit checkout and pay. Easy as 1, 2, 3 and you will have your tacos waiting for you at the truck you selected. </p>
+					<p>We are bringing tacos into the digital age with the introduction of online taco ordering. Custom order your favorite tacos from school, the office, or your favorite recliner with only a few clicks.</p>
+					<p>Choose a tortilla and build your tacos with a wide variety of fillings, rice, beans, cheese, and more! Once you have added all your tacos to the Taco Sack, select one of our five truck locations and we'll have your sack ready for you. </p>
 				</div>
 			</section>
 
 			<section id = "createAnAccount">
 				<h2>Create An Account</h2>
 				<div class = "subContent">
-				<ul>Benifits
-					<li>We save you last order for ease of repurchasing</li>
-					<li>No need to re-enter credit card info each</li>
+				<ul><b>Why use our site?</b>
+					<li>Convenient, easy to use ordering</li>
+					<li>We'll remember your credit card info, so you can checkout with just one click</li>
 				</ul>
 			</section>
 
