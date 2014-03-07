@@ -8,6 +8,7 @@
 	<script src="js/jquery.cookie.js"></script>
 	<script language="javascript"  type="text/javascript" src="js/modal.js"> </script>  
 	<script language="javascript"  type="text/javascript" src="js/nav.js"> </script> 
+	<script language="javascript"  type="text/javascript" src="js/formSubmit.js"> </script> 
 	<link href="http://fonts.googleapis.com/css?family=Raleway:400,300,700" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">	<link rel="stylesheet" href="css/main.css" type="text/css">
 	<link rel="stylesheet" href="css/index.css" type="text/css">

@@ -136,3 +136,11 @@ section{
 	padding-top: 20px;
 	height:50px;
 }
+
+.clickable{
+	cursor:pointer;
+	cursor:hand;
+}
+
+.clickable:hover{
+	color:rgb(235, 227, 227);

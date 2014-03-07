@@ -188,7 +188,7 @@
 	{
 		$dbhost="127.0.0.1";
 		$dbuser="root";
-		$dbpass="";
+		$dbpass="root";
 		$dbname="TacoTruck";
 		$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

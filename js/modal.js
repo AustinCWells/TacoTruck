@@ -7,7 +7,6 @@ var closeX = document.getElementsByClassName('close');
 
 for(var i= 0; i < closeX.length; i++)
 {
-	console.log(closeX[i]);
 	closeX[i].addEventListener('click',hideModal); 
 }
 overlay.addEventListener('click',hideModal); 
@@ -43,12 +42,10 @@ function loadPaymentInfo()
 			data: JSON.stringify(user),
 			success: function(data){
 				var obj = JSON.parse(data); 
-				console.log(obj);
 				$("input[name=creditNumber]").val(obj.info.credit_no);
 				$("input[name=fname]").val(obj.info.given_name);
 				$("input[name=lname]").val(obj.info.surname);
 				var selector = "select.formElement[name=card] option[value=" + obj.info.credit_type + "]";
-				console.log(selector);
 				$(selector).prop('selected', true);
 			},
 			error: function(){
@@ -88,7 +85,6 @@ function displayModal(modalId)
 	var displacementY = '-' + (height/2) + 'px';   
 	modal.style.marginLeft = displacementX;
 	modal.style.marginTop = displacementY; 
-	console.log(width + " " + height);
 
 
 }
