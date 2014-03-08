@@ -102,27 +102,7 @@ $(document).ready(function(){
 	});
 
 	$(document).on("submit","form.paymentForm", function(){
-		alert("form submitted!");
-
-		/*console.log($(this).serialize());
-		$.ajax({
-			type: 'POST',
-			url: 'http://localhost/tacotruck/php/submitPayment.php',
-			data: $(this).serialize(),
-			success: function()
-			{
-				alert("you totally got it!");
-			},
-			error: function()
-			{
-				alert("OH NO! someone has gone and screwed up."); 
-			}
-		});
-
-		event.preventDefault(); 
-		//document.getElementById('paymentModal').className = "modal"; 
-		//document.getElementById('overlay').className = ""; 
-		*/
+		
 		/* initiate and display maps option */
 		var modalId = "mapModal"
 		var modal = document.getElementById(modalId)

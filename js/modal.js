@@ -2,15 +2,10 @@ window.onload=function(){
 var loginButton = document.getElementsByClassName('login');
 var paymentButton = document.getElementsByClassName('pay'); 
 var accountButton = document.getElementsByClassName('createAccount');  
-var locationButton = document.getElementsByClassName('locationSelect'); 
 var overlay = document.getElementById('overlay'); 
 var closeX = document.getElementsByClassName('close'); 
 
 
-for(var i =0; i < locationButton.length; i++)
-{
-	locationButton[i].addEventListener('click',displayMapModal); 
-}
 
 for(var i= 0; i < closeX.length; i++)
 {
@@ -63,17 +58,6 @@ function loadPaymentInfo()
 	}
 }
 
-function displayMapModal()
-{
-	alert("displaying login modal : line 70 modal.js");
-	/* deal with map loading prior to modal */
-	displayModal('mapModal'); 
-	var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src = "js/map.js"; 
-    document.getElementsByTagName("head")[0].appendChild(script);
-    return false;
-}
 
 function displayLoginModal()
 {
