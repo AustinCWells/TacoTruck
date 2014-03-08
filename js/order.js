@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+
 var lastOrderButton = document.getElementById('lastOrder');
 lastOrderButton.addEventListener('click',populateLastOrder);
 
@@ -114,19 +115,7 @@ console.log(data);
 		$("#cheeseList").append(html);
 	}		
 
-/*
-document.getElementById("tacoSubmit").onclick = (function (e) {
-	e.preventDefault();
-});
-*/
 
-/*
-document.getElementById("vegetableClear").onclick = (function (e) {
-var veggieList = document.getElementsBy
-while($('input[name="vegetables"]:clicked'))
-	$('input[name="vegetables"]:clicked')
-});
-*/
 
 $('input[id="' + firstFilling + '"]').prop("checked",true);
 $('input[id="' + firstTortilla + '"]').prop("checked",true);
@@ -145,6 +134,10 @@ $('input[id="' + firstTortilla + '"]').prop("checked",true);
 var tacoNumber = 1;
 var orderTotal = 0;
 $("#totalSpan").text('' + orderTotal.toFixed(2));
+
+document.getElementById("lastOrder").onclick = (function (e) {
+	
+});
 
 document.getElementById("tacoForm").onsubmit = (function formSubmit(e) {
 e.preventDefault();
@@ -191,6 +184,8 @@ for(var i=0;i<extrasList.length;i++) {
 
 $('#taco' + tacoNumber).append('<tr><td>Total:</td><td id="tacoTotal' + tacoNumber + '" class="right">$' + parseFloat(tacoTotal).toFixed(2) + '</td></tr></table>');
 $("#tacoSack").append('<input type="button" class="removeButton" id="remove' + tacoNumber + '" value="Remove">');
+
+
 
 document.getElementsByClassName("removeButton")[tacoNumber-1].onclick = (function (e) {
 	var thisTaco = this.getAttribute("id");
@@ -270,6 +265,7 @@ console.log(order);
 
 
 });
+
 
 function quantityChange(e) {
 	var currentTacoID = "taco" + $(e).attr("id").substring(1,2);
