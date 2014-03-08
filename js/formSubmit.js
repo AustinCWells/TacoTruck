@@ -102,7 +102,23 @@ $(document).ready(function(){
 	});
 
 	$(document).on("submit","form.paymentForm", function(){
+		/* send a POST request with Order food JSON */ 
 		
+		/* CODE FOR SENDING DATA TO SERVER 
+		var orderData = $.cookie("orderData"); 
+		$.ajax({
+			type: 'POST',
+			url: 'api endpoint',
+			data: JSON.stringify(orderData),
+			success: function( data ){
+				alert("information successfully stored on server!"); 
+			},
+			error: function(){
+				alert("information not pushed to server successfully!"); 
+			}
+		});
+
+		*/
 		/* initiate and display maps option */
 		var modalId = "mapModal"
 		var modal = document.getElementById(modalId)
