@@ -104,6 +104,8 @@ $(document).ready(function(){
 	$(document).on("submit","form.paymentForm", function(){
 		/* send a POST request with Order food JSON */ 
 
+	
+
 		var orderData = $.cookie("orderData"); 
 		$.ajax({
 			type: 'POST',
@@ -117,6 +119,7 @@ $(document).ready(function(){
 			}
 		});
 
+		document.getElementById('paymentModal').className = "modal";
 		
 		/* initiate and display maps option */
 		var modalId = "mapModal"
@@ -134,6 +137,7 @@ $(document).ready(function(){
 	    script.type = "text/javascript";
 	    script.src = "js/map.js"; 
 	    document.getElementsByTagName("head")[0].appendChild(script);
+
 	    return false;
 
 

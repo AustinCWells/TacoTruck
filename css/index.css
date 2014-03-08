@@ -60,17 +60,12 @@
 	float: left;
 }
 
-.right {
-	float: right;
-}
+
 
 div.left {
 	width: 60%;
 }
 
-div.right {
-	width: 40%;
-}
 
 .name{
 	padding-right: 25px;
@@ -89,8 +84,3 @@ table, th, td {
 	text-align: left;
 }
 
-section{
-	padding-left: 3.5%;
-	padding-right: 3.5%;
-	padding-bottom: 10px;
-}

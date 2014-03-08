@@ -5,7 +5,6 @@ $(document).ready(function(){
 
 
 	$.getJSON("json/taco_truck_menu.json"/*"/tacotruck/api/menu"*/, function(menu) {
-		console.log("The data is");
 		$.cookie("menu", menu);
 		console.log("The menu is" + $.cookie("menu"));
 		var menu = menu.menu;
