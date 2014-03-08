@@ -19,7 +19,9 @@
     <link href="css/main.css" rel="stylesheet">
     <link href="css/order.css" rel="stylesheet">
     <link href="css/nav.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/map.css" type="text/css">
+
 </head>
 
 <body>
@@ -87,6 +89,7 @@
 <form id="sackForm">
 	<div>Total: $<span id="totalSpan"></span></div>
 	<input type="button" id="sackSubmit" class="pay" value="Checkout">
+	<input type="button" id="lastOrder" value="Reorder Last Order">
 </form>
 </div>		
 </body>
