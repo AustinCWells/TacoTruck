@@ -3,7 +3,7 @@ $(document).ready(function(){
 	$.cookie.json = true;
 	
 
-	$.getJSON(/*"json/taco_truck_menu.json"*/"api/menu", function(menu) {
+	$.getJSON("api/menu", function(menu) {
 		
 		
 		var menu = menu.menu;

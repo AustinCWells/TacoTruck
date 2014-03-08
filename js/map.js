@@ -153,9 +153,6 @@ var makeInfoWindowEvent = function(map, infowindow, marker) {
   		
  	});
 
-
-
-
 }
 
 $(document).ready(function(){
@@ -202,20 +199,6 @@ var getAddresses = function(){
 		addAddressesToMenu(loc);
 	});
 
-	/*request.onreadystatechange = function(){
-
-	    if (request.readyState === 4) {
-	    	addresses = request.responseText;
-	    	addresses = JSON.parse(addresses);
-	    	codeAddress(addresses);
-	    	addAddressesToMenu(addresses);
-	    	/* HIDING MAP FOR NOW ON MAP MENU PAGE
-	    	 WILL ADD TO MODAL PAGE  
-	    	$("#mapMenu").hide(); */
-	    /*}
-	}
-	request.open('GET', url, true);
-	request.send();*/
 }
 
  $(document).ready(function(){
