@@ -7,7 +7,7 @@
 	$app->post('/newaccount', 'createAccount');
 	$app->post('/paymentinfo', 'getPaymentInfo');
 	$app->post('/placeorder', 'createOrder');
-	$app->get('/lastorder', 'getLastOrder');
+	$app->post('/lastorder', 'getLastOrder');
 	$app->get('/locations', 'findTrucks');
 	$app->get('/menu', 'getMenu');
 
@@ -272,7 +272,7 @@
 	{
 		$dbhost="127.0.0.1";
 		$dbuser="root";
-		$dbpass="";
+		$dbpass="root";
 		$dbname="TacoTruck";
 		$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

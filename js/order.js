@@ -15,11 +15,11 @@ function populateLastOrder(){
 
 		$.ajax({
 			type: 'POST',
-			url: '/api/lastorder',
+			url: 'api/lastorder',
 			content: 'application/json',
 			data: JSON.stringify(user),
 			success: function(data){
-				var obj = JSON.parse(data); 
+				console.log(data);
 				/* PARSE TACO INFORMATION */
 			},
 			error: function(){
