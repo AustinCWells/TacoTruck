@@ -1,20 +1,20 @@
 $(document).ready(function(){
 
-$.cookie.json = true;
+	$.cookie.json = true;
 
-var data = $.cookie("menu");
-console.log(data);
+	var data = $.cookie("menu");
+	console.log(data);
 
-    var filling = data.menu.type;
-    var tortilla = data.menu.tortillas;
-    var rice = data.menu.rice;
-    var beans = data.menu.beans;
-    var sauces = data.menu.sauces;
-    var vegetables = data.menu.vegetables;
-    var extras = data.menu.extras;
-    var cheese = data.menu.cheese;
+	var filling = data.menu.type;
+	var tortilla = data.menu.tortillas;
+	var rice = data.menu.rice;
+	var beans = data.menu.beans;
+	var sauces = data.menu.sauces;
+	var vegetables = data.menu.vegetables;
+	var extras = data.menu.extras;
+	var cheese = data.menu.cheese;
 
-//Populating the Taco Creation Menu
+	//Populating the Taco Creation Menu
 
     for(var i=0;i<filling.length;i++) {
     	//console.log(filling[i]);
@@ -88,205 +88,179 @@ console.log(data);
 
 
 
-$('input[id="' + firstFilling + '"]').prop("checked",true);
-$('input[id="' + firstTortilla + '"]').prop("checked",true);
+	$('input[id="' + firstFilling + '"]').prop("checked",true);
+	$('input[id="' + firstTortilla + '"]').prop("checked",true);
 
-document.getElementById("vegetableClear").onclick = (function (e) {
-	$('input[name="vegetables"]:checked').prop("checked", false);
-});
+	document.getElementById("vegetableClear").onclick = (function (e) {
+		$('input[name="vegetables"]:checked').prop("checked", false);
+	});
 
-document.getElementById("clearButton").onclick = (function (e) {
-document.getElementById("tacoForm").reset();
-$('input[id="' + firstFilling + '"]').prop("checked",true);
-$('input[id="' + firstTortilla + '"]').prop("checked",true);
+	document.getElementById("clearButton").onclick = (function (e) {
+		document.getElementById("tacoForm").reset();
+		$('input[id="' + firstFilling + '"]').prop("checked",true);
+		$('input[id="' + firstTortilla + '"]').prop("checked",true);
+	});
 
-});
-
-var tacoNumber = 1;
-var orderTotal = 0;
-$("#totalSpan").text('' + orderTotal.toFixed(2));
-
-
-var lastOrderButton = document.getElementById('lastOrder');
-lastOrderButton.addEventListener('click',populateLastOrder);
-
-function populateLastOrder(){
-	console.log("populating last order");
-	var user_id =  $.cookie("user_id"); 
-	var user = new Object();
-	user.user_id = user_id; 
-	if(!user_id){
-		console.log("user_id not defined.");
-	} else {
-		console.log("user id defined, getting login info: " + user_id);
-
-		$.ajax({
-			type: 'POST',
-			url: '/api/lastorder',
-			content: 'application/json',
-			data: JSON.stringify(user),
-			success: function(data){
-				var obj = JSON.parse(data); 
-				//start parse
-				console.log("got here");
-				document.getElementById("tacoSack").innerHTML = '';
-				tacoNumber = 1;
-				/*
-				for (var k=0;k<(numberofTacos);k++) {
-					$("#tacoSack").append('<table class="taco" id="taco' + tacoNumber + '"><tr><td>Taco #' + tacoNumber + '</td><td class="right">Quantity: ' + (quantity) + ' id="q' + tacoNumber +  '"name="quantity' + tacoNumber + '"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select>' + '</tr><tr><td data-id="' + (fillingID) + '">' + $('input[data-id="' + (fillingID) + '"]').val() + '</td><td class="right">' + "$" + $('input[data-id="' + (fillingID) + '"]').data('price') + '</td></tr><tr><td data-id="' + (tortillaId) + '">' + $('input[data-id="' + (tortillaID) + '"]').val() + '</td><td class="right">' + "$" + $('input[data-id="' + (tortillaID) + '"]').data('price') + '</td></tr><tr><td data-id="' + (riceID) + '">' + $('input[data-id="' + (riceID) + '"]').val() + '</td><td class="right">' + "$" + $('input[data-id="' + (riceID) + '"]').data('price') + '</td></tr><tr><td data-id="' + (beansID) + '">' + $('input[data-id="' + (beansID) + '"]').val() + '</td><td class="right">' + "$" + $('input[data-id="' + (beansID) + '"]').data('price') + '</td></tr><tr><td data-id="' + (saucesID) + '">' + $('input[data-id="' + (saucesID) + '"]').val() + '</td><td class="right">$0.00</td></tr></table>');
+	var tacoNumber = 1;
+	var orderTotal = 0;
+	$("#totalSpan").text('' + orderTotal.toFixed(2));
 
 
-					$('#q' + tacoNumber).val($('select[name="Quantity"]').val());
+	var lastOrderButton = document.getElementById('lastOrder');
+	lastOrderButton.addEventListener('click',populateLastOrder);
 
+	function populateLastOrder(){
+		console.log("populating last order");
+		var user_id =  $.cookie("user_id"); 
+		var user = new Object();
+		user.user_id = user_id; 
+		if(!user_id){
+			console.log("user_id not defined.");
+		} else {
+			console.log("user id defined, getting login info: " + user_id);
 
-					for(var i=0;i<vegetablesList.length;i++) {
-						$('#taco' + tacoNumber).append('<tr><td data-id="' + $(vegetablesList[i]).data('id') + '">' + $(vegetablesList[i]).val() + '</td><td class="right">$0.00</td></tr>');
-					}
-
-					$('#taco' + tacoNumber).append('<tr><td data-id="' + (cheeseId) + '">' + $('input[data-id="' + (cheeseID) + '"]').val() + '</td><td class="right">' + "$" + $('input[data-id="' + (riceID) + '"]').data('price') + '</td></tr>');
-
-					for(var i=0;i<extrasList.length;i++) {
-						$('#taco' + tacoNumber).append('<tr><td data-id="' + (extrasId) + '">' + $('input[data-id="' + (extraID) + '"]').val() + '</td><td class="right">$' +  $('input[data-id="' + (extraID) + '"]').data('price') + '</td></tr>');
-					}
-
-					$('#taco' + tacoNumber).append('<tr><td>Total:</td><td id="tacoTotal' + tacoNumber + '" class="right">$' + parseFloat(tacoTotal).toFixed(2) + '</td></tr></table>');
-					$("#tacoSack").append('<input type="button" class="removeButton" id="remove' + tacoNumber + '" value="Remove">');
+			$.ajax({
+				type: 'POST',
+				url: '/api/lastorder',
+				content: 'application/json',
+				data: JSON.stringify(user),
+				success: function(data){
+					var obj = JSON.parse(data); 
+					document.getElementById("tacoSack").innerHTML = '';
+					tacoNumber = 1;
+					//Parse last order info: Unimplemented
+				},
+				error: function(){
+					console.log("taco information not fetched."); 
 				}
-				*/
+			});
 
-				//end parse
-			},
-			error: function(){
-				console.log("taco information not fetched."); 
-			}
+		}
+	} 
+
+	document.getElementById("tacoForm").onsubmit = (function formSubmit(e) {
+		e.preventDefault();
+
+		var vegetablesList = $('input[name="vegetables"]:checked').map(function() {
+		    return this;
+		}).get();
+
+		var extrasList = $('input[name="extras"]:checked').map(function() {
+		    return this;
+		}).get();
+
+		//Calculate Total Cost of Taco
+		var tacoTotal = parseFloat($('input[name="filling"]:checked').data('price'),10) +
+			parseFloat($('input[name="tortilla"]:checked').data('price'),10) +
+			parseFloat($('input[name="rice"]:checked').data('price'),10) +
+			parseFloat($('input[name="beans"]:checked').data('price'),10) +
+			parseFloat($('input[name="cheese"]:checked').data('price'),10);
+		for(var i=0;i<extrasList.length;i++) {
+			tacoTotal = tacoTotal + parseFloat($(extrasList[i]).data('price'));
+		}
+
+		tacoTotal = tacoTotal * parseInt($('select[name="Quantity"]').val());
+
+		//Populate the Order View with the New Taco
+
+		$("#tacoSack").append('<table class="taco" id="taco' + tacoNumber + '"><tr><td>Taco #' + tacoNumber + '</td><td class="right">Quantity: <select onchange="quantityChange(this)" id="q' + tacoNumber +  '"name="quantity' + tacoNumber + '"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select>' + '</tr><tr><td data-id="' + $('input[name="filling"]:checked').data('id') + '">' + $('input[name="filling"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="filling"]:checked').data('price') + '</td></tr><tr><td data-id="' + $('input[name="tortilla"]:checked').data('id') + '">' + $('input[name="tortilla"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="tortilla"]:checked').data('price') + '</td></tr><tr><td data-id="' + $('input[name="rice"]:checked').data('id') + '">' + $('input[name="rice"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="rice"]:checked').data('price') + '</td></tr><tr><td data-id="' + $('input[name="beans"]:checked').data('id') + '">' + $('input[name="beans"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="beans"]:checked').data('price') + '</td></tr><tr><td data-id="' + $('input[name="sauces"]:checked').data('id') + '">' + $('input[name="sauces"]:checked').val() + '</td><td class="right">$0.00</td></tr></table>');
+
+
+		$('#q' + tacoNumber).val($('select[name="Quantity"]').val());
+
+
+		for(var i=0;i<vegetablesList.length;i++) {
+			$('#taco' + tacoNumber).append('<tr><td data-id="' + $(vegetablesList[i]).data('id') + '">' + $(vegetablesList[i]).val() + '</td><td class="right">$0.00</td></tr>');
+		}
+
+		$('#taco' + tacoNumber).append('<tr><td data-id="' + $('input[name="cheese"]:checked').data('id') + '">' + $('input[name="cheese"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="cheese"]:checked').data('price') + '</td></tr>');
+
+		for(var i=0;i<extrasList.length;i++) {
+			$('#taco' + tacoNumber).append('<tr><td data-id="' + $(extrasList[i]).data('id') + '">' + $(extrasList[i]).val() + '</td><td class="right">$' +  $(extrasList[i]).data('price') + '</td></tr>');
+		}
+
+		$('#taco' + tacoNumber).append('<tr><td>Total:</td><td id="tacoTotal' + tacoNumber + '" class="right">$' + parseFloat(tacoTotal).toFixed(2) + '</td></tr></table>');
+		$("#tacoSack").append('<input type="button" class="removeButton" id="remove' + tacoNumber + '" value="Remove">');
+
+
+
+		document.getElementsByClassName("removeButton")[tacoNumber-1].onclick = (function (e) {
+			var thisTaco = this.getAttribute("id");
+			var thisTacoNumber = thisTaco.substring(6,7);
+			var thisTacoPrice = $('tacoTotal' + thisTacoNumber);
+			console.log('tacoTotal' + thisTacoNumber);
+			console.log(thisTacoPrice);
+
+			var tacoIDToRemove = 'taco' + thisTacoNumber;
+			var tacoToRemove = document.getElementById(tacoIDToRemove);
+			tacoToRemove.parentNode.removeChild(tacoToRemove);
+
+
+			this.parentNode.removeChild(this);
+			tacoNumber--;
+
 		});
 
-	}
-} 
+		//Recalculate Order Total
 
-document.getElementById("tacoForm").onsubmit = (function formSubmit(e) {
-e.preventDefault();
+		orderTotal = orderTotal + tacoTotal;
+		$("#totalSpan").text('' + orderTotal.toFixed(2));
 
-var vegetablesList = $('input[name="vegetables"]:checked').map(function() {
-    return this;
-}).get();
+		document.getElementById("tacoForm").reset();
+		$('input[id="' + firstFilling + '"]').prop("checked",true);
+		$('input[id="' + firstTortilla + '"]').prop("checked",true);
+		tacoNumber++;
+	});
 
-var extrasList = $('input[name="extras"]:checked').map(function() {
-    return this;
-}).get();
+	document.getElementById("sackSubmit").onclick = (function formSubmit(e) {
 
-//Calculate Total Cost of Taco
-var tacoTotal = parseFloat($('input[name="filling"]:checked').data('price'),10) +
-	parseFloat($('input[name="tortilla"]:checked').data('price'),10) +
-	parseFloat($('input[name="rice"]:checked').data('price'),10) +
-	parseFloat($('input[name="beans"]:checked').data('price'),10) +
-	parseFloat($('input[name="cheese"]:checked').data('price'),10);
-for(var i=0;i<extrasList.length;i++) {
-	tacoTotal = tacoTotal + parseFloat($(extrasList[i]).data('price'));
-}
+		//Populate JSON object to send to server, adding it to the cookie
+		var order = {};
+		if($.cookie("user_id")) {
+			order.user_id = $.cookie("user_id");
+		}
+		else {
+			order.user_id = 0;
+		}
 
-tacoTotal = tacoTotal * parseInt($('select[name="Quantity"]').val());
+		var listOfTacos = document.getElementsByClassName("taco");
+		console.log(listOfTacos);
+		console.log(listOfTacos.length);
 
-//Populate the Order View with the New Taco
-
-$("#tacoSack").append('<table class="taco" id="taco' + tacoNumber + '"><tr><td>Taco #' + tacoNumber + '</td><td class="right">Quantity: <select onchange="quantityChange(this)" id="q' + tacoNumber +  '"name="quantity' + tacoNumber + '"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select>' + '</tr><tr><td data-id="' + $('input[name="filling"]:checked').data('id') + '">' + $('input[name="filling"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="filling"]:checked').data('price') + '</td></tr><tr><td data-id="' + $('input[name="tortilla"]:checked').data('id') + '">' + $('input[name="tortilla"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="tortilla"]:checked').data('price') + '</td></tr><tr><td data-id="' + $('input[name="rice"]:checked').data('id') + '">' + $('input[name="rice"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="rice"]:checked').data('price') + '</td></tr><tr><td data-id="' + $('input[name="beans"]:checked').data('id') + '">' + $('input[name="beans"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="beans"]:checked').data('price') + '</td></tr><tr><td data-id="' + $('input[name="sauces"]:checked').data('id') + '">' + $('input[name="sauces"]:checked').val() + '</td><td class="right">$0.00</td></tr></table>');
-
-
-$('#q' + tacoNumber).val($('select[name="Quantity"]').val());
+		var totalPrice = parseFloat($(document.getElementById("totalSpan")).html()).toFixed(2);
+		order.total = parseFloat(totalPrice);
+		order.tacos = [];
 
 
-for(var i=0;i<vegetablesList.length;i++) {
-	$('#taco' + tacoNumber).append('<tr><td data-id="' + $(vegetablesList[i]).data('id') + '">' + $(vegetablesList[i]).val() + '</td><td class="right">$0.00</td></tr>');
-}
-
-$('#taco' + tacoNumber).append('<tr><td data-id="' + $('input[name="cheese"]:checked').data('id') + '">' + $('input[name="cheese"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="cheese"]:checked').data('price') + '</td></tr>');
-
-for(var i=0;i<extrasList.length;i++) {
-	$('#taco' + tacoNumber).append('<tr><td data-id="' + $(extrasList[i]).data('id') + '">' + $(extrasList[i]).val() + '</td><td class="right">$' +  $(extrasList[i]).data('price') + '</td></tr>');
-}
-
-$('#taco' + tacoNumber).append('<tr><td>Total:</td><td id="tacoTotal' + tacoNumber + '" class="right">$' + parseFloat(tacoTotal).toFixed(2) + '</td></tr></table>');
-$("#tacoSack").append('<input type="button" class="removeButton" id="remove' + tacoNumber + '" value="Remove">');
+		for(var i=0;i<listOfTacos.length;i++) {
 
 
+			var listOfIds = new Array();
+			var idNumber = 0;
 
-document.getElementsByClassName("removeButton")[tacoNumber-1].onclick = (function (e) {
-	var thisTaco = this.getAttribute("id");
-	var thisTacoNumber = thisTaco.substring(6,7);
-	var thisTacoPrice = $('tacoTotal' + thisTacoNumber);
-	console.log('tacoTotal' + thisTacoNumber);
-	console.log(thisTacoPrice);
+			var listOfFixins = listOfTacos[i].getElementsByTagName("td");
+			var tacoQuantity = $(listOfFixins[1].getElementsByTagName("select")[0]).val();
 
-	var tacoIDToRemove = 'taco' + thisTacoNumber;
-	var tacoToRemove = document.getElementById(tacoIDToRemove);
-	tacoToRemove.parentNode.removeChild(tacoToRemove);
+			for(var j=2;j<listOfFixins.length-2;j=j+2) {
+				//console.log(listOfFixins[j]);
+				listOfIds[idNumber] = $(listOfFixins[j]).data('id');
+				idNumber++;
+			}
 
+			var taco = {
+		    qty: tacoQuantity,
+		    fixings: listOfIds
+			};
+			order.tacos.push(taco);
 
-	this.parentNode.removeChild(this);
-	tacoNumber--;
+			$.cookie("orderData",order);
 
-});
-
-//Recalculate Order Total
-
-orderTotal = orderTotal + tacoTotal;
-$("#totalSpan").text('' + orderTotal.toFixed(2));
-
-document.getElementById("tacoForm").reset();
-$('input[id="' + firstFilling + '"]').prop("checked",true);
-$('input[id="' + firstTortilla + '"]').prop("checked",true);
-tacoNumber++;
-});
-
-document.getElementById("sackSubmit").onclick = (function formSubmit(e) {
-
-//Populate JSON object to send to server, adding it to the cookie
-var order = {};
-if($.cookie("user_id")) {
-	order.user_id = $.cookie("user_id");
-}
-else {
-	order.user_id = 0;
-}
-
-var listOfTacos = document.getElementsByClassName("taco");
-console.log(listOfTacos);
-console.log(listOfTacos.length);
-
-var totalPrice = parseFloat($(document.getElementById("totalSpan")).html()).toFixed(2);
-order.total = parseFloat(totalPrice);
-order.tacos = [];
+		}
 
 
-for(var i=0;i<listOfTacos.length;i++) {
+	console.log(order);
 
-
-	var listOfIds = new Array();
-	var idNumber = 0;
-
-	var listOfFixins = listOfTacos[i].getElementsByTagName("td");
-	var tacoQuantity = $(listOfFixins[1].getElementsByTagName("select")[0]).val();
-
-	for(var j=2;j<listOfFixins.length-2;j=j+2) {
-		//console.log(listOfFixins[j]);
-		listOfIds[idNumber] = $(listOfFixins[j]).data('id');
-		idNumber++;
-	}
-
-	var taco = {
-    qty: tacoQuantity,
-    fixings: listOfIds
-	};
-	order.tacos.push(taco);
-
-	$.cookie("orderData",order);
-
-}
-
-
-console.log(order);
-
-});
+	});
 
 
 });

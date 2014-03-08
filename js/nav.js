@@ -16,6 +16,7 @@ if($.cookie("email")) {
 	});			
 }
 
+//Update Nav bar styling based on current page
 var page = document.getElementsByClassName("currentPage")[0].getAttribute("id");
 if(page === "indexPage") {
 	document.getElementById("indexHeader").style.borderBottom="solid 3px rgb(255, 235, 0)";
@@ -26,8 +27,6 @@ if(page === "orderPage") {
 if(page == "mapPage") {
 	document.getElementById("mapHeader").style.borderBottom="solid 3px rgb(255, 235, 0)";
 }
-
-
 
 }, false);
 
