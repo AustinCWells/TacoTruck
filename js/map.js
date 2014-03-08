@@ -167,7 +167,7 @@ $(document).ready(function(){
 
 var addAddressesToMenu = function(list){
 
-	var add = "<div class='boxOfPlaces'><ul><h3>Taco Trucks Near You</h3>";
+	var add = "<div class='boxOfPlaces'><h5>Choose a location for taco pickup </h5><ul>";
 
 
 	for( var i = 0; i < list.length; i++){
@@ -204,8 +204,8 @@ var getAddresses = function(){
 	    	codeAddress(addresses);
 	    	addAddressesToMenu(addresses);
 	    	/* HIDING MAP FOR NOW ON MAP MENU PAGE
-	    	 WILL ADD TO MODAL PAGE */
-	    	
+	    	 WILL ADD TO MODAL PAGE  
+	    	$("#mapMenu").hide(); */
 	    }
 	}
 	request.open('GET', url, true);

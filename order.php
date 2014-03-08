@@ -10,17 +10,20 @@
 	<script language="javascript"  type="text/javascript" src="js/nav.js"> </script> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> 
 	<script src="js/jquery.cookie.js"></script> 
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places" type = "text/javascript"></script>
 	<script language="javascript"  type="text/javascript" src="js/order.js"> </script>  
     <script language="javascript"  type="text/javascript" src="js/modal.js"> </script> 
   	<script language="javascript" type="text/javascript" src="js/formSubmit.js"> </script> 
     <link href="css/main.css" rel="stylesheet">
     <link href="css/order.css" rel="stylesheet">
     <link href="css/nav.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/map.css" type="text/css">
 </head>
 
 <body>
 <?php include "components/nav.html"; ?>
 <?php include "components/modals.html"; ?> 
+<?php include "components/mapModal.html"; ?>
 
 <span class="currentPage" id="orderPage"></span>
 

@@ -151,3 +151,9 @@ input[type=submit]{
 	position:inline;
 
 }
+
+
+#mapModal{
+	width:80%;
+	height: 80%;
+}

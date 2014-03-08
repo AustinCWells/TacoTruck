@@ -65,12 +65,19 @@ function loadPaymentInfo()
 
 function displayMapModal()
 {
-	
+	alert("displaying login modal : line 70 modal.js");
+	/* deal with map loading prior to modal */
 	displayModal('mapModal'); 
+	var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "js/map.js"; 
+    document.getElementsByTagName("head")[0].appendChild(script);
+    return false;
 }
 
 function displayLoginModal()
 {
+
 	displayModal('loginModal');
 }
 function displayPayModal()

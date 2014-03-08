@@ -102,6 +102,8 @@ $(document).ready(function(){
 	});
 
 	$(document).on("submit","form.paymentForm", function(){
+		alert("form submitted!");
+
 		/*console.log($(this).serialize());
 		$.ajax({
 			type: 'POST',
@@ -121,10 +123,42 @@ $(document).ready(function(){
 		//document.getElementById('paymentModal').className = "modal"; 
 		//document.getElementById('overlay').className = ""; 
 		*/
-
+		/* initiate and display maps option */
+		var modalId = "mapModal"
+		var modal = document.getElementById(modalId)
+		var background = document.getElementById("overlay");
+		background.className = "overlay"
+		modal.className = "displayModal";
+		var width = modal.clientWidth; 
+		var height = modal.clientHeight; 
+		var displacementX = '-'+ (width/2) + 'px';
+		var displacementY = '-' + (height/2) + 'px';   
+		modal.style.marginLeft = displacementX;
+		modal.style.marginTop = displacementY; 
+		var script = document.createElement("script");
+	    script.type = "text/javascript";
+	    script.src = "js/map.js"; 
+	    document.getElementsByTagName("head")[0].appendChild(script);
+	    return false;
 
 
 
 
 	});
+
+	function displayModal(modalId)
+{
+	var modal = document.getElementById(modalId)
+	var background = document.getElementById("overlay");
+	background.className = "overlay"
+	modal.className = "displayModal";
+	var width = modal.clientWidth; 
+	var height = modal.clientHeight; 
+	var displacementX = '-'+ (width/2) + 'px';
+	var displacementY = '-' + (height/2) + 'px';   
+	modal.style.marginLeft = displacementX;
+	modal.style.marginTop = displacementY; 
+
+
+}
 })
