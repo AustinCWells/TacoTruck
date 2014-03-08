@@ -196,7 +196,13 @@ var getAddresses = function(){
 	var url = "json/taco_truck_locations.json";
 	var request = new XMLHttpRequest();
 
-	request.onreadystatechange = function(){
+	$.getJSON(url, function(loc){
+		addresses = loc;
+		codeAddress(loc);
+		addAddressesToMenu(loc);
+	});
+
+	/*request.onreadystatechange = function(){
 
 	    if (request.readyState === 4) {
 	    	addresses = request.responseText;
@@ -206,10 +212,10 @@ var getAddresses = function(){
 	    	/* HIDING MAP FOR NOW ON MAP MENU PAGE
 	    	 WILL ADD TO MODAL PAGE  
 	    	$("#mapMenu").hide(); */
-	    }
+	    /*}
 	}
 	request.open('GET', url, true);
-	request.send();
+	request.send();*/
 }
 
  $(document).ready(function(){
