@@ -175,6 +175,7 @@ document.getElementsByClassName("removeButton")[tacoNumber-1].onclick = (functio
 
 
 	this.parentNode.removeChild(this);
+	tacoNumber--;
 
 });
 
@@ -189,27 +190,50 @@ tacoNumber++;
 
 document.getElementById("sackSubmit").onclick = (function formSubmit(e) {
 
+
+var order = {};
+if($.cookie("user_id")) {
+	order.user_id = $.cookie("user_id");
+}
+else {
+	order.user_id = 0;
+}
+
 var listOfTacos = document.getElementsByClassName("taco");
+console.log(listOfTacos);
+console.log(listOfTacos.length);
 
 var totalPrice = parseFloat($(document.getElementById("totalSpan")).html()).toFixed(2);
+order.total = parseFloat(totalPrice);
+order.tacos = [];
 
-console.log(totalPrice);
 
 for(var i=0;i<listOfTacos.length;i++) {
+
+
 	var listOfIds = new Array();
 	var idNumber = 0;
 
 	var listOfFixins = listOfTacos[i].getElementsByTagName("td");
 	var tacoQuantity = $(listOfFixins[1].getElementsByTagName("select")[0]).val();
-	console.log(tacoQuantity);
-	for(var i=2;i<listOfFixins.length-2;i=i+2) {
-		//console.log(listOfFixins[i]);
-		listOfIds[idNumber] = $(listOfFixins[i]).data('id');
+
+	for(var j=2;j<listOfFixins.length-2;j=j+2) {
+		//console.log(listOfFixins[j]);
+		listOfIds[idNumber] = $(listOfFixins[j]).data('id');
 		idNumber++;
 	}
+
+	var taco = {
+    qty: tacoQuantity,
+    fixings: listOfIds
+	};
+	order.tacos.push(taco);
+
 }
 
-console.log(listOfIds);
+
+console.log(order);
+
 });
 
 
