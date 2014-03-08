@@ -85,6 +85,10 @@ input[type=button]{
     
     
 } 
+
+input[type=button]:hover{
+	
+}
 input[type=submit]:hover {
 
 }

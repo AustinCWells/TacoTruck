@@ -97,7 +97,10 @@ function hideModal()
 	document.getElementById('loginModal').className = "modal";
 	document.getElementById('paymentModal').className = "modal";
 	document.getElementById('accountModal').className = "modal";
-	document.getElementById('mapModal').className = "modal";
+	if(document.getElementById('mapModal'))
+	{
+		document.getElementById('mapModal').className = "modal";
+	}
 	document.getElementById("overlay").className = "";  
 
 

@@ -15,6 +15,7 @@
 	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="css/main.css" type="text/css">
 	<link rel="stylesheet" href="css/map.css" type="text/css">
+	<link href="css/index.css" rel="stylesheet">
 	<link href="css/nav.css" rel="stylesheet">
 	
 
@@ -22,7 +23,7 @@
 </head>
 <body>
 	<?php include "components/nav.html"; ?>
-	
+	<?php include "components/modals.html"; ?>
 	<!-- LOADER MODELED AFTER NEW RELIC TUTORIAL --> 
 	<div id="maploader"> </div>
 
