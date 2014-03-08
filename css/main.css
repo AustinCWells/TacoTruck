@@ -163,3 +163,92 @@ input[type=submit]{
 	width:80%;
 	height: 80%;
 }
+
+
+
+.grid:after{
+	content: "";
+  	display: table;
+ 	clear: both;
+}
+
+[class*='grid-'] {
+	float:left;
+	
+}
+.grid-third{
+	width:33.33%;
+}
+
+.grid-full{
+	width:100%;
+}
+
+.row{
+	position:static;
+	width:100%;
+	border: 2px solid black;
+	color:black;
+}
+
+.spotlightText{
+	text-align: center;
+	padding:10px;
+	font-size: 50px;
+}
+
+.white{
+	background-color: white;
+}
+
+.charcoal{
+	background-color: rgb(34, 32, 32);
+}
+
+.invert{
+	color:white;
+	text-align: center;
+}
+
+.icon{
+	padding-top: 20px;
+	height:50px;
+}
+
+.clickable{
+	cursor:pointer;
+	cursor:hand;
+}
+
+.clickable:hover{
+	color:rgb(235, 227, 227);
+}
+
+.left {
+	float: left;
+}
+
+
+
+div.left {
+	width: 60%;
+}
+
+
+.name{
+	padding-right: 25px;
+}
+
+#tacoMenu h2 {
+	font-size: 2em;
+	text-align: center;
+}
+
+#sauces td:nth-child(2) {
+	text-align: center;
+}
+
+table, th, td {
+	text-align: left;
+}
+
