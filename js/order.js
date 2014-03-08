@@ -2,9 +2,6 @@ $(document).ready(function(){
 
 $.cookie.json = true;
 
-var list = $.cookie("location");
-console.log(list);
-
 var data = $.cookie("menu");
 console.log(data);
 
@@ -144,35 +141,24 @@ tacoTotal = tacoTotal * parseInt($('select[name="Quantity"]').val());
 //console.log($(extrasList[1]).data('price'));
 //console.log($(extrasList[1]).val());
 
-$("#tacoSack").append('<table class="taco" id="taco' + tacoNumber + '"><tr><td>Taco #' + tacoNumber + '</td><td class="right">Quantity: <select onchange="quantityChange(this)" id="q' + tacoNumber +  '"name="quantity' + tacoNumber + '"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select>' + '</tr><tr><td>' + $('input[name="filling"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="filling"]:checked').data('price') + '</td></tr><tr><td>' + $('input[name="tortilla"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="tortilla"]:checked').data('price') + '</td></tr><tr><td>' + $('input[name="rice"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="rice"]:checked').data('price') + '</td></tr><tr><td>' + $('input[name="beans"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="beans"]:checked').data('price') + '</td></tr><tr><td>' + $('input[name="sauces"]:checked').val() + '</td><td class="right">$0.00</td></tr></table>');
+console.log()
+
+$("#tacoSack").append('<table class="taco" id="taco' + tacoNumber + '"><tr><td>Taco #' + tacoNumber + '</td><td class="right">Quantity: <select onchange="quantityChange(this)" id="q' + tacoNumber +  '"name="quantity' + tacoNumber + '"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select>' + '</tr><tr><td data-id="' + $('input[name="filling"]:checked').data('id') + '">' + $('input[name="filling"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="filling"]:checked').data('price') + '</td></tr><tr><td data-id="' + $('input[name="tortilla"]:checked').data('id') + '">' + $('input[name="tortilla"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="tortilla"]:checked').data('price') + '</td></tr><tr><td data-id="' + $('input[name="rice"]:checked').data('id') + '">' + $('input[name="rice"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="rice"]:checked').data('price') + '</td></tr><tr><td data-id="' + $('input[name="beans"]:checked').data('id') + '">' + $('input[name="beans"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="beans"]:checked').data('price') + '</td></tr><tr><td data-id="' + $('input[name="sauces"]:checked').data('id') + '">' + $('input[name="sauces"]:checked').val() + '</td><td class="right">$0.00</td></tr></table>');
 
 
 $('#q' + tacoNumber).val($('select[name="Quantity"]').val());
 
-/*
-var thisSelector = $('#q' + tacoNumber);
-var optionNumber = $('select[name="Quantity"]').val();
-thisSelector.options[thisSelector.options.SelectedIndex].selected = true;
 
-//$('#q' + tacoNumber + '.' + $('select[name="Quantity"]').append()
-/*
-var opt = $('option[val="' + select[name="Quantity"].val() + '"]'),
-    html = $('#q' + tacoNumber + '.' + $('select[name="Quantity"]').append(opt.clone()).html();
-html = html.replace(/\>/, ' selected="selected">');
-opt.replaceWith(html);
-*/
-//if(thereareVEGGIES) {
 for(var i=0;i<vegetablesList.length;i++) {
-	$('#taco' + tacoNumber).append('<tr><td>' + $(vegetablesList[i]).val() + '</td><td class="right">$0.00</td></tr>');
+	$('#taco' + tacoNumber).append('<tr><td data-id="' + $(vegetablesList[i]).data('id') + '">' + $(vegetablesList[i]).val() + '</td><td class="right">$0.00</td></tr>');
 }
-//}
-$('#taco' + tacoNumber).append('<tr><td>' + $('input[name="vegetables"]:checked').val() + '</td><td class="right">$0.00</td></tr>');
-$('#taco' + tacoNumber).append('<tr><td>' + $('input[name="cheese"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="cheese"]:checked').data('price') + '</td></tr>');
-//if(thereareEXTRAS) {
+
+$('#taco' + tacoNumber).append('<tr><td data-id="' + $('input[name="cheese"]:checked').data('id') + '">' + $('input[name="cheese"]:checked').val() + '</td><td class="right">' + "$" + $('input[name="cheese"]:checked').data('price') + '</td></tr>');
+
 for(var i=0;i<extrasList.length;i++) {
-	$('#taco' + tacoNumber).append('<tr><td>' + $(extrasList[i]).val() + '</td><td class="right">$' +  $(extrasList[i]).data('price') + '</td></tr>');
+	$('#taco' + tacoNumber).append('<tr><td data-id="' + $(extrasList[i]).data('id') + '">' + $(extrasList[i]).val() + '</td><td class="right">$' +  $(extrasList[i]).data('price') + '</td></tr>');
 }
-//}
+
 $('#taco' + tacoNumber).append('<tr><td>Total:</td><td id="tacoTotal' + tacoNumber + '" class="right">$' + parseFloat(tacoTotal).toFixed(2) + '</td></tr></table>');
 $("#tacoSack").append('<input type="button" class="removeButton" id="remove' + tacoNumber + '" value="Remove">');
 
@@ -200,6 +186,33 @@ $('input[id="' + firstFilling + '"]').prop("checked",true);
 $('input[id="' + firstTortilla + '"]').prop("checked",true);
 tacoNumber++;
 });
+
+document.getElementById("sackSubmit").onclick = (function formSubmit(e) {
+
+var listOfTacos = document.getElementsByClassName("taco");
+
+var totalPrice = parseFloat($(document.getElementById("totalSpan")).html()).toFixed(2);
+
+console.log(totalPrice);
+
+for(var i=0;i<listOfTacos.length;i++) {
+	var listOfIds = new Array();
+	var idNumber = 0;
+
+	var listOfFixins = listOfTacos[i].getElementsByTagName("td");
+	var tacoQuantity = $(listOfFixins[1].getElementsByTagName("select")[0]).val();
+	console.log(tacoQuantity);
+	for(var i=2;i<listOfFixins.length-2;i=i+2) {
+		//console.log(listOfFixins[i]);
+		listOfIds[idNumber] = $(listOfFixins[i]).data('id');
+		idNumber++;
+	}
+}
+
+console.log(listOfIds);
+});
+
+
 });
 
 function quantityChange(e) {
