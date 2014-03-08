@@ -1,6 +1,36 @@
 $(document).ready(function(){
 
 
+var lastOrderButton = document.getElementById('lastOrder');
+lastOrderButton.addEventListener('click',populateLastOrder);
+
+function populateLastOrder(){
+	console.log("populating last order");
+	var user_id =  $.cookie("user_id"); 
+	var user = new Object();
+	user.user_id = user_id; 
+	if(!user_id){
+		console.log("user_id not defined.");
+	} else {
+		console.log("user id defined, getting login info: " + user_id);
+
+		$.ajax({
+			type: 'POST',
+			url: '/api/lastorder',
+			content: 'application/json',
+			data: JSON.stringify(user),
+			success: function(data){
+				var obj = JSON.parse(data); 
+				/* PARSE TACO INFORMATION */
+			},
+			error: function(){
+				console.log("taco information not fetched."); 
+			}
+		});
+
+	}
+} 
+
 $.cookie.json = true;
 
 var data = $.cookie("menu");

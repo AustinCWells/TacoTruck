@@ -6,8 +6,8 @@
 	$app->post('/login', 'login');
 	$app->post('/newaccount', 'createAccount');
 	$app->post('/paymentinfo', 'getPaymentInfo');
-	$app->post('/orders', 'createOrder');
-	$app->get('/lastorder/:id', 'getLastOrder');
+	$app->post('/placeorder', 'createOrder');
+	$app->get('/lastorder', 'getLastOrder');
 	$app->get('/locations', 'findTrucks');
 	$app->get('/menu', 'getMenu');
 
@@ -125,27 +125,47 @@
 		//change for Taco Orders
 		$request = \Slim\Slim::getInstance()->request();
 		$order = json_decode($request->getBody());
-		$sql = "INSERT INTO Orders  VALUES (:name, :grapes, :country, :region, :year, :description)";
-		try {
+		$sql = "INSERT INTO Orders (`user_id`, `date`, `total`) VALUES (:user_id, NOW(), :total)";
+		try 
+		{
 			$db = getConnection();
-			$stmt = $db->prepare($sql);  
-			$stmt->bindParam("name", $wine->name);
-			$stmt->bindParam("grapes", $wine->grapes);
-			$stmt->bindParam("country", $wine->country);
-			$stmt->bindParam("region", $wine->region);
-			$stmt->bindParam("year", $wine->year);
-			$stmt->bindParam("description", $wine->description);
+			$stmt = $db->prepare($sql);
+			$stmt->bindParam("user_id", $order->user_id);
+			$stmt->bindParam("total", $order->total);
 			$stmt->execute();
-			$wine->id = $db->lastInsertId();
+
+			$orderID = $db->lastInsertId();
+			$tacos = $order->tacos;
+
+			$sql2 = "INSERT INTO OrderItem (`order_id`, `quantity`) VALUES (:order_id, :quantity)";
+			foreach($tacos as $taco)
+			{
+				$stmt2 = $db->prepare($sql2);
+				$stmt2->bindParam("order_id", $order_id);
+				$stmt2->bindParam("quantity", $taco->qty);
+
+				$order_item_id = $db->lastInsertId();
+				$fixings = $taco->fixins;
+
+				$sql3 = "INSERT INTO OrderDetails (`order_item_id`, `taco_fixin_id`) VALUES (:orderItemID, :tacoFixinID)";
+				foreach($fixings as $tacoFixinID)
+				{
+					$stmt3 = $db->prepare($sql3);
+					$stmt3->bindParam("orderItemID", $order_item_id);
+					$stmt3->bindParam("tacoFixinID", $tacoFixinID);
+				}
+			}
+
 			$db = null;
-			echo json_encode($wine); 
-		} catch(PDOException $e) {
+		} 
+		catch(PDOException $e) 
+		{
 			error_log($e->getMessage(), 3, '/var/tmp/php.log');
 			echo '{"error":{"text":'. $e->getMessage() .'}}'; 
 		}
 	}
 
-	function getLastOrder($id)
+	function getLastOrder()
 	{
 		$sql = "SELECT user_id, order_id, MAX(date) AS latest, total FROM Orders WHERE user_id = :id";
 		$request = \Slim\Slim::getInstance()->request();
@@ -155,12 +175,12 @@
 			$order;
 			$db = getConnection();
 			$stmt = $db->prepare($sql);
-			$stmt->bindParam("id", $id);
+			$stmt->bindParam("id", $info->id);
 			$stmt->execute();
 			$orderInfo = $stmt->fetch(PDO::FETCH_OBJ);
 			$db = null;
 
-			$order['user_id'] = (int)$id;
+			$order['user_id'] = (int)$info->id;
 			$order_id = (int)$orderInfo->order_id;
 			$order['order_id'] = $order_id;
 			$order_cost = (double)$orderInfo->total;
@@ -211,9 +231,14 @@
 		{
 			$db = getConnection();
 			$stmt = $db->query($sql);
-			$locations = $stmt->fetchAll(PDO::FETCH_OBJ);
+			$locations;
+			while($row = $stmt->fetch(PDO::FETCH_ASSOC))
+			{
+				$location = array('name' => $row['location_name'], 'address' => $row['address'], 'city' => $row['city'], 'state' => $row['state'], 'zipcode' => (int)$row['zipcode']);
+				$locations[] = $location;
+			}
 			$db = null;
-			echo '{"locations": ' . json_encode($locations) . '}';
+			echo json_encode($locations);
 		}
 		catch(PDOException $e) 
 		{
