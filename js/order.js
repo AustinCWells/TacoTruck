@@ -229,6 +229,8 @@ for(var i=0;i<listOfTacos.length;i++) {
 	};
 	order.tacos.push(taco);
 
+	$.cookie("orderData",order);
+
 }
 
 
