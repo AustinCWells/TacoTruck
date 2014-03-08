@@ -22,7 +22,6 @@
 </head>
 <body>
 	<?php include "components/nav.html"; ?>
-	<?php include "components/modals.html"; ?> 
 	
 	<!-- LOADER MODELED AFTER NEW RELIC TUTORIAL --> 
 	<div id="maploader"> </div>

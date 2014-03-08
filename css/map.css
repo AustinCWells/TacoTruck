@@ -4,8 +4,20 @@
   margin: 0;
 }
 
+#map.modalMap{
+	top:0px;
+	height:100%;
+	width:70%;
+	float:right;
+
+} 
+
 #mapMenu {
+	width:30%;
+	position:static;
+	top:10px;
 	float: left;
+	z-index: 5;
 
 }
 #mapMenu li {
@@ -46,8 +58,10 @@
 
 
 .boxOfPlaces{
+	width:30%;
 	position:absolute;
-	top:100px;
+	top:10px;
+
 }
 
 h4 {

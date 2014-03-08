@@ -15,13 +15,13 @@
   <script language="javascript"  type="text/javascript" src="js/modal.js"> </script> 
   <script language="javascript" type="text/javascript" src="js/formSubmit.js"> </script> 
   <script language="javascript" type="text/javascript" src="js/jquery.cookie.js"></script>
-  <script type="text/javascript" src = "js/map.js"></script>
   <link rel="stylesheet" href="css/map.css" type="text/css">
 
 </head>
 <body>
 	<?php include "components/nav.html" ?> 
 	<?php include "components/modals.html" ?> 
+	<?php include "components/mapModal.html" ?>
 
 	<div class="section">
 		<h1 class="pay">  THIS IS A TEST BLOCK </h1>
@@ -43,7 +43,7 @@
 		<p>
 		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias vero asperiores corporis natus. Libero, non vitae possimus quo animi vel minima officiis! Et praesentium sit voluptates unde? Accusantium, molestias, nobis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, est tempore quo veritatis rerum officia obcaecati! Corporis, facere, sunt, harum, temporibus optio minima quam dignissimos voluptates debitis magnam perspiciatis aliquid?
 		</p>	
-		 <div id="map"></div>
+
 		<input type="button" class="pay" value="showPayment"> 
 		<input type="button" class="createAccount" value="showAccount"> 
 		<input type="button" class="login" value="showLogin"> 
