@@ -4,14 +4,13 @@
 	<title>Taco Truck</title>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script language="javascript" type="text/javascript" src="js/index.js"> </script> 
 	<script src="js/jquery.cookie.js"></script>
+	<script language="javascript" type="text/javascript" src="js/index.js"> </script> 
 	<script language="javascript"  type="text/javascript" src="js/modal.js"> </script>  
 	<script language="javascript"  type="text/javascript" src="js/nav.js"> </script> 
 	<script language="javascript"  type="text/javascript" src="js/formSubmit.js"> </script> 
 	<link href="http://fonts.googleapis.com/css?family=Raleway:400,300,700" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">	<link rel="stylesheet" href="css/main.css" type="text/css">
-	<link rel="stylesheet" href="css/index.css" type="text/css">
 	<link href="css/nav.css" rel="stylesheet">
 
 </head>

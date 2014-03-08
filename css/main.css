@@ -1,3 +1,4 @@
+/* ~~~~~~~~~~~~ MODAL STYLING ~~~~~~~~~~~~ */
 .hidden{
 
 	display: none;
@@ -17,28 +18,26 @@
 	border-radius: 10px;
 
 }
-html {font-family: 'Raleway', sans-serif; }
-h1 { font-family: 'Raleway', sans-serif; font-weight:800; }
-p  { font-family: 'Raleway', sans-serif;}
-
-html, body {
- margin: 0px;
- padding: 0px;
- border: 0px;
- }
 
 .modal {
 	display:none;
 }
+
 form{
 	width:100%;
 }
+
 .label {
 	width:20%;
 }
+
 .formElement{
-	width: 75%;
-	
+	width: 75%;	
+}
+
+#mapModal{
+	width:80%;
+	height: 80%;
 }
 
 .overlay{
@@ -53,6 +52,35 @@ form{
 	z-index: 20;
 }
 
+
+.formElement {
+
+	width:90%;
+	margin:5%;
+    font-family: 'Raleway', sans-serif;
+    border-color:#000;
+    color: #000r;
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    border-bottom: 1px solid black;
+}
+/* ~~~~~~~~~~~~ CHANGE FONTS ~~~~~~~~~~~~ */
+html {font-family: 'Raleway', sans-serif; }
+h1 { font-family: 'Raleway', sans-serif; font-weight:800; }
+p  { font-family: 'Raleway', sans-serif;}
+
+
+/* ~~~~~~~~~~~~ CLEAR STYLING ~~~~~~~~~~~~ */ 
+html, body {
+ margin: 0px;
+ padding: 0px;
+ border: 0px;
+ }
+
+
+/* ~~~~~~~~~~~~ PAGE STYLING ~~~~~~~~~~~~ */ 
 html{
 	background-image:url(../img/brickwall.png);
 }
@@ -69,29 +97,21 @@ html{
 	margin-top: 50px;
 }
 
+/* ~~~~~~~~~~~~ BUTTONS ~~~~~~~~~~~~ */ 
+
 input[type=button]{
 	display:block;
 	font-size: 400px;
 	width:100%;
 	font-family: 'Raleway', sans-serif;
-
 	background-color: #fff;
     border-radius:6px;
     border-color:#000;
     color: #000;
     font-size: 20px;
     text-decoration: none;
-    cursor: pointer;
-    
-    
+    cursor: pointer; 
 } 
-
-input[type=button]:hover{
-	
-}
-input[type=submit]:hover {
-
-}
 
 input[type=submit]{
 	display:block;
@@ -111,20 +131,7 @@ input[type=submit]{
     
 } 
 
-.formElement {
-
-	width:90%;
-	margin:5%;
-    font-family: 'Raleway', sans-serif;
-    border-color:#000;
-    color: #000r;
-    font-size: 20px;
-    text-decoration: none;
-    cursor: pointer;
-    border: none;
-    border-bottom: 1px solid black;
-}
-
+/* ~~~~~~~~~~~~ ADD ON STYLING ~~~~~~~~~~~~ */ 
 .close{
 	cursor:pointer;
 	position:absolute;
@@ -156,39 +163,6 @@ input[type=submit]{
 .logout, .loginInformation {
 	position:inline;
 
-}
-
-
-#mapModal{
-	width:80%;
-	height: 80%;
-}
-
-
-
-.grid:after{
-	content: "";
-  	display: table;
- 	clear: both;
-}
-
-[class*='grid-'] {
-	float:left;
-	
-}
-.grid-third{
-	width:33.33%;
-}
-
-.grid-full{
-	width:100%;
-}
-
-.row{
-	position:static;
-	width:100%;
-	border: 2px solid black;
-	color:black;
 }
 
 .spotlightText{
@@ -227,13 +201,36 @@ input[type=submit]{
 .left {
 	float: left;
 }
+/* ~~~~~~~~~~~~ MY ATTEMPT TO MAKE A GRID  ~~~~~~~~~~~~ */
+.grid:after{
+	content: "";
+  	display: table;
+ 	clear: both;
+}
 
+[class*='grid-'] {
+	float:left;
+	
+}
+.grid-third{
+	width:33.33%;
+}
 
+.grid-full{
+	width:100%;
+}
 
+.row{
+	position:static;
+	width:100%;
+	border: 2px solid black;
+	color:black;
+}
+
+/* ~~~~~~~~~~~~ TACO MENU  ~~~~~~~~~~~~ */
 div.left {
 	width: 60%;
 }
-
 
 .name{
 	padding-right: 25px;

@@ -1,3 +1,6 @@
+/* ~~~~~~~~~~~~ FORM SUBMIT LOGIC ~~~~~~~~~~~~ */ 
+
+/* ~~~~~~~~~~~~ LOGIN FORM SUBMIT ~~~~~~~~~~~~ */ 
 $(document).ready(function(){
 	$(document).on("submit","form.loginForm", function( event ){
 	
@@ -25,7 +28,7 @@ $(document).ready(function(){
 				}
 				else {
 					console.log("loading cookie");
-					//store user information in cookie 
+					/* Store user information in cookie */ 
 					$.cookie.json = true;	
 					$.cookie("user_id", obj.info.user_id);
 					$.cookie("email", obj.info.email);
@@ -60,8 +63,9 @@ $(document).ready(function(){
 		
 		
 	});
-
+/* ~~~~~~~~~~~~ ACCOUNT FORM SUBMIT ~~~~~~~~~~~~ */ 
 	$(document).on("submit", "form.accountForm", function(){
+		/* prepared and send object for new user to DB */ 
 		event.preventDefault();
 		var user = new Object();
 		user.fname = $("#accountFName").val();
@@ -101,11 +105,9 @@ $(document).ready(function(){
 
 	});
 
+/* ~~~~~~~~~~~~ PAYMENT FORM LOGIC ~~~~~~~~~~~~ */ 
 	$(document).on("submit","form.paymentForm", function(){
-		/* send a POST request with Order food JSON */ 
-
-	
-
+		/* get loged in payment info for user */ 
 		var orderData = $.cookie("orderData"); 
 		$.ajax({
 			type: 'POST',
@@ -121,7 +123,7 @@ $(document).ready(function(){
 
 		document.getElementById('paymentModal').className = "modal";
 		
-		/* initiate and display maps option */
+		/* initiate and display maps option after payment */
 		var modalId = "mapModal"
 		var modal = document.getElementById(modalId)
 		var background = document.getElementById("overlay");
@@ -137,7 +139,6 @@ $(document).ready(function(){
 	    script.type = "text/javascript";
 	    script.src = "js/map.js"; 
 	    document.getElementsByTagName("head")[0].appendChild(script);
-
 	    return false;
 
 
@@ -145,19 +146,18 @@ $(document).ready(function(){
 
 	});
 
+/* ~~~~~~~~~~~~ ACCEPT A MODAL ID AND DISPLAY ~~~~~~~~~~~~ */ 
 	function displayModal(modalId)
-{
-	var modal = document.getElementById(modalId)
-	var background = document.getElementById("overlay");
-	background.className = "overlay"
-	modal.className = "displayModal";
-	var width = modal.clientWidth; 
-	var height = modal.clientHeight; 
-	var displacementX = '-'+ (width/2) + 'px';
-	var displacementY = '-' + (height/2) + 'px';   
-	modal.style.marginLeft = displacementX;
-	modal.style.marginTop = displacementY; 
-
-
-}
+	{
+		var modal = document.getElementById(modalId)
+		var background = document.getElementById("overlay");
+		background.className = "overlay"
+		modal.className = "displayModal";
+		var width = modal.clientWidth; 
+		var height = modal.clientHeight; 
+		var displacementX = '-'+ (width/2) + 'px';
+		var displacementY = '-' + (height/2) + 'px';   
+		modal.style.marginLeft = displacementX;
+		modal.style.marginTop = displacementY; 
+	}
 })

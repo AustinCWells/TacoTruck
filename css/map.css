@@ -1,3 +1,4 @@
+/* ~~~~~~~~~~~~ GOOGLE MAP STYLING ~~~~~~~~~~~~ */
 #map{
   top:40px;
   height:800px;
@@ -79,12 +80,11 @@ li div div {
 	text-align: center;
 }
 
+/* ~~~~~~~~~~~~ MAP LOADING CODE. ~~~~~~~~~~~~ 
 
-/*****************************************
-MAP LOADING CODE. 
 ADOPTED FROM Craig Buckler's AJAX LOADING ICON TUTORIAL
 http://www.sitepoint.com/css3-ajax-loading-icon/
-******************************************/
+*/
 #maploader
 {
 
